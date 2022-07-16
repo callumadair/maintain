@@ -15,9 +15,19 @@ return new class extends Migration {
         Schema::create('issues', function (Blueprint $table) {
             $table->id();
             $table->string('description');
+
             $table->foreignId('item_id');
             $table->foreign('item_id')->references('id')
                 ->on('items')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreignId('originator_id');
+            $table->foreign('originator_id')->references('id')
+                ->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreignId('assignee_id');
+            $table->foreign('assignee_id')->references('id')
+                ->on('users')->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }
