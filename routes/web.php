@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\IssueController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,12 +34,20 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
     Route::get('/items', function () {
         return Inertia::render('Items/index');
     })->name('items/index');
+
+    Route::get('/items/{id}', [ItemController::class, 'show'])
+        ->name('items/show');
+
     Route::get('/issues', function () {
         return Inertia::render('Issues/index');
     })->name('issues/index');
+
+    Route::get('/issues/{id}', [IssueController::class, 'show'])
+        ->name('issues/show');
 });
 
 
