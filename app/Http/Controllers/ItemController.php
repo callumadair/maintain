@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
 class ItemController extends Controller
