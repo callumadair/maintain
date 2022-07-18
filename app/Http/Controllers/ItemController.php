@@ -44,7 +44,7 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param $item
      * @return \Inertia\Response
      */
     public function show($item): \Inertia\Response
