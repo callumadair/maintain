@@ -39,14 +39,14 @@ Route::middleware([
         return Inertia::render('Items/index');
     })->name('items/index');
 
-    Route::get('/items/{id}', [ItemController::class, 'show'])
+    Route::get('/items/{item}', [ItemController::class, 'show'])
         ->name('items/show');
 
     Route::get('/issues', function () {
         return Inertia::render('Issues/index');
     })->name('issues/index');
 
-    Route::get('/issues/{id}', [IssueController::class, 'show'])
+    Route::get('/issues/{issue}', [IssueController::class, 'show'])
         ->name('issues/show');
 });
 
