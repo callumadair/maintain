@@ -35,6 +35,9 @@ Route::middleware([
     Route::get('/items', function () {
         return Inertia::render('Items/index');
     })->name('items/index');
+    Route::get('/issues', function () {
+        return Inertia::render('Issues/index');
+    })->name('issues/index');
 });
 
 
