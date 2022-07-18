@@ -47,16 +47,13 @@ class ItemController extends Controller
      * @param int $id
      * @return \Inertia\Response
      */
-    public function show($id): \Inertia\Response
+    public function show($item): \Inertia\Response
     {
         return Inertia::render('Items/show', [
-            'item' => Item::all()->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'name' => $item->name,
-                    'show_url' => URL::route('items.show', ['id' => $item->id]),
-                ];
-            }),
+            'item' => [
+                'id' => $item->id,
+                'name' => $item->name,
+            ],
         ]);
     }
 
