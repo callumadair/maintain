@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Inertia\Inertia;
 
 class IssueController extends Controller
 {
@@ -41,18 +42,25 @@ class IssueController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param $issue
+     * @return \Inertia\Response
      */
-    public function show($id): Response
+    public function show($issue): \Inertia\Response
     {
-        //
+        return Inertia::render('Issues/show', [
+            'issue' => [
+                'id' => $issue->id,
+                'description' => $issue->description,
+                'originator_id' => $issue->originator_id,
+                'assignee_id' => $issue->assignee_id,
+            ],
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function edit($id): Response
@@ -64,7 +72,7 @@ class IssueController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function update(Request $request, $id): Response
@@ -75,7 +83,7 @@ class IssueController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function destroy($id): Response
