@@ -62,8 +62,23 @@ Route::middleware([
         Route::get('/issues', 'index')
             ->name('issues/index');
 
+        Route::get('issues/create', 'create')
+            ->name('issues/create');
+
+        Route::post('issues/store', 'store')
+            ->name('issues/store');
+
         Route::get('/issues/{issue}', 'show')
             ->name('issues/show');
+
+        Route::get('issues/edit/{issue}', 'edit')
+            ->name('issues/edit');
+
+        Route::post('issues/update/{issue}', 'update')
+            ->name('issues/update');
+
+        Route::delete('issues/destroy/{issue}', 'destroy')
+            ->name('issues/destroy');
     });
 });
 
