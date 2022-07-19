@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class ItemFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => "Box",
+            'user_id' => User::all()->random()->id,
         ];
     }
 }
