@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Inertia\Inertia;
@@ -15,7 +16,17 @@ class ItemController extends Controller
      */
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Items/Index');
+        return Inertia::render('Items/Index', [
+            'items' => Item::all()->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'user' => $item->user,
+                    'issues' => $item->issues,
+                    'images' => $item->images,
+                ];
+            }),
+        ]);
     }
 
     /**
