@@ -35,26 +35,29 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('/items', [ItemController::class, 'index'])
-        ->name('items/index');
+    Route::controller(ItemController::class)->group(function () {
+        Route::get('/items', 'index')
+            ->name('items/index');
 
-    Route::get('items/create', [ItemController::class, 'create'])
-        ->name('items/create');
+        Route::get('items/create', 'create')
+            ->name('items/create');
 
-    Route::post('items/store', [ItemController::class, 'store'])
-        ->name('items/store');
+        Route::post('items/store', 'store')
+            ->name('items/store');
 
-    Route::get('/items/{item}', [ItemController::class, 'show'])
-        ->name('items/show');
+        Route::get('/items/{item}', 'show')
+            ->name('items/show');
 
-    Route::post('items/edit/{item}', [ItemController::class, 'edit'])
-        ->name('items/edit');
+        Route::post('items/edit/{item}', 'edit')
+            ->name('items/edit');
 
-    Route::post('items/update/{item}', [ItemController::class, 'update'])
-        ->name('items/update');
+        Route::post('items/update/{item}', 'update')
+            ->name('items/update');
 
-    Route::delete('items/destroy/{item}', [ItemController::class, 'destroy'])
-        ->name('items/destroy');
+        Route::delete('items/destroy/{item}', 'destroy')
+            ->name('items/destroy');
+    });
+
 
     Route::get('/issues', [IssueController::class, 'index'])
         ->name('issues/index');
