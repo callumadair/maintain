@@ -51,6 +51,9 @@ class ItemController extends Controller
             'item' => [
                 'id' => $item->id,
                 'name' => $item->name,
+                'user' => $item->user,
+                'issues' => $item->issues,
+                'images' => $item->images,
             ],
         ]);
     }
