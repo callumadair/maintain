@@ -37,48 +37,48 @@ Route::middleware([
 
     Route::controller(ItemController::class)->group(function () {
         Route::get('/items', 'index')
-            ->name('items/index');
+            ->name('items.index');
 
         Route::get('items/create', 'create')
-            ->name('items/create');
+            ->name('items.create');
 
         Route::post('items/store', 'store')
-            ->name('items/store');
+            ->name('items.store');
 
         Route::get('/items/{item}', 'show')
-            ->name('items/show');
+            ->name('items.show');
 
         Route::get('items/edit/{item}', 'edit')
-            ->name('items/edit');
+            ->name('items.edit');
 
         Route::post('items/update/{item}', 'update')
-            ->name('items/update');
+            ->name('items.update');
 
         Route::delete('items/destroy/{item}', 'destroy')
-            ->name('items/destroy');
+            ->name('items.destroy');
     });
 
     Route::controller(IssueController::class)->group(function () {
         Route::get('/issues', 'index')
-            ->name('issues/index');
+            ->name('issues.index');
 
         Route::get('issues/create', 'create')
-            ->name('issues/create');
+            ->name('issues.create');
 
         Route::post('issues/store', 'store')
-            ->name('issues/store');
+            ->name('issue.store');
 
         Route::get('/issues/{issue}', 'show')
-            ->name('issues/show');
+            ->name('issues.show');
 
         Route::get('issues/edit/{issue}', 'edit')
-            ->name('issues/edit');
+            ->name('issues.edit');
 
         Route::post('issues/update/{issue}', 'update')
-            ->name('issues/update');
+            ->name('issues.update');
 
         Route::delete('issues/destroy/{issue}', 'destroy')
-            ->name('issues/destroy');
+            ->name('issues.destroy');
     });
 });
 
