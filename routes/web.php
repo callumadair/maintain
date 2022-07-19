@@ -48,7 +48,7 @@ Route::middleware([
         Route::get('/items/{item}', 'show')
             ->name('items/show');
 
-        Route::post('items/edit/{item}', 'edit')
+        Route::get('items/edit/{item}', 'edit')
             ->name('items/edit');
 
         Route::post('items/update/{item}', 'update')
