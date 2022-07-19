@@ -58,12 +58,13 @@ Route::middleware([
             ->name('items/destroy');
     });
 
+    Route::controller(IssueController::class)->group(function () {
+        Route::get('/issues', 'index')
+            ->name('issues/index');
 
-    Route::get('/issues', [IssueController::class, 'index'])
-        ->name('issues/index');
-
-    Route::get('/issues/{issue}', [IssueController::class, 'show'])
-        ->name('issues/show');
+        Route::get('/issues/{issue}', 'show')
+            ->name('issues/show');
+    });
 });
 
 
