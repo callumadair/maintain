@@ -11,11 +11,11 @@ class ItemController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Inertia\Response
      */
-    public function index(): Response
+    public function index(): \Inertia\Response
     {
-        //
+        return Inertia::render('Items/Index');
     }
 
     /**
