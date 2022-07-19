@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Welcome from '@/Jetstream/Welcome.vue';
+import ItemCard from '@/Pages/Items/Partials/ItemCard.vue';
 
 defineProps({
     items: Object,
@@ -20,7 +20,7 @@ defineProps({
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <ul>
                         <li v-for="item in items">
-                            {{ item.name }}
+                            <ItemCard :item="item"/>
                         </li>
                     </ul>
                 </div>
