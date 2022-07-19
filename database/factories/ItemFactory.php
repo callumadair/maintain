@@ -18,7 +18,7 @@ class ItemFactory extends Factory
     public function definition()
     {
         return [
-            'name' => "Box",
+            'name' => 'Box',
             'user_id' => User::all()->random()->id,
         ];
     }
