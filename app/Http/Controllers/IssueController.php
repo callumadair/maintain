@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Issue;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Inertia\Inertia;
@@ -42,12 +43,13 @@ class IssueController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $issue
+     * @param $id
      * @return \Inertia\Response
      */
-    public function show($issue): \Inertia\Response
+    public function show($id): \Inertia\Response
     {
-        return Inertia::render('Issues/show', [
+        $issue = Issue::all()->find($id);
+        return Inertia::render('Issues/Show', [
             'issue' => [
                 'id' => $issue->id,
                 'description' => $issue->description,

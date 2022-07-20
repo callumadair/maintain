@@ -53,12 +53,13 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $item
+     * @param $id
      * @return \Inertia\Response
      */
-    public function show($item): \Inertia\Response
+    public function show($id): \Inertia\Response
     {
-        return Inertia::render('Items/show', [
+        $item = Item::all()->find($id);
+        return Inertia::render('Items/Show', [
             'item' => [
                 'id' => $item->id,
                 'name' => $item->name,
