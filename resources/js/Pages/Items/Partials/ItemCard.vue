@@ -1,5 +1,5 @@
 <script setup>
-import { Link } from '@inertiajs/inertia-vue3';
+import {Link} from '@inertiajs/inertia-vue3';
 
 defineProps({
     item: Object,
@@ -8,6 +8,10 @@ defineProps({
 
 <template>
     <div>
-        <Link>{{ item.name }}</Link>
+        <Link :href="route('items.show', item.id)">
+            <div class="text-center p-3 hover:bg-gray-50 hover:text-indigo-400">
+                {{ item.name }}
+            </div>
+        </Link>
     </div>
 </template>
