@@ -7,7 +7,20 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout title="{{$page.props.item.name}}">
+    <AppLayout :title="item.name">
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ item.name }}
+            </h2>
+        </template>
+
+        <div class="py-12">
+            <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    Hello, world!
+                </div>
+            </div>
+        </div>
 
     </AppLayout>
 </template>
