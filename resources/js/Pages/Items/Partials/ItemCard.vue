@@ -8,7 +8,7 @@ defineProps({
 
 <template>
     <div>
-        <Link :href="route('items.show', item.id)">
+        <Link :href="route('items.show', item.id)" :data="item">
             <div class="text-center p-3 hover:bg-gray-50 hover:text-indigo-400">
                 {{ item.name }}
             </div>
