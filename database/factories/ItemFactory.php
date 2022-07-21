@@ -19,6 +19,7 @@ class ItemFactory extends Factory
     {
         return [
             'name' => 'Box',
+            'description' => $this->faker->text(),
             'user_id' => User::all()->random()->id,
         ];
     }
