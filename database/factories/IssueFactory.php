@@ -19,7 +19,8 @@ class IssueFactory extends Factory
     public function definition()
     {
         return [
-            'description' => 'Problem',
+            'title' => 'Problem',
+            'description' => $this->faker->text,
             'item_id' => Item::all()->random(),
             'originator_id' => User::all()->random(),
             'assignee_id' => User::all()->random(),
