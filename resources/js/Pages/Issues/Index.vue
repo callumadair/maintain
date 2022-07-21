@@ -20,7 +20,6 @@ defineProps({
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <ul>
                         <li v-for="issue in issues">
-                            issue.name
                             <IssueCard :issue="issue"/>
                         </li>
                     </ul>
