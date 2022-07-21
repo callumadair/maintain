@@ -20,7 +20,7 @@ class IssueFactory extends Factory
     {
         return [
             'title' => 'Problem',
-            'description' => $this->faker->text,
+            'description' => $this->faker->text(),
             'item_id' => Item::all()->random(),
             'originator_id' => User::all()->random(),
             'assignee_id' => User::all()->random(),
