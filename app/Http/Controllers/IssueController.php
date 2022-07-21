@@ -63,6 +63,7 @@ class IssueController extends Controller
             'issue' => [
                 'id' => $issue->id,
                 'description' => $issue->description,
+                'item_id' => $issue->item_id,
                 'originator_id' => $issue->originator_id,
                 'assignee_id' => $issue->assignee_id,
             ],
