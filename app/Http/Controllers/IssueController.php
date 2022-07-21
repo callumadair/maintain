@@ -16,7 +16,17 @@ class IssueController extends Controller
      */
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Issues/Index');
+        return Inertia::render('Issues/Index', [
+            'issues' => Issue::all()->map(function ($issue) {
+                return [
+                    'id' => $issue->id,
+                    'description' => $issue->description,
+                    'item_id' => $issue->item_id,
+                    'originator_id' => $issue->originator_id,
+                    'assignee_id' => $issue->originator_id,
+                ];
+            }),
+        ]);
     }
 
     /**
