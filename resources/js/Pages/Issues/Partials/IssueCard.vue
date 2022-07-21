@@ -10,7 +10,7 @@ defineProps({
     <div>
         <Link :href="route('issues.show', issue.id)" :data="issue">
             <div class="text-center p-3 hover:bg-gray-50 hover:text-indigo-400">
-                {{ issue.description}}
+                {{ issue.title }}
             </div>
         </Link>
     </div>

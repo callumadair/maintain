@@ -20,6 +20,7 @@ class IssueController extends Controller
             'issues' => Issue::all()->map(function ($issue) {
                 return [
                     'id' => $issue->id,
+                    'title' => $issue->title,
                     'description' => $issue->description,
                     'item_id' => $issue->item_id,
                     'originator_id' => $issue->originator_id,
@@ -62,6 +63,7 @@ class IssueController extends Controller
         return Inertia::render('Issues/Show', [
             'issue' => [
                 'id' => $issue->id,
+                'title' => $issue->title,
                 'description' => $issue->description,
                 'item_id' => $issue->item_id,
                 'originator_id' => $issue->originator_id,
