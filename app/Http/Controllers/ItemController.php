@@ -21,6 +21,7 @@ class ItemController extends Controller
                 return [
                     'id' => $item->id,
                     'name' => $item->name,
+                    'description' => $item->description,
                     'user' => $item->user,
                     'issues' => $item->issues,
                     'images' => $item->images,
@@ -63,6 +64,7 @@ class ItemController extends Controller
             'item' => [
                 'id' => $item->id,
                 'name' => $item->name,
+                'description' => $item->description,
                 'user' => $item->user,
                 'issues' => $item->issues,
                 'images' => $item->images,
