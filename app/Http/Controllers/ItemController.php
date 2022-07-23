@@ -54,10 +54,10 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $id
+     * @param int $id
      * @return \Inertia\Response
      */
-    public function show($id): \Inertia\Response
+    public function show(int $id): \Inertia\Response
     {
         $item = Item::all()->find($id);
         return Inertia::render('Items/Show', [
@@ -78,7 +78,7 @@ class ItemController extends Controller
      * @param int $id
      * @return \Inertia\Response
      */
-    public function edit($id): \Inertia\Response
+    public function edit(int $id): \Inertia\Response
     {
         $item = Item::all()->find($id);
         return Inertia::render('Items/Edit', [
@@ -100,7 +100,7 @@ class ItemController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id): Response
+    public function update(Request $request, int $id): Response
     {
         //
     }
@@ -111,7 +111,7 @@ class ItemController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id): Response
+    public function destroy(int $id): Response
     {
         //
     }
