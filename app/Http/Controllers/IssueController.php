@@ -55,10 +55,10 @@ class IssueController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $id
+     * @param int $id
      * @return \Inertia\Response
      */
-    public function show($id): \Inertia\Response
+    public function show(int $id): \Inertia\Response
     {
         $issue = Issue::all()->find($id);
         return Inertia::render('Issues/Show', [
@@ -79,7 +79,7 @@ class IssueController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit($id): Response
+    public function edit(int $id): Response
     {
         //
     }
@@ -91,7 +91,7 @@ class IssueController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id): Response
+    public function update(Request $request, int $id): Response
     {
         //
     }
@@ -102,7 +102,7 @@ class IssueController extends Controller
      * @param int $id
      * @return RedirectResponse
      */
-    public function destroy($id): RedirectResponse
+    public function destroy(int $id): RedirectResponse
     {
         Issue::all()->find($id)->delete();
 
