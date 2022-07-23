@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Inertia\Inertia;
@@ -99,10 +100,12 @@ class IssueController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return RedirectResponse
      */
-    public function destroy($id): Response
+    public function destroy($id): RedirectResponse
     {
-        //
+        Issue::all()->find($id)->delete();
+
+        return redirect()->route('issues.index')->with('status', 'Issue deleted!');
     }
 }
