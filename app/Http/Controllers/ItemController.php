@@ -33,11 +33,11 @@ class ItemController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Inertia\Response
      */
-    public function create(): Response
+    public function create(): \Inertia\Response
     {
-        //
+        return Inertia::render('Items/Create');
     }
 
     /**
