@@ -60,11 +60,14 @@ const logout = () => {
                             </div>
 
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <JetNavLink :href="route('items.index')" :active="route().current('items.index')">
+                                <JetNavLink :href="route('items.index')"
+                                            :active="route().current('items.index')
+                                            || route().current('items.create')
+                                            || route().current('items.show')">
                                     <InventoryDropdown>
                                         <template #trigger>
                                             <div type="button"
-                                                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
                                                 <img :src="BoxIso" alt="Inventory"/> &nbsp Inventory
 
                                                 <svg
@@ -92,7 +95,10 @@ const logout = () => {
                             </div>
 
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <JetNavLink :href="route('issues.index')" :active="route().current('issues.index')">
+                                <JetNavLink :href="route('issues.index')"
+                                            :active="route().current('issues.index')
+                                            || route().current('issues.create')
+                                            || route().current('issues.show')">
                                     <img :src="Book"/> &nbsp Issue Log
                                 </JetNavLink>
                             </div>
