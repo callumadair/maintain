@@ -8,6 +8,7 @@ import JetDropdown from '@/Jetstream/Dropdown.vue';
 import JetDropdownLink from '@/Jetstream/DropdownLink.vue';
 import JetNavLink from '@/Jetstream/NavLink.vue';
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
+import InventoryDropdown from '@/Layouts/Partials/InventoryDropdown.vue';
 
 import HomeAlt from 'iconoir/icons/home-alt.svg';
 import BoxIso from 'iconoir/icons/box-iso.svg';
@@ -60,7 +61,33 @@ const logout = () => {
 
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :href="route('items.index')" :active="route().current('items.index')">
-                                    <img :src="BoxIso"/> &nbsp Inventory
+                                    <InventoryDropdown>
+                                        <template #trigger>
+                                            <div type="button"
+                                                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                <img :src="BoxIso"/> &nbsp Inventory
+
+                                                <svg
+                                                    class="ml-2 -mr-0.5 h-4 w-4"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor"
+                                                >
+                                                    <path fill-rule="evenodd"
+                                                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                          clip-rule="evenodd"/>
+                                                </svg>
+                                            </div>
+                                        </template>
+
+                                        <template #content>
+
+                                            <JetDropdownLink :href="route('items.create')">
+                                                Add a new item
+                                            </JetDropdownLink>
+                                        </template>
+                                    </InventoryDropdown>
+
                                 </JetNavLink>
                             </div>
 
