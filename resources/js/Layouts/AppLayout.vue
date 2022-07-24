@@ -63,7 +63,8 @@ const logout = () => {
                                 <JetNavLink :href="route('items.index')"
                                             :active="route().current('items.index')
                                             || route().current('items.create')
-                                            || route().current('items.show')">
+                                            || route().current('items.show')"
+                                class="grid whitespace-nowrap justify-center">
                                     <InventoryDropdown>
                                         <template #trigger>
                                             <div type="button"
@@ -73,7 +74,6 @@ const logout = () => {
                                         </template>
 
                                         <template #content>
-
                                             <JetDropdownLink :href="route('items.create')">
                                                 Add a new item
                                             </JetDropdownLink>
