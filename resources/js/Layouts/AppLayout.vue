@@ -8,7 +8,7 @@ import JetDropdown from '@/Jetstream/Dropdown.vue';
 import JetDropdownLink from '@/Jetstream/DropdownLink.vue';
 import JetNavLink from '@/Jetstream/NavLink.vue';
 import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
-import InventoryDropdown from '@/Layouts/Partials/InventoryDropdown.vue';
+import NavbarDropdown from '@/Layouts/Partials/NavbarDropdown.vue';
 
 import HomeAlt from 'iconoir/icons/home-alt.svg';
 import BoxIso from 'iconoir/icons/box-iso.svg';
@@ -65,7 +65,7 @@ const logout = () => {
                                             || route().current('items.create')
                                             || route().current('items.show')"
                                 class="grid whitespace-nowrap justify-center">
-                                    <InventoryDropdown>
+                                    <NavbarDropdown>
                                         <template #trigger>
                                             <div type="button"
                                                  class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2">
@@ -78,7 +78,7 @@ const logout = () => {
                                                 Add a new item
                                             </JetDropdownLink>
                                         </template>
-                                    </InventoryDropdown>
+                                    </NavbarDropdown>
 
                                 </JetNavLink>
                             </div>
@@ -88,7 +88,20 @@ const logout = () => {
                                             :active="route().current('issues.index')
                                             || route().current('issues.create')
                                             || route().current('issues.show')">
-                                    <img :src="Book"/> &nbsp Issue Log
+                                    <NavbarDropdown>
+                                        <template #trigger>
+                                            <div type="button"
+                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2">
+                                                <img :src="Book"/> &nbsp Issue Log
+                                            </div>
+                                        </template>
+
+                                        <template #content>
+                                            <JetDropdownLink :href="route('issues.create')">
+                                                Add a new issue
+                                            </JetDropdownLink>
+                                        </template>
+                                    </NavbarDropdown>
                                 </JetNavLink>
                             </div>
                         </div>
