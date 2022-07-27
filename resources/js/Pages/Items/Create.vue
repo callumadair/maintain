@@ -34,9 +34,9 @@ defineProps({
 
             <div class="grid justify-center place-items-center space-x-2">
                 <label>
-                    Image
+                    Images
                 </label>
-                <input name="image" type="file" accept="image/png, image/jpeg, image/jpg">
+                <input name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple>
             </div>
 
             <div class="grid justify-center place-items-center space-x-2">
