@@ -45,11 +45,26 @@ class ItemController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse
      */
-    public function store(Request $request): Response
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated_data = $request->validate([
+            'name' => 'required',
+            'description',
+            'user_id' => 'required|numeric',
+        ]);
+
+        $item = new Item;
+        $item->name = $validated_data['name'];
+
+        if ($request->has('description')) {
+            $item->description = $validated_data['description'];
+        }
+        $item->user_id = $validated_data['user_id'];
+        $item->save();
+
+        return redirect()->route('items.index');
     }
 
     /**
