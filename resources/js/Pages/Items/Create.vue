@@ -14,33 +14,38 @@ defineProps({
             </h2>
         </template>
 
-            <form method="POST" :action="route('items.store')" class="">
+        <form method="POST" :action="route('items.store')"
+              class="flex-cols space-x-2 space-y-6 p-3 m-3 place-items-center border-solid border-8 border-black">
 
-                <div>
-                    <label>
-                        Name
-                    </label>
-                    <input>
-                </div>
+            <div class="flex justify-center space-x-2">
+                <label>
+                    Name
+                </label>
+                <input>
+            </div>
 
 
-                <div>
-                    <label>
-                        Description
-                    </label>
-                    <textarea></textarea>
-                </div>
+            <div class="flex justify-center space-x-2">
+                <label>
+                    Description
+                </label>
+                <textarea></textarea>
+            </div>
 
-                <div>
-                    <label>
-                        Image
-                    </label>
-                    <input name="image" type="file" accept="image/png, image/jpeg, image/jpg">
-                </div>
+            <div class="flex justify-center space-x-2">
+                <label>
+                    Image
+                </label>
+                <input name="image" type="file" accept="image/png, image/jpeg, image/jpg">
+            </div>
 
+            <div class="flex justify-center space-x-2">
                 <input name="user_id" type="hidden" value="{{user.id}}">
+            </div>
 
+            <div class="flex justify-center hover:bg-white">
                 <input type="submit" value="Create Post">
-            </form>
+            </div>
+        </form>
     </AppLayout>
 </template>
