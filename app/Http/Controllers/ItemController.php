@@ -56,10 +56,10 @@ class ItemController extends Controller
         ]);
 
         $item = new Item;
-        $item->name = $validated_data['name'];
+        $item->name = $validated_data['item_name'];
 
-        if ($request->has('description')) {
-            $item->description = $validated_data['description'];
+        if ($request->has('item_description')) {
+            $item->description = $validated_data['item_description'];
         }
         $item->user_id = $validated_data['user_id'];
         $item->save();
