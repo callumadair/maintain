@@ -51,8 +51,8 @@ class ItemController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated_data = $request->validate([
-            'name' => 'required',
-            'description',
+            'item_name' => 'required',
+            'item_description',
             'user_id' => 'required|numeric',
         ]);
 
@@ -62,7 +62,7 @@ class ItemController extends Controller
         if ($request->has('item_description')) {
             $item->description = $validated_data['item_description'];
         }
-        $item->user_id = Auth::user()->id;
+        $item->user_id = $validated_data['user_id'];
         $item->save();
 
         return redirect()->route('items.index');
