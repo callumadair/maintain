@@ -1,5 +1,16 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import {reactive} from 'vue';
+import {Inertia} from '@inertiajs/inertia';
+
+const form = reactive({
+    item_name: null,
+    item_description: null,
+})
+
+function submit() {
+    Inertia.post('/items/store', form)
+}
 
 defineProps({
     user: Object,
@@ -14,7 +25,7 @@ defineProps({
             </h2>
         </template>
 
-        <form method="POST" :action="route('items.store')"
+        <form @submit.prevent="submit" method="POST" :action="route('items.store')"
               class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center border-solid border-8 border-black">
             <div class="grid justify-center place-items-center space-x-2">
                 <label for="item_name">
@@ -38,9 +49,9 @@ defineProps({
                 <input id="item_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple>
             </div>
 
-            <div class="grid justify-center place-items-center space-x-2">
-                <input name="user_id" type="hidden" value="{{user.id}}" v-model="form.user_id"/>
-            </div>
+            <!--            <div class="grid justify-center place-items-center space-x-2">-->
+            <!--                <input name="user_id" type="hidden" value="{{user.id}}" v-model="form.user_id"/>-->
+            <!--            </div>-->
 
             <div class="justify-center place-items-center space-x-2 hover:bg-white">
                 <button type="submit">Create Item</button>
@@ -48,24 +59,3 @@ defineProps({
         </form>
     </AppLayout>
 </template>
-
-<script>
-import {reactive} from 'vue'
-import {Inertia} from '@inertiajs/inertia'
-
-export default {
-    setup() {
-        const form = reactive({
-            item_name: null,
-            item_description: null,
-            user_id: null,
-        })
-
-        function submit() {
-            Inertia.post('/items', form)
-        }
-
-        return {form, submit}
-    },
-}
-</script>
