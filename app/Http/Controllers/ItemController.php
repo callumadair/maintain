@@ -6,6 +6,7 @@ use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ItemController extends Controller
@@ -61,7 +62,7 @@ class ItemController extends Controller
         if ($request->has('item_description')) {
             $item->description = $validated_data['item_description'];
         }
-        $item->user_id = $validated_data['user_id'];
+        $item->user_id = Auth::user()->id;
         $item->save();
 
         return redirect()->route('items.index');
