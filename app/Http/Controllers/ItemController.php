@@ -52,7 +52,7 @@ class ItemController extends Controller
     {
         $validated_data = $request->validate([
             'item_name' => 'required',
-            'item_description',
+            'item_description' => 'nullable',
             'user_id' => 'required|numeric',
         ]);
 
