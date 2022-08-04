@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { useForm, usePage } from '@inertiajs/inertia-vue3';
+import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
 defineProps({
     user: Object,
