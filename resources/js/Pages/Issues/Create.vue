@@ -18,7 +18,7 @@ function submit() {
 </script>
 
 <template>
-    <AppLayout title="Add a new item">
+    <AppLayout title="Add a new issue">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Add an issue
