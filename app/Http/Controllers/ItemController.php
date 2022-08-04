@@ -7,15 +7,16 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function index(): \Inertia\Response
+    public function index(): Response
     {
         return Inertia::render('Items/Index', [
             'items' => Item::all()->map(function ($item) {
@@ -34,9 +35,9 @@ class ItemController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function create(): \Inertia\Response
+    public function create(): Response
     {
         return Inertia::render('Items/Create', [
             'user' => Auth::user(),
@@ -73,9 +74,9 @@ class ItemController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function show(int $id): \Inertia\Response
+    public function show(int $id): Response
     {
         $item = Item::all()->find($id);
         return Inertia::render('Items/Show', [
@@ -94,9 +95,9 @@ class ItemController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function edit(int $id): \Inertia\Response
+    public function edit(int $id): Response
     {
         $item = Item::all()->find($id);
         return Inertia::render('Items/Edit', [
