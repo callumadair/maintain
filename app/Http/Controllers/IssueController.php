@@ -130,7 +130,6 @@ class IssueController extends Controller
             'issue_description' => 'required',
             'item_id' => 'required',
             'originator_id' => 'required',
-            'assignee_id' => 'required',
         ]);
 
         $issue = Issue::all()->find($id);
@@ -142,7 +141,7 @@ class IssueController extends Controller
         $issue->assignee_id = $validated_data['originator_id'];
         $issue->save();
 
-        return redirect()->route('items.show', ['issue' => $issue]);
+        return redirect()->route('issues.show', ['issue' => $issue]);
     }
 
     /**
