@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { Link } from '@inertiajs/inertia-vue3';
 
 defineProps({
     issue: Object
@@ -21,6 +22,14 @@ defineProps({
                     {{ issue.description }}
                 </div>
             </div>
+        </div>
+
+        <div>
+            <button >
+                <Link :href="route('issues.edit', issue.id)" :data="issue">
+                    Edit
+                </Link>
+            </button>
         </div>
 
     </AppLayout>
