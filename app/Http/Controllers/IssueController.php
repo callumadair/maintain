@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
+use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -48,11 +49,26 @@ class IssueController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated_data = $request->validate([
+            'issue_title' => 'required',
+            'issue_description' => 'nullable',
+            'user_id' => 'required|numeric',
+        ]);
+
+        $issue = new Issue;
+        $issue->name = $validated_data['issue_title'];
+
+        if ($request->has('issue_description')) {
+            $issue->description = $validated_data['issue_description'];
+        }
+        $issue->user_id = $validated_data['user_id'];
+        $issue->save();
+
+        return redirect()->route('issues.show', ['issue' => $issue]);
     }
 
     /**
