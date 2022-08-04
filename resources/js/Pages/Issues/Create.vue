@@ -28,25 +28,25 @@ function submit() {
         <form @submit.prevent="submit"
               class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center border-solid border-8 border-black">
             <div class="grid justify-center place-items-center space-x-2">
-                <label for="item_name">
+                <label for="issue_title">
                     Title
                 </label>
-                <input type="text" v-model="form.issue_title">
+                <input id="issue_title" type="text" v-model="form.issue_title">
             </div>
 
 
             <div class="grid justify-center place-items-center space-x-2">
-                <label for="item_description">
+                <label for="issue_description">
                     Description
                 </label>
-                <textarea id="item_description" v-model="form.issue_description"/>
+                <textarea id="issue_description" v-model="form.issue_description"/>
             </div>
 
             <div class="grid justify-center place-items-center space-x-2">
-                <label for="item_images">
+                <label for="issue_images">
                     Images
                 </label>
-                <input id="item_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple>
+                <input id="issue_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple>
             </div>
 
             <div class="justify-center place-items-center space-x-2 hover:bg-white">
