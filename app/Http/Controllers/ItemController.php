@@ -117,11 +117,25 @@ class ItemController extends Controller
      *
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, int $id): Response
+    public function update(Request $request, int $id): RedirectResponse
     {
-        //
+        $validated_data = $request->validate([
+            'item_name' => 'required',
+            'item_description' => 'nullable',
+            'user_id' => 'required|numeric',
+        ]);
+
+        $item = Item::all()->find($id);
+        $item->name = $validated_data['item_name'];
+
+        if ($request->has('item_description')) {
+            $item->description = $validated_data['item_description'];
+        }
+        $item->save();
+
+        return redirect()->route('items.show', ['item' => $item]);
     }
 
     /**
