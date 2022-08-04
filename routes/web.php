@@ -66,7 +66,7 @@ Route::middleware([
             ->name('issues.create');
 
         Route::post('issues/store', 'store')
-            ->name('issue.store');
+            ->name('issues.store');
 
         Route::get('/issues/{issue}', 'show')
             ->name('issues.show');
