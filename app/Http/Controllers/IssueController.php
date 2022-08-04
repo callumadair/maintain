@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
-use App\Models\User;
+use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +41,7 @@ class IssueController extends Controller
     {
         return Inertia::render('Issues/Create', [
             'originator' => Auth::user(),
-            'item' => User::all()->random(),
+            'item' => Item::all()->random(),
         ]);
     }
 
@@ -110,7 +110,8 @@ class IssueController extends Controller
                 'item_id' => $issue->item_id,
                 'originator_id' => $issue->originator_id,
                 'assignee_id' => $issue->assignee_id,
-            ]
+            ],
+            'originator' => Auth::user(),
         ]);
     }
 
