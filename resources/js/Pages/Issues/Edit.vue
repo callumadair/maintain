@@ -11,7 +11,7 @@ const form = useForm({
     issue_title: usePage().props.value.issue.title,
     issue_description: usePage().props.value.issue.description,
     item_id: usePage().props.value.issue.item_id,
-    originator_id: usePage().props.value.user.id,
+    originator_id: usePage().props.value.originator.id,
 })
 
 function submit() {
