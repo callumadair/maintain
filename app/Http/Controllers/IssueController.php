@@ -6,6 +6,7 @@ use App\Models\Issue;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class IssueController extends Controller
@@ -38,7 +39,9 @@ class IssueController extends Controller
      */
     public function create(): \Inertia\Response
     {
-        return Inertia::render('Issues/Create');
+        return Inertia::render('Issues/Create', [
+            'user' => Auth::user(),
+        ]);
     }
 
     /**
