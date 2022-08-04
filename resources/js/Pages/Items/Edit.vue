@@ -9,12 +9,12 @@ defineProps({
 
 const form = useForm({
     item_name: usePage().props.value.item.name,
-    item_description: usePage().props.value.item.name,
+    item_description: usePage().props.value.item.description,
     user_id: usePage().props.value.user.id,
 })
 
 function submit() {
-    form.post(route('items.update'));
+    form.post(route('items.update', usePage().props.value.item));
 }
 </script>
 
@@ -32,7 +32,7 @@ function submit() {
                 <label for="item_name">
                     Name
                 </label>
-                <input value="{{usePage().props.value.item.name}}" type="text" v-model="form.item_name">
+                <input type="text" v-model="form.item_name">
             </div>
 
 
@@ -41,7 +41,6 @@ function submit() {
                     Description
                 </label>
                 <textarea id="item_description" v-model="form.item_description">
-                    {{ usePage().props.value.item.description }}
                 </textarea>
             </div>
 
@@ -53,7 +52,7 @@ function submit() {
             </div>
 
             <div class="justify-center place-items-center space-x-2 hover:bg-white">
-                <button type="submit" :disabled="form.processing">Edit Item</button>
+                <button type="submit" :disabled="form.processing">Update Item</button>
             </div>
         </form>
     </AppLayout>
