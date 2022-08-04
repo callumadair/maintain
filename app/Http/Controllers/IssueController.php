@@ -6,7 +6,6 @@ use App\Models\Issue;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -120,11 +119,27 @@ class IssueController extends Controller
      *
      * @param Request $request
      * @param int $id
-     * @return Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, int $id): Response
+    public function update(Request $request, int $id): RedirectResponse
     {
-        //
+        $validated_data = $request->validate([
+            'issue_title' => 'required',
+            'issue_description' => 'required',
+            'item_id' => 'required',
+            'originator_id' => 'required',
+            'assignee_id' => 'required',
+        ]);
+
+        $issue = Issue::all()->find($id);
+        $issue->title = $validated_data['title'];
+        $issue->description = $validated_data['description'];
+        $issue->item_id = $validated_data['item_id'];
+        $issue->originator_id = $validated_data['originator_id'];
+        $issue->assignee_id = $validated_data['assignee_id'];
+        $issue->save();
+
+        return redirect()->route('items.show', ['issue' => $issue]);
     }
 
     /**
