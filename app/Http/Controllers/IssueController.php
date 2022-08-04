@@ -137,7 +137,8 @@ class IssueController extends Controller
         $issue->description = $validated_data['description'];
         $issue->item_id = $validated_data['item_id'];
         $issue->originator_id = $validated_data['originator_id'];
-        $issue->assignee_id = $validated_data['assignee_id'];
+        //temporarily set the assignee id to be the originator id.
+        $issue->assignee_id = $validated_data['originator_id'];
         $issue->save();
 
         return redirect()->route('items.show', ['issue' => $issue]);
