@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link } from '@inertiajs/inertia-vue3';
+import {Link} from '@inertiajs/inertia-vue3';
 
 defineProps({
     issue: Object
@@ -8,8 +8,7 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout :title="
-    issue.name">
+    <AppLayout :title="issue.title">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ issue.title }}
