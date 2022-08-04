@@ -10,6 +10,7 @@ defineProps({
 const form = useForm({
     issue_title: null,
     issue_description: null,
+    item_id: usePage().props.value.item.id,
     originator_id: usePage().props.value.originator.id,
 })
 
