@@ -55,7 +55,7 @@ class IssueController extends Controller
         $validated_data = $request->validate([
             'issue_title' => 'required',
             'issue_description' => 'nullable',
-            'user_id' => 'required|numeric',
+            'originator_id' => 'required|numeric',
         ]);
 
         $issue = new Issue;
