@@ -8,15 +8,16 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class IssueController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function index(): \Inertia\Response
+    public function index(): Response
     {
         return Inertia::render('Issues/Index', [
             'issues' => Issue::all()->map(function ($issue) {
@@ -35,9 +36,9 @@ class IssueController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function create(): \Inertia\Response
+    public function create(): Response
     {
         return Inertia::render('Issues/Create', [
             'originator' => Auth::user(),
@@ -76,9 +77,9 @@ class IssueController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function show(int $id): \Inertia\Response
+    public function show(int $id): Response
     {
         $issue = Issue::all()->find($id);
         return Inertia::render('Issues/Show', [
@@ -97,9 +98,9 @@ class IssueController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function edit(int $id): \Inertia\Response
+    public function edit(int $id): Response
     {
         $issue = Issue::all()->find($id);
         return Inertia::render('Issues/Edit', [
