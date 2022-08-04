@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
-use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -41,7 +40,7 @@ class IssueController extends Controller
     public function create(): \Inertia\Response
     {
         return Inertia::render('Issues/Create', [
-            'user' => Auth::user(),
+            'originator' => Auth::user(),
         ]);
     }
 
@@ -65,7 +64,7 @@ class IssueController extends Controller
         if ($request->has('issue_description')) {
             $issue->description = $validated_data['issue_description'];
         }
-        $issue->user_id = $validated_data['user_id'];
+        $issue->originator_id = $validated_data['originator_id'];
         $issue->save();
 
         return redirect()->route('issues.show', ['issue' => $issue]);
