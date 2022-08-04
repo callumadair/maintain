@@ -98,11 +98,21 @@ class IssueController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return \Inertia\Response
      */
-    public function edit(int $id): Response
+    public function edit(int $id): \Inertia\Response
     {
-        //
+        $issue = Issue::all()->find($id);
+        return Inertia::render('Issues/Edit', [
+            'issue' => [
+                'id' => $issue->id,
+                'title' => $issue->title,
+                'description' => $issue->description,
+                'item_id' => $issue->item_id,
+                'originator_id' => $issue->originator_id,
+                'assignee_id' => $issue->assignee_id,
+            ]
+        ]);
     }
 
     /**
