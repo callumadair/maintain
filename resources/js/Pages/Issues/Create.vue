@@ -1,15 +1,16 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { useForm, usePage } from '@inertiajs/inertia-vue3';
+import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
 defineProps({
-    user: Object,
+    originator: Object,
+    item: Object,
 });
 
 const form = useForm({
     issue_title: null,
     issue_description: null,
-    user_id: usePage().props.value.user.id,
+    originator_id: usePage().props.value.originator.id,
 })
 
 function submit() {
