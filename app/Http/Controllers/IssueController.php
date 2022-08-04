@@ -60,7 +60,7 @@ class IssueController extends Controller
         ]);
 
         $issue = new Issue;
-        $issue->name = $validated_data['issue_title'];
+        $issue->title = $validated_data['issue_title'];
 
         if ($request->has('issue_description')) {
             $issue->description = $validated_data['issue_description'];
