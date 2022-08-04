@@ -3,14 +3,14 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm, usePage } from '@inertiajs/inertia-vue3';
 
 defineProps({
-    user: Object,
+    originator: Object,
     issue: Object,
 });
 
 const form = useForm({
     issue_title: usePage().props.value.issue.title,
     issue_description: usePage().props.value.issue.description,
-    user_id: usePage().props.value.user.id,
+    originator_id: usePage().props.value.user.id,
 })
 
 function submit() {
