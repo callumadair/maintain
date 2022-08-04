@@ -56,16 +56,15 @@ class IssueController extends Controller
     {
         $validated_data = $request->validate([
             'issue_title' => 'required',
-            'issue_description' => 'nullable',
+            'issue_description' => 'required',
+            'item_id' => 'required',
             'originator_id' => 'required|numeric',
         ]);
 
         $issue = new Issue;
         $issue->title = $validated_data['issue_title'];
-
-        if ($request->has('issue_description')) {
-            $issue->description = $validated_data['issue_description'];
-        }
+        $issue->description = $validated_data['issue_description'];
+        $issue->item_id = $validated_data['item_id'];
         $issue->originator_id = $validated_data['originator_id'];
         $issue->save();
 
