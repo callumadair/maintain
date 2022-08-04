@@ -67,7 +67,7 @@ class ItemController extends Controller
         $item->user_id = $validated_data['user_id'];
         $item->save();
 
-        return redirect()->route('items.index');
+        return redirect()->route('items.show', ['item' => $item]);
     }
 
     /**
