@@ -35,7 +35,7 @@ let destroy = (id) => {
                 </Link>
             </button>
 
-            <button @click="destroy(item.id)">
+            <button @click="destroy(issue.id)">
                 Delete
             </button>
         </div>
