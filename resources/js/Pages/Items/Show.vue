@@ -4,7 +4,7 @@ import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
 
 defineProps({
-    item: Object
+    item: Object,
 });
 
 let destroy = (id) => {
