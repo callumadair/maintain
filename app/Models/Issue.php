@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property string $title
+ * @property string $description
+ * @property integer $item_id
+ * @property integer $originator_id
+ * @property integer $assignee_id
+ */
 class Issue extends Model
 {
     use HasFactory;
