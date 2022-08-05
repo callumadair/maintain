@@ -1,10 +1,15 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link } from '@inertiajs/inertia-vue3';
+import {Link} from '@inertiajs/inertia-vue3';
+import {Inertia} from "@inertiajs/inertia";
 
 defineProps({
     item: Object
 });
+
+let destroy = (id) => {
+    Inertia.delete(route('items.destroy', id));
+}
 </script>
 
 <template>
@@ -28,6 +33,10 @@ defineProps({
                 <Link :href="route('items.edit', item.id)" :data="item">
                     Edit
                 </Link>
+            </button>
+
+            <button @click="destroy(item.id)">
+                    Delete
             </button>
         </div>
 
