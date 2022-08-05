@@ -7,9 +7,7 @@ defineProps({
     item: Object,
 });
 
-const destroy = (id) => {
-    Inertia.delete(route('items.destroy', id));
-}
+const destroy = (id) => Inertia.delete(route('items.destroy', id));
 </script>
 
 <template>
