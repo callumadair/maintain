@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { useForm, usePage } from '@inertiajs/inertia-vue3';
+import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
 defineProps({
     user: Object,
@@ -9,6 +9,7 @@ defineProps({
 const form = useForm({
     item_name: null,
     item_description: null,
+    item_images: null,
     user_id: usePage().props.value.user.id,
 })
 
@@ -46,7 +47,8 @@ function submit() {
                 <label for="item_images">
                     Images
                 </label>
-                <input id="item_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple>
+                <input id="item_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple
+                       @input="form.item_images = $event.target.files"/>
             </div>
 
             <div class="justify-center place-items-center space-x-2 hover:bg-white">
