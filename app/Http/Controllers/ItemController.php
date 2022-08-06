@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Item;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -55,6 +57,7 @@ class ItemController extends Controller
         $validated_data = $request->validate([
             'item_name' => 'required',
             'item_description' => 'nullable',
+            'item_images.*' => 'nullable|image|mimes:jpeg,png,jpg',
             'user_id' => 'required|numeric',
         ]);
 
@@ -64,6 +67,21 @@ class ItemController extends Controller
         if ($request->has('item_description')) {
             $item->description = $validated_data['item_description'];
         }
+
+        if ($request->hasFile('item_images')) {
+            $item_images = $request->file('item_images');
+
+            foreach ($item_images as $item_image) {
+                $new_image = new Image;
+                $new_image->name = $item_image->getClientOriginalName();
+                $new_image->item_id = $item->id;
+
+                Storage::disk('public')->put('/images', $item_image);
+                $new_image->image_path = 'storage/images/' . $item_image->hashName();
+                $new_image->save();
+            }
+        }
+
         $item->user_id = $validated_data['user_id'];
         $item->save();
 
