@@ -10,6 +10,7 @@ defineProps({
 const form = useForm({
     item_name: usePage().props.value.item.name,
     item_description: usePage().props.value.item.description,
+    item_images: usePage().props.value.item.images,
     user_id: usePage().props.value.user.id,
 })
 
@@ -48,7 +49,8 @@ function submit() {
                 <label for="item_images">
                     Images
                 </label>
-                <input id="item_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple>
+                <input id="item_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple
+                       @input="form.item_images = $event.target.files">
             </div>
 
             <div class="justify-center place-items-center space-x-2 hover:bg-white">
