@@ -67,6 +67,8 @@ class ItemController extends Controller
         if ($request->has('item_description')) {
             $item->description = $validated_data['item_description'];
         }
+        $item->user_id = $validated_data['user_id'];
+        $item->save();
 
         if ($request->hasFile('item_images')) {
             $item_images = $request->file('item_images');
@@ -82,8 +84,7 @@ class ItemController extends Controller
             }
         }
 
-        $item->user_id = $validated_data['user_id'];
-        $item->save();
+
 
         return redirect()->route('items.show', ['item' => $item]);
     }
