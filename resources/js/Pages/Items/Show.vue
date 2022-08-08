@@ -24,6 +24,10 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
                     {{ item.description }}
                 </div>
             </div>
+
+            <div v-if="item.images.length > 0">
+                <img class="w-48 h-48" :src="item.images[0]['image_path']">
+            </div>
         </div>
 
         <div>
