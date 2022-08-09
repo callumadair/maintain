@@ -74,7 +74,10 @@ class ItemController extends Controller
 
         if ($request->hasFile('item_images')) {
             $item_images = $request->file('item_images');
-            $image_path_prefix = self::IMAGES_ROOT . $item->id . '-' . $item->name . '-';
+            $image_path_prefix = self::IMAGES_ROOT
+                . $item->id . '-'
+                . $item->name . '-';
+
             foreach ($item_images as $item_image) {
                 $new_image = new Image;
                 $new_image->name = $item_image->getClientOriginalName();
@@ -186,7 +189,12 @@ class ItemController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        Item::all()->find($id)->delete();
+        $item = Item::all()->find($id);
+
+        foreach($item->images as $image) {
+            Storage::disk('public')->delete($image->image_path);
+        }
+        $item->delete();
 
         return redirect()->route('items.index')->with('status', 'Item deleted!');
     }
