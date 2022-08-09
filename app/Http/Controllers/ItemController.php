@@ -191,8 +191,10 @@ class ItemController extends Controller
     {
         $item = Item::all()->find($id);
 
-        foreach($item->images as $image) {
-            Storage::disk('public')->delete($image->image_path);
+        foreach ($item->images as $image) {
+            //remove 'storage' from the image path to make it relative to the public folder
+            $relative_path = substr($image->image_path, 8);
+            Storage::disk('public')->delete($relative_path);
         }
         $item->delete();
 
