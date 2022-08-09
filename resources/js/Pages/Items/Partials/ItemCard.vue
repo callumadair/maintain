@@ -1,5 +1,5 @@
 <script setup>
-import { Link } from '@inertiajs/inertia-vue3';
+import {Link} from '@inertiajs/inertia-vue3';
 
 defineProps({
     item: Object,
@@ -9,9 +9,14 @@ defineProps({
 <template>
     <div>
         <Link :href="route('items.show', item.id)" :data="item">
-            <div class="text-center p-3 hover:bg-gray-50 hover:text-indigo-400">
+            <div class="grid text-center place-items-center p-3 hover:bg-gray-50 hover:text-indigo-400">
                 {{ item.name }}
+
+                <div v-if="item.images.length > 0" class="w-48 place-items-center">
+                    <img :src="item.images[0]['image_path']">
+                </div>
             </div>
+
         </Link>
     </div>
 </template>
