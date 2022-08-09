@@ -26,7 +26,8 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
             </div>
 
             <div v-if="item.images.length > 0">
-                <img :src="item.images[0]['image_path']">
+<!--                <ItemGallery :images="item.images" />-->
+                <img :src="item.images[0]['image_path']" alt="image">
             </div>
         </div>
 
