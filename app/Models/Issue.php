@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property string $title
  * @property string $description
- * @property integer $item_id
- * @property integer $originator_id
- * @property integer $assignee_id
+ * @property mixed $item_id
+ * @property mixed $originator_id
+ * @property mixed $assignee_id
  */
 class Issue extends Model
 {
