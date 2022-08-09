@@ -2,8 +2,8 @@
 
 </template>
 
-<script>
-export default {
-    name: "ItemGallery"
-}
+<script setup>
+defineProps({
+    images: Object,
+});
 </script>
