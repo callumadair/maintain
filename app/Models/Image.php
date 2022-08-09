@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property string $name
- * @property integer $item_id
+ * @property mixed $item_id
  * @property string $image_path
  */
 class Image extends Model
