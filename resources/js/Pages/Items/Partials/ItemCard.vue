@@ -13,7 +13,8 @@ defineProps({
                 {{ item.name }}
 
                 <div v-if="item.images.length > 0" class="w-48 place-items-center">
-                    <img :src="item.images[0]['image_path']">
+                    <img :src="item.images[0]['image_path']"
+                         alt="First image linked to this item, if it has any.">
                 </div>
             </div>
 
