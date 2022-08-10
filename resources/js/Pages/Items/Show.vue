@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ItemGallery from '@/Pages/Items/Partials/ItemGallery.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
 
@@ -23,12 +24,13 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     {{ item.description }}
                 </div>
+
+                <div v-if="item.images.length > 0">
+                    <ItemGallery :images="item.images" />
+                </div>
             </div>
 
-            <div v-if="item.images.length > 0">
-<!--                <ItemGallery :images="item.images" />-->
-                <img :src="item.images[0]['image_path']" alt="image">
-            </div>
+
         </div>
 
         <div>
