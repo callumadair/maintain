@@ -162,21 +162,30 @@ class ItemController extends Controller
         if ($request->has('item_description')) {
             $item->description = $validated_data['item_description'];
         }
+        $item->save();
 
         if ($request->hasFile('item_images')) {
             $item_images = $request->file('item_images');
+            $image_path_prefix = self::IMAGES_ROOT
+                . $item->id . '-'
+                . $item->name . '-';
 
             foreach ($item_images as $item_image) {
                 $new_image = new Image;
                 $new_image->name = $item_image->getClientOriginalName();
                 $new_image->item_id = $item->id;
-                $new_image->image_path = 'storage/images/' . $item->name . $item_image->getClientOriginalName();
+                $new_image->image_path = $image_path_prefix
+                    . $item_image->getClientOriginalName();
                 $new_image->save();
 
-                Storage::disk('public')->putFileAs('/images', $item_image, $new_image->name);
+                Storage::disk('public')->putFileAs('/images',
+                    $item_image
+                    , $item->id
+                    . '-' . $item->name
+                    . '-' . $new_image->name);
             }
         }
-        $item->save();
+
 
         return redirect()->route('items.show', ['item' => $item]);
     }
