@@ -33,7 +33,8 @@ function submit() {
                 <label for="item_name">
                     Name
                 </label>
-                <input type="text" v-model="form.item_name">
+                <input type="text"
+                       v-model="form.item_name">
             </div>
 
 
@@ -41,7 +42,8 @@ function submit() {
                 <label for="item_description">
                     Description
                 </label>
-                <textarea id="item_description" v-model="form.item_description">
+                <textarea id="item_description"
+                          v-model="form.item_description">
                 </textarea>
             </div>
 
@@ -49,12 +51,17 @@ function submit() {
                 <label for="item_images">
                     Images
                 </label>
-                <input id="item_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg" multiple
+                <input id="item_images"
+                       name="image" type="file"
+                       accept="image/png, image/jpeg, image/jpg"
+                       multiple
                        @input="form.item_images = $event.target.files">
             </div>
 
             <div class="justify-center place-items-center space-x-2 hover:bg-white">
-                <button type="submit" :disabled="form.processing">Update Item</button>
+                <button type="submit"
+                        :disabled="form.processing">Update Item
+                </button>
             </div>
         </form>
     </AppLayout>
