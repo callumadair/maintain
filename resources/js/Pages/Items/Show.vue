@@ -29,8 +29,6 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
                     <ItemGallery :images="item.images" />
                 </div>
             </div>
-
-
         </div>
 
         <div>
