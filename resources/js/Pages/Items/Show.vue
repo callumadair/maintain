@@ -20,8 +20,8 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
         </template>
 
         <div class="py-6">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex p-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex p-2 bg-white overflow-hidden shadow-xl rounded-lg">
                     {{ item.description }}
                 </div>
 
@@ -32,17 +32,21 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
         </div>
 
         <div class="py-6">
-            <div class="flex flex-row justify-center items-center">
-                <div>
+            <div class="flex justify-center">
+                <div class="flex bg-white shadow-xl rounded-lg">
                     <Link :href="route('items.edit', item.id)" :data="item">
-                        Edit
+                        <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
+                            Edit
+                        </div>
                     </Link>
-                </div>
 
-                <div>
+
                     <button @click="destroy(item.id)">
-                        Delete
+                        <span class="p-4 hover:bg-gray-50 hover:text-indigo-400">
+                            Delete
+                        </span>
                     </button>
+
                 </div>
             </div>
 
