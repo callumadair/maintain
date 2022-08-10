@@ -19,28 +19,33 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
             </h2>
         </template>
 
-        <div class="py-12">
+        <div class="py-6">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="flex p-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     {{ item.description }}
                 </div>
 
                 <div v-if="item.images.length > 0">
-                    <ItemGallery :images="item.images" />
+                    <ItemGallery :images="item.images"/>
                 </div>
             </div>
         </div>
 
-        <div>
-            <button >
-                <Link :href="route('items.edit', item.id)" :data="item">
-                    Edit
-                </Link>
-            </button>
+        <div class="py-6">
+            <div class="flex flex-row justify-center items-center">
+                <div>
+                    <Link :href="route('items.edit', item.id)" :data="item">
+                        Edit
+                    </Link>
+                </div>
 
-            <button @click="destroy(item.id)">
-                    Delete
-            </button>
+                <div>
+                    <button @click="destroy(item.id)">
+                        Delete
+                    </button>
+                </div>
+            </div>
+
         </div>
 
     </AppLayout>
