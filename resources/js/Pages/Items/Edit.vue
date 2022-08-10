@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
 defineProps({
@@ -27,48 +28,46 @@ function submit() {
             </h2>
         </template>
 
-        <div class="py-6">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="p-2 bg-white overflow-hidden shadow-xl rounded-lg">
-                    <form @submit.prevent="submit"
-                          class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center">
-                        <div class="grid justify-center place-items-center space-x-2">
-                            <label for="item_name">
-                                Name
-                            </label>
-                            <input type="text"
-                                   v-model="form.item_name">
-                        </div>
+        <ContentStyle>
+            <template #content>
+                <form @submit.prevent="submit"
+                      class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center">
+                    <div class="grid justify-center place-items-center space-x-2">
+                        <label for="item_name">
+                            Name
+                        </label>
+                        <input type="text"
+                               v-model="form.item_name">
+                    </div>
 
 
-                        <div class="grid justify-center place-items-center space-x-2">
-                            <label for="item_description">
-                                Description
-                            </label>
-                            <textarea id="item_description"
-                                      v-model="form.item_description">
+                    <div class="grid justify-center place-items-center space-x-2">
+                        <label for="item_description">
+                            Description
+                        </label>
+                        <textarea id="item_description"
+                                  v-model="form.item_description">
                 </textarea>
-                        </div>
+                    </div>
 
-                        <div class="grid justify-center place-items-center space-x-2">
-                            <label for="item_images">
-                                Images
-                            </label>
-                            <input id="item_images"
-                                   name="image" type="file"
-                                   accept="image/png, image/jpeg, image/jpg"
-                                   multiple
-                                   @input="form.item_images = $event.target.files">
-                        </div>
+                    <div class="grid justify-center place-items-center space-x-2">
+                        <label for="item_images">
+                            Images
+                        </label>
+                        <input id="item_images"
+                               name="image" type="file"
+                               accept="image/png, image/jpeg, image/jpg"
+                               multiple
+                               @input="form.item_images = $event.target.files">
+                    </div>
 
-                        <div class="justify-center place-items-center space-x-2 hover:bg-white">
-                            <button type="submit"
-                                    :disabled="form.processing">Update Item
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                    <div class="justify-center place-items-center space-x-2 hover:bg-white">
+                        <button type="submit"
+                                :disabled="form.processing">Update Item
+                        </button>
+                    </div>
+                </form>
+            </template>
+        </ContentStyle>
     </AppLayout>
 </template>
