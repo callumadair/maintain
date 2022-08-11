@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
 import ItemGallery from '@/Pages/Items/Partials/ItemGallery.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
@@ -19,17 +20,16 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
             </h2>
         </template>
 
-        <div class="py-6">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex p-2 bg-white overflow-hidden shadow-xl rounded-lg">
-                    {{ item.description }}
-                </div>
+        <ContentStyle v-if="item.description">
+            <template #content>
+                {{ item.description }}
+            </template>
+        </ContentStyle>
 
-                <div v-if="item.images.length > 0">
-                    <ItemGallery :images="item.images"/>
-                </div>
-            </div>
+        <div v-if="item.images.length > 0">
+            <ItemGallery :images="item.images"/>
         </div>
+
 
         <div class="py-6">
             <div class="flex justify-center">
@@ -46,7 +46,6 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
                             Delete
                         </span>
                     </button>
-
                 </div>
             </div>
 
