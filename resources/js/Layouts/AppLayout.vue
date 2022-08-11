@@ -55,7 +55,7 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    <img :src="HomeAlt"/> &nbsp Dashboard
+                                    <img :src="HomeAlt" alt="An icon of a home"/> &nbsp Dashboard
                                 </JetNavLink>
                             </div>
 
@@ -94,7 +94,7 @@ const logout = () => {
                                         <template #trigger>
                                             <div type="button"
                                                  class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2">
-                                                <img :src="Book"/> &nbsp Issue Log
+                                                <img :src="Book" alt="An icon of a book."/> &nbsp Issue Log
                                             </div>
                                         </template>
 
