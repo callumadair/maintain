@@ -63,8 +63,9 @@ const logout = () => {
                                 <JetNavLink :href="route('items.index')"
                                             :active="route().current('items.index')
                                             || route().current('items.create')
+                                            || route().current('items.edit')
                                             || route().current('items.show')"
-                                class="grid whitespace-nowrap justify-center">
+                                            class="grid whitespace-nowrap justify-center">
                                     <NavbarDropdown>
                                         <template #trigger>
                                             <div type="button"
@@ -87,7 +88,8 @@ const logout = () => {
                                 <JetNavLink :href="route('issues.index')"
                                             :active="route().current('issues.index')
                                             || route().current('issues.create')
-                                            || route().current('issues.show')">
+                                            || route().current('issues.show')
+                                            || route().current('issues.edit')">
                                     <NavbarDropdown>
                                         <template #trigger>
                                             <div type="button"
