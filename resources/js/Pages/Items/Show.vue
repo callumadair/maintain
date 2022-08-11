@@ -30,7 +30,6 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
             <ItemGallery :images="item.images"/>
         </div>
 
-
         <div class="py-6">
             <div class="flex justify-center">
                 <div class="flex bg-white shadow-xl rounded-lg overflow-hidden">
@@ -40,7 +39,6 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
                         </div>
                     </Link>
 
-
                     <button @click="destroy(item.id)">
                         <span class="p-4 hover:bg-gray-50 hover:text-indigo-400">
                             Delete
@@ -48,8 +46,6 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
                     </button>
                 </div>
             </div>
-
         </div>
-
     </AppLayout>
 </template>
