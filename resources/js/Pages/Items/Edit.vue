@@ -15,9 +15,7 @@ const form = useForm({
     user_id: usePage().props.value.user.id,
 })
 
-function submit() {
-    form.post(route('items.update', usePage().props.value.item));
-}
+const submit = () => form.post(route('items.update', usePage().props.value.item));
 </script>
 
 <template>
@@ -55,7 +53,7 @@ function submit() {
                             Images
                         </label>
                         <input id="item_images"
-                               name="image" type="file"
+                               type="file"
                                accept="image/png, image/jpeg, image/jpg"
                                multiple
                                @input="form.item_images = $event.target.files">
