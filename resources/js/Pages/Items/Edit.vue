@@ -59,11 +59,15 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                                @input="form.item_images = $event.target.files">
                     </div>
 
-                    <div class="justify-center place-items-center space-x-2 hover:bg-white">
+                    <div class="py-2">
                         <button type="submit"
-                                :disabled="form.processing">Update Item
+                                :disabled="form.processing">
+                            <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
+                            Update Item
+                            </span>
                         </button>
                     </div>
+
                 </form>
             </template>
         </ContentStyle>
