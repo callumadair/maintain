@@ -1,6 +1,8 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ItemEditGallery from '@/Pages/Items/Partials/ItemEditGallery.vue';
 import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
+
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
 defineProps({
@@ -45,12 +47,14 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                         </label>
                         <textarea id="item_description"
                                   v-model="form.item_description">
-                </textarea>
+                        </textarea>
                     </div>
+
+                    <ItemEditGallery :images="item.images" />
 
                     <div class="grid justify-center place-items-center space-x-2">
                         <label for="item_images">
-                            Images
+                            Add Images
                         </label>
                         <input id="item_images"
                                type="file"
