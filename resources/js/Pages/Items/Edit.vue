@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import ItemEditGallery from '@/Pages/Partials/ItemEditGallery.vue';
+import ItemEditGallery from '@/Pages/Partials/EditGallery.vue';
 import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
 
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
