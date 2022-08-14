@@ -1,6 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
+import Gallery from '@/Pages/Partials/Gallery.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
 
@@ -24,6 +25,10 @@ const destroy = (id) => Inertia.delete(route('issues.destroy', id));
                 {{ issue.description }}
             </template>
         </ContentStyle>
+
+        <div v-if="issue.images.length > 0">
+            <Gallery :images="issue.images"/>
+        </div>
 
         <div class="py-6">
             <div class="flex justify-center">
