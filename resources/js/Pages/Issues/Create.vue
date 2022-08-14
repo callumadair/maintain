@@ -36,7 +36,9 @@ function submit() {
                         <label for="issue_title">
                             Title
                         </label>
-                        <input id="issue_title" type="text" v-model="form.issue_title">
+                        <input id="issue_title"
+                               type="text"
+                               v-model="form.issue_title">
                     </div>
 
 
@@ -44,19 +46,24 @@ function submit() {
                         <label for="issue_description">
                             Description
                         </label>
-                        <textarea id="issue_description" v-model="form.issue_description"/>
+                        <textarea id="issue_description"
+                                  v-model="form.issue_description"/>
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
                         <label for="issue_images">
                             Images
                         </label>
-                        <input id="issue_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg"
+                        <input id="issue_images"
+                               name="image"
+                               type="file"
+                               accept="image/png, image/jpeg, image/jpg"
                                multiple>
                     </div>
 
                     <div class="py-6">
-                        <button type="submit" :disabled="form.processing">
+                        <button type="submit"
+                                :disabled="form.processing">
                             <span class="m-2 p-4 space-x-2 hover:bg-gray-50 hover:text-indigo-400 rounded-lg">
                             Create Issue
                             </span>
