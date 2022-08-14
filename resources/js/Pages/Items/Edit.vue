@@ -32,6 +32,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
             <template #content>
                 <form @submit.prevent="submit"
                       class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center">
+
                     <div class="grid justify-center place-items-center space-x-2">
                         <label for="item_name">
                             Name
