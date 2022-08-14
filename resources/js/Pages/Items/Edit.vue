@@ -50,7 +50,9 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                         </textarea>
                     </div>
 
-                    <ItemEditGallery :images="item.images" />
+                    <div v-if="item.images.length > 0">
+                        <ItemEditGallery :images="item.images"/>
+                    </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
                         <label for="item_images">
