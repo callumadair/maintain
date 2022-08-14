@@ -30,15 +30,15 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
 
         <ContentStyle>
             <template #content>
-                <form @submit.prevent="submit"
-                      class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center">
+                <form class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center"
+                      @submit.prevent="submit">
 
                     <div class="grid justify-center place-items-center space-x-2">
                         <label for="item_name">
                             Name
                         </label>
-                        <input type="text"
-                               v-model="form.item_name">
+                        <input v-model="form.item_name"
+                               type="text">
                     </div>
 
 
@@ -60,15 +60,15 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                             Add Images
                         </label>
                         <input id="item_images"
-                               type="file"
                                accept="image/png, image/jpeg, image/jpg"
                                multiple
+                               type="file"
                                @input="form.item_images = $event.target.files">
                     </div>
 
                     <div class="py-2">
-                        <button type="submit"
-                                :disabled="form.processing">
+                        <button :disabled="form.processing"
+                                type="submit">
                             <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
                             Update Item
                             </span>
