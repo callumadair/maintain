@@ -19,7 +19,7 @@ const destroy = (id) => Inertia.delete(route('issues.destroy', id));
             </h2>
         </template>
 
-        <ContentStyle>
+        <ContentStyle v-if="issue.description">
             <template #content>
                 {{ issue.description }}
             </template>
