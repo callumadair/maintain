@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import ItemEditGallery from '@/Pages/Partials/EditGallery.vue';
+import EditGallery from '@/Pages/Partials/EditGallery.vue';
 import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
 
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
@@ -52,7 +52,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                     </div>
 
                     <div v-if="item.images.length > 0">
-                        <ItemEditGallery :images="item.images"/>
+                        <EditGallery :images="item.images"/>
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
