@@ -35,6 +35,8 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
+    Route::redirect('/', '/dashboard');
+
     Route::controller(ItemController::class)->group(function () {
         Route::get('/items', 'index')
             ->name('items.index');
