@@ -33,8 +33,8 @@ const destroy = (id) => Inertia.delete(route('issues.destroy', id));
         <div class="py-6">
             <div class="flex justify-center">
                 <div class="flex bg-white shadow-xl rounded-lg overflow-hidden">
-                    <Link :href="route('issues.edit', issue.id)"
-                          :data="issue">
+                    <Link :data="issue"
+                          :href="route('issues.edit', issue.id)">
                         <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
                             Edit
                         </div>
