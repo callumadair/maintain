@@ -30,15 +30,15 @@ function submit() {
 
         <ContentStyle>
             <template #content>
-                <form @submit.prevent="submit"
-                      class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center">
+                <form class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center"
+                      @submit.prevent="submit">
                     <div class="grid justify-center place-items-center space-x-2">
                         <label for="issue_title">
                             Title
                         </label>
                         <input id="issue_title"
-                               type="text"
-                               v-model="form.issue_title">
+                               v-model="form.issue_title"
+                               type="text">
                     </div>
 
 
@@ -55,15 +55,15 @@ function submit() {
                             Images
                         </label>
                         <input id="issue_images"
-                               name="image"
-                               type="file"
                                accept="image/png, image/jpeg, image/jpg"
-                               multiple>
+                               multiple
+                               name="image"
+                               type="file">
                     </div>
 
                     <div class="py-6">
-                        <button type="submit"
-                                :disabled="form.processing">
+                        <button :disabled="form.processing"
+                                type="submit">
                             <span class="m-2 p-4 space-x-2 hover:bg-gray-50 hover:text-indigo-400 rounded-lg">
                             Create Issue
                             </span>
