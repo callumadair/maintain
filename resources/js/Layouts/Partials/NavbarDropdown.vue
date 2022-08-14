@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import {onMounted, onUnmounted, ref} from 'vue';
 
 
 let open = ref(false);
@@ -19,11 +19,13 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
 <template>
     <div class="relative">
         <div @mouseover="open = ! open">
-            <slot name="trigger" />
+            <slot name="trigger"/>
         </div>
 
         <!-- Full Screen Dropdown Overlay -->
-        <div v-show="open" class="fixed inset-0 z-40" @click="open = false" />
+        <div v-show="open"
+             class="fixed inset-0 z-40"
+             @click="open = false"/>
 
         <transition
             enter-active-class="transition ease-out duration-200"
@@ -40,7 +42,7 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
                 @mouseleave="open = false"
             >
                 <div class="rounded-md ring-1 ring-black ring-opacity-5">
-                    <slot name="content" />
+                    <slot name="content"/>
                 </div>
             </div>
         </transition>
