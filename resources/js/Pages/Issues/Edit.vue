@@ -30,13 +30,15 @@ function submit() {
 
         <ContentStyle>
             <template #content>
-                <form @submit.prevent="submit"
-                      class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center">
+                <form class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center"
+                      @submit.prevent="submit">
                     <div class="grid justify-center place-items-center space-x-2">
                         <label for="issue_title">
                             Title
                         </label>
-                        <input id="issue_title" type="text" v-model="form.issue_title">
+                        <input id="issue_title"
+                               v-model="form.issue_title"
+                               type="text">
                     </div>
 
 
@@ -44,19 +46,26 @@ function submit() {
                         <label for="issue_description">
                             Description
                         </label>
-                        <textarea id="issue_description" v-model="form.issue_description"/>
+                        <textarea id="issue_description"
+                                  v-model="form.issue_description"/>
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
                         <label for="issue_images">
                             Images
                         </label>
-                        <input id="issue_images" name="image" type="file" accept="image/png, image/jpeg, image/jpg"
-                               multiple>
+                        <input id="issue_images"
+                               accept="image/png, image/jpeg, image/jpg"
+                               multiple
+                               name="image"
+                               type="file">
                     </div>
 
                     <div class="justify-center place-items-center space-x-2 hover:bg-white">
-                        <button type="submit" :disabled="form.processing">Update Issue</button>
+                        <button :disabled="form.processing"
+                                type="submit">
+                            Update Issue
+                        </button>
                     </div>
                 </form>
             </template>
