@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
 
@@ -18,24 +19,28 @@ const destroy = (id) => Inertia.delete(route('issues.destroy', id));
             </h2>
         </template>
 
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-2 text-center">
-                    {{ issue.description }}
+        <ContentStyle>
+            <template #content>
+                {{ issue.description }}
+            </template>
+        </ContentStyle>
+
+        <div class="py-6">
+            <div class="flex justify-center">
+                <div class="flex bg-white shadow-xl rounded-lg overflow-hidden">
+                    <Link :href="route('issues.edit', issue.id)" :data="issue">
+                        <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
+                            Edit
+                        </div>
+                    </Link>
+
+                    <button @click="destroy(issue.id)">
+                        <span class="p-4 hover:bg-gray-50 hover:text-indigo-400">
+                            Delete
+                        </span>
+                    </button>
                 </div>
             </div>
-        </div>
-
-        <div>
-            <button >
-                <Link :href="route('issues.edit', issue.id)" :data="issue">
-                    Edit
-                </Link>
-            </button>
-
-            <button @click="destroy(issue.id)">
-                Delete
-            </button>
         </div>
 
     </AppLayout>
