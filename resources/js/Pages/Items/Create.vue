@@ -33,7 +33,8 @@ const submit = () => form.post(route('items.store'));
                         <label for="item_name">
                             Name
                         </label>
-                        <input v-model="form.item_name"
+                        <input id="item_name"
+                            v-model="form.item_name"
                                type="text">
                     </div>
 
