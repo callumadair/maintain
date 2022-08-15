@@ -14,9 +14,7 @@ const form = useForm({
     user_id: usePage().props.value.user.id,
 })
 
-function submit() {
-    form.post(route('items.store'));
-}
+const submit = () => form.post(route('items.store'));
 </script>
 
 <template>
