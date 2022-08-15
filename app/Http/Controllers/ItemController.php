@@ -13,7 +13,7 @@ use Inertia\Response;
 
 class ItemController extends Controller
 {
-    const IMAGES_ROOT = '/storage/images/';
+    const IMAGES_ROOT = '/storage/images/items/';
 
     /**
      * Display a listing of the resource.
@@ -86,7 +86,7 @@ class ItemController extends Controller
                     . $item_image->getClientOriginalName();
                 $new_image->save();
 
-                Storage::disk('public')->putFileAs('/images',
+                Storage::disk('public')->putFileAs('/images/items/',
                     $item_image
                     , $item->id
                     . '-' . $item->name
@@ -178,7 +178,7 @@ class ItemController extends Controller
                     . $item_image->getClientOriginalName();
                 $new_image->save();
 
-                Storage::disk('public')->putFileAs('/images',
+                Storage::disk('public')->putFileAs('/images/items/',
                     $item_image
                     , $item->id
                     . '-' . $item->name
