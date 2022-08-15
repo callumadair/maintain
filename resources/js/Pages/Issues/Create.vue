@@ -16,9 +16,7 @@ const form = useForm({
     originator_id: usePage().props.value.originator.id,
 })
 
-function submit() {
-    form.post(route('issues.store'));
-}
+const submit = () => form.post(route('issues.store'));
 </script>
 
 <template>
