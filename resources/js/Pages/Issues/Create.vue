@@ -11,6 +11,7 @@ defineProps({
 const form = useForm({
     issue_title: null,
     issue_description: null,
+    issue_images: null,
     item_id: usePage().props.value.item.id,
     originator_id: usePage().props.value.originator.id,
 })
@@ -58,7 +59,8 @@ function submit() {
                                accept="image/png, image/jpeg, image/jpg"
                                multiple
                                name="image"
-                               type="file">
+                               type="file"
+                               @input="form.issue_images = $event.target.files">
                     </div>
 
                     <div class="py-6">
