@@ -14,6 +14,7 @@ const form = useForm({
     issue_images: null,
     item_id: usePage().props.value.item.id,
     originator_id: usePage().props.value.originator.id,
+    assignee_id: usePage().props.value.originator.id,
 })
 
 const submit = () => form.post(route('issues.store'));
