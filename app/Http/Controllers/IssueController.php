@@ -14,7 +14,7 @@ use Inertia\Response;
 
 class IssueController extends Controller
 {
-    const IMAGES_ROOT = '/storage/images/issues';
+    const IMAGES_ROOT = '/storage/images/issues/';
 
     /**
      * Display a listing of the resource.
@@ -61,9 +61,10 @@ class IssueController extends Controller
         $validated_data = $request->validate([
             'issue_title' => 'required',
             'issue_description' => 'required',
-            'issue_images' => 'nullable|image|mimes:jpeg,png,jpg',
+            'issue_images.*' => 'nullable|image|mimes:jpeg,png,jpg',
             'item_id' => 'required',
             'originator_id' => 'required|numeric',
+            'assignee_id' => 'required|numeric',
         ]);
 
         $issue = new Issue;
@@ -71,26 +72,25 @@ class IssueController extends Controller
         $issue->description = $validated_data['issue_description'];
         $issue->item_id = $validated_data['item_id'];
         $issue->originator_id = $validated_data['originator_id'];
-        //temporarily set the assignee id to just be the originator id.
-        $issue->assignee_id = $validated_data['originator_id'];
+        $issue->assignee_id = $validated_data['assignee_id'];
         $issue->save();
 
         if ($request->hasFile('issue_images')) {
-            $issue_images = $request->file('item_images');
+            $issue_images = $request->file('issue_images');
             $image_path_prefix = self::IMAGES_ROOT
                 . $issue->id . '-'
                 . $issue->title . '-';
 
-            foreach ($issue_images as $item_image) {
+            foreach ($issue_images as $issue_image) {
                 $new_image = new Image;
-                $new_image->name = $item_image->getClientOriginalName();
+                $new_image->name = $issue_image->getClientOriginalName();
                 $new_image->issue_id = $issue->id;
                 $new_image->image_path = $image_path_prefix
-                    . $item_image->getClientOriginalName();
+                    . $issue_image->getClientOriginalName();
                 $new_image->save();
 
-                Storage::disk('public')->putFileAs('/images',
-                    $item_image
+                Storage::disk('public')->putFileAs('/images/issues/',
+                    $issue_image
                     , $issue->id
                     . '-' . $issue->title
                     . '-' . $new_image->name);
