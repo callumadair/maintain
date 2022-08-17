@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
 import ItemCard from '@/Pages/Items/Partials/ItemCard.vue';
 
 defineProps({
@@ -15,16 +16,14 @@ defineProps({
             </h2>
         </template>
 
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <ul>
-                        <li v-for="item in items">
-                            <ItemCard :item="item"/>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <ContentStyle>
+            <template #content>
+                <ul>
+                    <li v-for="item in items">
+                        <ItemCard :item="item"/>
+                    </li>
+                </ul>
+            </template>
+        </ContentStyle>
     </AppLayout>
 </template>
