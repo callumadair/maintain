@@ -1,6 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
+import EditGallery from '@/Pages/Components/EditGallery.vue';
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
 defineProps({
@@ -48,6 +49,10 @@ function submit() {
                         </label>
                         <textarea id="issue_description"
                                   v-model="form.issue_description"/>
+                    </div>
+
+                    <div v-if="issue.images.length > 0">
+                        <EditGallery :images="issue.images"/>
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
