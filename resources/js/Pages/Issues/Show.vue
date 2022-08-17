@@ -1,7 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
-import Gallery from '@/Pages/Partials/Gallery.vue';
+import Gallery from '@/Pages/Components/Gallery.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
 
