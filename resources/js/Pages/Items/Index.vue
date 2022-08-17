@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import ContentStyle from '@/Layouts/Partials/ContentStyle.vue';
+import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import ItemCard from '@/Pages/Items/Partials/ItemCard.vue';
 
 defineProps({
