@@ -47,8 +47,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                             Description
                         </label>
                         <textarea id="item_description"
-                                  v-model="form.item_description">
-                        </textarea>
+                                  v-model="form.item_description"/>
                     </div>
 
                     <div v-if="item.images.length > 0">
