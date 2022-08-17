@@ -71,7 +71,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                                 :disabled="form.processing"
                                 type="submit">
                             <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
-                            Update Item
+                                Update Item
                             </span>
                         </button>
                     </div>
