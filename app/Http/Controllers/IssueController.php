@@ -96,7 +96,6 @@ class IssueController extends Controller
                     . '-' . $new_image->name);
             }
         }
-
         return redirect()->route('issues.show', ['issue' => $issue]);
     }
 
@@ -181,7 +180,15 @@ class IssueController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        Issue::all()->find($id)->delete();
+        $issue = Issue::all()->find($id);
+
+        foreach ($issue->images as $image) {
+            //remove 'storage' from the image path to make it relative to the public folder
+            $relative_path = substr($image->image_path, 8);
+            Storage::disk('public')->delete($relative_path);
+        }
+
+        $issue->delete();
 
         return redirect()->route('issues.index')->with('status', 'Issue deleted!');
     }
