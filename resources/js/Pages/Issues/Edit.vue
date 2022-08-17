@@ -73,7 +73,9 @@ function submit() {
                     <div class="justify-center place-items-center space-x-2 hover:bg-white">
                         <button :disabled="form.processing"
                                 type="submit">
-                            Update Issue
+                            <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
+                                Update Issue
+                            </span>
                         </button>
                     </div>
                 </form>
