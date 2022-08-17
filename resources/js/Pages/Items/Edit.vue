@@ -37,7 +37,8 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                         <label for="item_name">
                             Name
                         </label>
-                        <input v-model="form.item_name"
+                        <input id="item_name"
+                               v-model="form.item_name"
                                type="text">
                     </div>
 
@@ -66,7 +67,8 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                     </div>
 
                     <div class="py-2">
-                        <button :disabled="form.processing"
+                        <button id="update_button"
+                                :disabled="form.processing"
                                 type="submit">
                             <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
                             Update Item
