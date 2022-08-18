@@ -32,6 +32,7 @@ class IssueController extends Controller
                     'item_id' => $issue->item_id,
                     'originator_id' => $issue->originator_id,
                     'assignee_id' => $issue->originator_id,
+                    'images' => $issue->images,
                 ];
             }),
         ]);
