@@ -13,7 +13,7 @@ defineProps({
 const form = useForm({
     item_name: usePage().props.value.item.name,
     item_description: usePage().props.value.item.description,
-    item_images: usePage().props.value.item.images,
+    item_images: null,
     user_id: usePage().props.value.user.id,
 })
 
