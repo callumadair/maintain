@@ -12,7 +12,7 @@ defineProps({
 const form = useForm({
     issue_title: usePage().props.value.issue.title,
     issue_description: usePage().props.value.issue.description,
-    issue_images: usePage().props.value.issue.images,
+    issue_images: null,
     item_id: usePage().props.value.issue.item_id,
     originator_id: usePage().props.value.originator.id,
     //temporarily set the assignee id to the originator id value.
