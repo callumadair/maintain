@@ -5,7 +5,7 @@ defineProps({
     images: Object,
 })
 
-const grey_out = (image_id) => {
+const greyOut = (image_id) => {
     let image_element = document.getElementById("image" + image_id);
 
     if (image_element.classList.contains("grayscale")) {
@@ -26,7 +26,7 @@ const grey_out = (image_id) => {
                      alt="An image of an item"
                      class="">
                 <button type="button"
-                        @click="grey_out(image.id)">
+                        @click="greyOut(image.id)">
                     <img :src="RemoveMediaImage" alt="Delete square.">
                 </button>
             </div>
