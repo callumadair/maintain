@@ -61,6 +61,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                         </label>
                         <input id="item_images"
                                accept="image/png, image/jpeg, image/jpg"
+                               class="file:rounded-lg file:p-2 file:bg-white file:border-transparent hover:file:text-indigo-400 hover:file:bg-gray-50 border-solid border-2 rounded-lg border-gray-300"
                                multiple
                                type="file"
                                @input="form.item_images = $event.target.files">
