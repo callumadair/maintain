@@ -19,9 +19,8 @@ const form = useForm({
     assignee_id: usePage().props.value.originator.id,
 })
 
-function submit() {
-    form.post(route('issues.update', usePage().props.value.issue));
-}
+const submit = () => form.post(route('issues.update', usePage().props.value.issue));
+
 </script>
 
 <template>
