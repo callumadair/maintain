@@ -52,7 +52,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                         </label>
                         <textarea id="item_description"
                                   v-model="form.item_description"
-                                  class="m-3 rounded-lg text-center border-transparent w-72 h-36 bg-gray-50"/>
+                                  class="resize-none m-3 rounded-lg text-center border-transparent w-72 h-36 bg-gray-50"/>
                     </div>
 
                     <div v-if="item.images.length > 0">
