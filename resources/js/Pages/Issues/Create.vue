@@ -34,8 +34,8 @@ const submit = () => form.post(route('issues.store'));
                 <form class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center"
                       @submit.prevent="submit">
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="issue_title"
-                        class="text-lg">
+                        <label class="text-lg"
+                               for="issue_title">
                             Title
                         </label>
                         <input id="issue_title"
@@ -46,8 +46,8 @@ const submit = () => form.post(route('issues.store'));
 
 
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="issue_description"
-                        class="text-lg">
+                        <label class="text-lg"
+                               for="issue_description">
                             Description
                         </label>
                         <textarea id="issue_description"
@@ -56,17 +56,17 @@ const submit = () => form.post(route('issues.store'));
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="issue_images"
-                        class="text-lg">
+                        <label class="text-lg"
+                               for="issue_images">
                             Images
                         </label>
                         <input id="issue_images"
                                accept="image/png, image/jpeg, image/jpg"
+                               class="file:rounded-lg file:p-2 file:bg-white file:border-transparent hover:file:text-indigo-400 hover:file:bg-gray-50 m-3 p-2 border-solid border-2 rounded-lg border-gray-300"
                                multiple
                                name="image"
                                type="file"
-                               @input="form.issue_images = $event.target.files"
-                               class="file:rounded-lg file:p-2 file:bg-white file:border-transparent hover:file:text-indigo-400 hover:file:bg-gray-50 m-3 p-2 border-solid border-2 rounded-lg border-gray-300">
+                               @input="form.issue_images = $event.target.files">
                     </div>
 
                     <div class="py-6">
