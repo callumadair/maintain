@@ -10,7 +10,7 @@ defineProps({
     <div>
         <Link :data="issue"
               :href="route('issues.show', issue.id)">
-            <div class="grid text-center place-items-center p-3 hover:bg-gray-50 hover:text-indigo-400">
+            <div class="grid text-center place-items-center p-3 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
                 {{ issue.title }}
                 <div v-if="issue.images.length > 0"
                      class="w-48 place-items-center">
