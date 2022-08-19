@@ -52,12 +52,13 @@ const submit = () => form.post(route('items.store'));
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="item_images">
+                        <label for="item_images"
+                        class="text-lg">
                             Images
                         </label>
                         <input id="item_images"
                                accept="image/png, image/jpeg, image/jpg"
-                               class="file:rounded-lg file:p-2 file:bg-white file:border-transparent hover:file:text-indigo-400 hover:file:bg-gray-50 p-2 border-solid border-2 rounded-lg border-gray-300"
+                               class="file:rounded-lg file:p-2 file:bg-white file:border-transparent hover:file:text-indigo-400 hover:file:bg-gray-50 m-3 p-2 border-solid border-2 rounded-lg border-gray-300"
                                multiple
                                name="image"
                                type="file"
