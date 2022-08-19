@@ -34,25 +34,30 @@ const submit = () => form.post(route('issues.store'));
                 <form class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center"
                       @submit.prevent="submit">
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="issue_title">
+                        <label for="issue_title"
+                        class="text-lg">
                             Title
                         </label>
                         <input id="issue_title"
                                v-model="form.issue_title"
+                               class="m-3 rounded-lg text-center border-transparent bg-gray-50"
                                type="text">
                     </div>
 
 
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="issue_description">
+                        <label for="issue_description"
+                        class="text-lg">
                             Description
                         </label>
                         <textarea id="issue_description"
-                                  v-model="form.issue_description"/>
+                                  v-model="form.issue_description"
+                                  class="resize-none m-3 rounded-lg text-center border-transparent w-72 h-36 bg-gray-50"/>
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="issue_images">
+                        <label for="issue_images"
+                        class="text-lg">
                             Images
                         </label>
                         <input id="issue_images"
@@ -60,7 +65,8 @@ const submit = () => form.post(route('issues.store'));
                                multiple
                                name="image"
                                type="file"
-                               @input="form.issue_images = $event.target.files">
+                               @input="form.issue_images = $event.target.files"
+                               class="file:rounded-lg file:p-2 file:bg-white file:border-transparent hover:file:text-indigo-400 hover:file:bg-gray-50 m-3 p-2 border-solid border-2 rounded-lg border-gray-300">
                     </div>
 
                     <div class="py-6">
