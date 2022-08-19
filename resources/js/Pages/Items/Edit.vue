@@ -34,21 +34,25 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                       @submit.prevent="submit">
 
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="item_name">
+                        <label class="text-lg"
+                               for="item_name">
                             Name
                         </label>
                         <input id="item_name"
                                v-model="form.item_name"
+                               class="m-3 rounded-lg text-center border-transparent bg-gray-50"
                                type="text">
                     </div>
 
 
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="item_description">
+                        <label class="text-lg"
+                               for="item_description">
                             Description
                         </label>
                         <textarea id="item_description"
-                                  v-model="form.item_description"/>
+                                  v-model="form.item_description"
+                                  class="m-3 rounded-lg text-center border-transparent w-72 h-36 bg-gray-50"/>
                     </div>
 
                     <div v-if="item.images.length > 0">
