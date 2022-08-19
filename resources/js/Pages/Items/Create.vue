@@ -52,8 +52,8 @@ const submit = () => form.post(route('items.store'));
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
-                        <label for="item_images"
-                        class="text-lg">
+                        <label class="text-lg"
+                               for="item_images">
                             Images
                         </label>
                         <input id="item_images"
