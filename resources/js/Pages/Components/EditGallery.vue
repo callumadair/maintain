@@ -5,6 +5,8 @@ defineProps({
     images: Object,
 })
 
+const emit = defineEmits(['imagesChanged']);
+
 const greyOut = (image_id) => {
     let image_element = document.getElementById("image" + image_id);
 
@@ -26,7 +28,8 @@ const greyOut = (image_id) => {
                      alt="An image of an item"
                      class="">
                 <button type="button"
-                        @click="greyOut(image.id)">
+                        @click="greyOut(image.id);
+                        $emit('imagesChanged', image.id)">
                     <img :src="RemoveMediaImage" alt="Delete square.">
                 </button>
             </div>
