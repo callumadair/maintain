@@ -15,9 +15,17 @@ const form = useForm({
     item_description: usePage().props.value.item.description,
     item_images: null,
     user_id: usePage().props.value.user.id,
-})
-
+    images_changed: new Set(),
+});
 const submit = () => form.post(route('items.update', usePage().props.value.item));
+
+const handleImagesChanged = (image_id) => {
+    if (form.images_changed.has(image_id)) {
+        form.images_changed.delete(image_id);
+    } else {
+        form.images_changed.add(image_id);
+    }
+};
 </script>
 
 <template>
@@ -56,7 +64,9 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                     </div>
 
                     <div v-if="item.images.length > 0">
-                        <EditGallery :images="item.images"/>
+                        <EditGallery v-model="form.images_changed"
+                                     :images="item.images"
+                                     @images-changed="handleImagesChanged"/>
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
