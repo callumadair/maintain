@@ -154,6 +154,7 @@ class ItemController extends Controller
             'item_description' => 'nullable',
             'item_images.*' => 'nullable|image|mimes:jpeg,png,jpg',
             'user_id' => 'required|numeric',
+            'images_deleted' => 'nullable',
         ]);
 
         $item = Item::all()->find($id);
@@ -163,6 +164,14 @@ class ItemController extends Controller
             $item->description = $validated_data['item_description'];
         }
         $item->save();
+
+        if ($request->has('images_changed')) {
+            $image_ids = json_decode($validated_data['images_deleted']);
+            foreach ($image_ids as $image_id) {
+                $image = Image::all()->find($image_id);
+                $image->delete();
+            }
+        }
 
         if ($request->hasFile('item_images')) {
             $item_images = $request->file('item_images');
