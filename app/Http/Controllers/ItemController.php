@@ -165,7 +165,8 @@ class ItemController extends Controller
         }
         $item->save();
 
-        if ($request->has('images_changed')) {
+        if ($request->has('images_deleted')
+            && $validated_data['images_deleted'] != null) {
             $image_ids = json_decode($validated_data['images_deleted']);
             foreach ($image_ids as $image_id) {
                 $image = Image::all()->find($image_id);
