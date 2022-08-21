@@ -17,10 +17,21 @@ const form = useForm({
     originator_id: usePage().props.value.originator.id,
     //temporarily set the assignee id to the originator id value.
     assignee_id: usePage().props.value.originator.id,
+    images_deleted: null,
 })
 
 const submit = () => form.post(route('issues.update', usePage().props.value.issue));
 
+const imagesChangedSet = new Set();
+
+const handleImagesChanged = (image_id) => {
+    if (imagesChangedSet.has(image_id)) {
+        imagesChangedSet.delete(image_id);
+    } else {
+        imagesChangedSet.add(image_id);
+    }
+    form.images_deleted = JSON.stringify(Array.from(imagesChangedSet));
+};
 </script>
 
 <template>
@@ -58,7 +69,8 @@ const submit = () => form.post(route('issues.update', usePage().props.value.issu
                     </div>
 
                     <div v-if="issue.images.length > 0">
-                        <EditGallery :images="issue.images"/>
+                        <EditGallery :images="issue.images"
+                                     @images-changed="handleImagesChanged"/>
                     </div>
 
                     <div class="grid justify-center place-items-center space-x-2">
