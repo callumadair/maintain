@@ -15,16 +15,19 @@ const form = useForm({
     item_description: usePage().props.value.item.description,
     item_images: null,
     user_id: usePage().props.value.user.id,
-    images_changed: new Set(),
+    images_changed: null,
 });
 const submit = () => form.post(route('items.update', usePage().props.value.item));
 
+const imagesChangedSet = new Set();
+
 const handleImagesChanged = (image_id) => {
-    if (form.images_changed.has(image_id)) {
-        form.images_changed.delete(image_id);
+    if (imagesChangedSet.has(image_id)) {
+        imagesChangedSet.delete(image_id);
     } else {
-        form.images_changed.add(image_id);
+        imagesChangedSet.add(image_id);
     }
+    form.images_changed = JSON.stringify(Array.from(imagesChangedSet));
 };
 </script>
 
@@ -64,8 +67,7 @@ const handleImagesChanged = (image_id) => {
                     </div>
 
                     <div v-if="item.images.length > 0">
-                        <EditGallery v-model="form.images_changed"
-                                     :images="item.images"
+                        <EditGallery :images="item.images"
                                      @images-changed="handleImagesChanged"/>
                     </div>
 
