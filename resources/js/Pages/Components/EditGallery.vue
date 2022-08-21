@@ -20,7 +20,8 @@ const greyOut = (image_id) => {
 
 <template>
     <div>
-        <div class="my-2 flex flex-row flex-wrap justify-center items-center bg-white shadow-xl rounded-lg mx-6 w-full">
+        <div
+            class="mx-6 my-2 w-full flex flex-row flex-wrap justify-center items-center bg-white shadow-xl rounded-lg border-solid border-2 border-gray-200">
             <div v-for="image in images"
                  class="w-48 m-6">
                 <button type="button"
