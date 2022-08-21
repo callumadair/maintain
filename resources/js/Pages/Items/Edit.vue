@@ -15,7 +15,7 @@ const form = useForm({
     item_description: usePage().props.value.item.description,
     item_images: null,
     user_id: usePage().props.value.user.id,
-    images_changed: null,
+    images_deleted: null,
 });
 const submit = () => form.post(route('items.update', usePage().props.value.item));
 
@@ -27,7 +27,7 @@ const handleImagesChanged = (image_id) => {
     } else {
         imagesChangedSet.add(image_id);
     }
-    form.images_changed = JSON.stringify(Array.from(imagesChangedSet));
+    form.images_deleted = JSON.stringify(Array.from(imagesChangedSet));
 };
 </script>
 
