@@ -161,6 +161,7 @@ class IssueController extends Controller
             'item_id' => 'required',
             'originator_id' => 'required|numeric',
             'assignee_id' => 'required|numeric',
+            'images_deleted' => 'nullable',
         ]);
 
         $issue = Issue::all()->find($id);
@@ -170,6 +171,15 @@ class IssueController extends Controller
         $issue->originator_id = $validated_data['originator_id'];
         $issue->assignee_id = $validated_data['assignee_id'];
         $issue->save();
+
+        if ($request->has('images_deleted')
+            && $validated_data['images_deleted'] != null) {
+            $image_ids = json_decode($validated_data['images_deleted']);
+            foreach ($image_ids as $image_id) {
+                $image = Image::all()->find($image_id);
+                $image->delete();
+            }
+        }
 
         if ($request->hasFile('issue_images')) {
             $issue_images = $request->file('issue_images');
