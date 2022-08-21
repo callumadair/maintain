@@ -61,7 +61,7 @@ class IssueController extends Controller
     {
         $validated_data = $request->validate([
             'issue_title' => 'required',
-            'issue_description' => 'required',
+            'issue_description' => 'nullable',
             'issue_images.*' => 'nullable|image|mimes:jpeg,png,jpg',
             'item_id' => 'required',
             'originator_id' => 'required|numeric',
@@ -156,7 +156,7 @@ class IssueController extends Controller
     {
         $validated_data = $request->validate([
             'issue_title' => 'required',
-            'issue_description' => 'required',
+            'issue_description' => 'nullable',
             'issue_images.*' => 'nullable|image|mimes:jpeg,png,jpg',
             'item_id' => 'required',
             'originator_id' => 'required|numeric',
