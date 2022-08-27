@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "fontisto": "^3.0.4",
-        "iconoir": "^5.1.4"
+        "iconoir": "^5.1.4",
+        "typescript": "^4.8.2"
     }
 }
