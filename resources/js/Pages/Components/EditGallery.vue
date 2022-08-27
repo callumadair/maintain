@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 import RemoveMediaImage from 'iconoir/icons/remove-media-image.svg';
 
 defineProps({
@@ -7,8 +7,8 @@ defineProps({
 
 const emit = defineEmits(['imagesChanged']);
 
-const greyOut = (image_id: number) => {
-    let image_element: HTMLImageElement = document.getElementById("image" + image_id) as HTMLImageElement;
+const greyOut = (image_id) => {
+    let image_element = document.getElementById("image" + image_id);
 
     if (image_element.classList.contains("grayscale")) {
         image_element.classList.remove("grayscale");
