@@ -1,10 +1,13 @@
-<script setup>
+<script setup lang="ts">
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import IssueCard from '@/Pages/Issues/Partials/IssueCard.vue';
 
-defineProps({
-    issues: Object,
+const props = defineProps({
+    issues: {
+        type: Array,
+        required: true,
+    },
 });
 </script>
 
