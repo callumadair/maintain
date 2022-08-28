@@ -3,7 +3,7 @@ import {Link} from '@inertiajs/inertia-vue3';
 import {PropType} from "vue";
 import Item = App.Models.Item;
 
-defineProps({
+const props = defineProps({
     item: {
         type: Object as PropType<Item>,
         required: true
