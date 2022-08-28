@@ -1,8 +1,13 @@
-<script setup>
+<script lang="ts" setup>
 import {Link} from '@inertiajs/inertia-vue3';
+import {PropType} from "vue";
+import Issue = App.Models.Issue;
 
-defineProps({
-    issue: Object,
+const props = defineProps({
+    issue: {
+        type: Object as PropType<Issue>,
+        required: true
+    },
 });
 </script>
 
