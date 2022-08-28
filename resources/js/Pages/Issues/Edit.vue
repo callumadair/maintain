@@ -4,7 +4,7 @@ import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import EditGallery from '@/Pages/Components/EditGallery.vue';
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
-defineProps({
+const props = defineProps({
     originator: Object,
     issue: Object,
 });
