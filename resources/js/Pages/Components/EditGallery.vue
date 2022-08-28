@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import RemoveMediaImage from 'iconoir/icons/remove-media-image.svg';
 
 const props = defineProps({
