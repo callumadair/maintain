@@ -5,7 +5,7 @@ import Gallery from '@/Pages/Components/Gallery.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
 
-defineProps({
+const props = defineProps({
     item: Object,
 });
 
