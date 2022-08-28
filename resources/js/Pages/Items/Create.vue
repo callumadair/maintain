@@ -3,7 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
-defineProps({
+const props = defineProps({
     user: Object,
 });
 
