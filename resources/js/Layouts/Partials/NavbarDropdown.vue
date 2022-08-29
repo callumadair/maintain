@@ -22,10 +22,6 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
              @mouseleave="open = false">
             <slot name="trigger"/>
 
-            <!-- Full Screen Dropdown Overlay -->
-<!--            <div v-show="open"-->
-<!--                 class="static inset-0 z-40"/>-->
-
             <transition
                 enter-active-class="transition ease-out duration-200"
                 enter-from-class="transform opacity-0 scale-95"
