@@ -18,33 +18,32 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
 
 <template>
     <div class="relative">
-        <div @mouseover="open = ! open">
+        <div @mouseenter="open = true"
+             @mouseleave="open = false">
             <slot name="trigger"/>
-        </div>
 
-        <!-- Full Screen Dropdown Overlay -->
-        <div v-show="open"
-             class="fixed inset-0 z-40"
-             @click="open = false"/>
+            <!-- Full Screen Dropdown Overlay -->
+<!--            <div v-show="open"-->
+<!--                 class="static inset-0 z-40"/>-->
 
-        <transition
-            enter-active-class="transition ease-out duration-200"
-            enter-from-class="transform opacity-0 scale-95"
-            enter-to-class="transform opacity-100 scale-100"
-            leave-active-class="transition ease-in duration-75"
-            leave-from-class="transform opacity-100 scale-100"
-            leave-to-class="transform opacity-0 scale-95"
-        >
-            <div
-                v-show="open"
-                class="absolute z-50 mt-2 rounded-md shadow-lg"
-                style="display: none;"
-                @mouseleave="open = false"
+            <transition
+                enter-active-class="transition ease-out duration-200"
+                enter-from-class="transform opacity-0 scale-95"
+                enter-to-class="transform opacity-100 scale-100"
+                leave-active-class="transition ease-in duration-75"
+                leave-from-class="transform opacity-100 scale-100"
+                leave-to-class="transform opacity-0 scale-95"
             >
-                <div class="rounded-md ring-1 ring-black ring-opacity-5">
-                    <slot name="content"/>
+                <div
+                    v-show="open"
+                    class="absolute z-50 mt-2 rounded-md shadow-lg"
+                    style="display: none;"
+                >
+                    <div class="rounded-md ring-1 ring-black ring-opacity-5">
+                        <slot name="content"/>
+                    </div>
                 </div>
-            </div>
-        </transition>
+            </transition>
+        </div>
     </div>
 </template>
