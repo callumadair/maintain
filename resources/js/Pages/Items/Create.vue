@@ -1,17 +1,27 @@
-<script setup>
+<script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
-import {useForm, usePage} from '@inertiajs/inertia-vue3';
+import {InertiaForm, useForm} from '@inertiajs/inertia-vue3';
+import {PropType} from "vue";
+import User = App.Models.User;
 
 const props = defineProps({
-    user: Object,
+    user: {
+        type: Object as PropType<User>,
+        required: true,
+    },
 });
 
-const form = useForm({
+const form: InertiaForm<{
+    item_name: string | null,
+    item_description: string | null,
+    item_images: File[] | null,
+    user_id: number,
+}> = useForm({
     item_name: null,
     item_description: null,
     item_images: null,
-    user_id: usePage().props.value.user.id,
+    user_id: props.user.id,
 })
 
 const submit = () => form.post(route('items.store'));
