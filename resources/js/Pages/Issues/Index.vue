@@ -2,10 +2,12 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import IssueCard from '@/Pages/Issues/Partials/IssueCard.vue';
+import {PropType} from "vue";
+import Issue = App.Models.Issue;
 
 const props = defineProps({
     issues: {
-        type: Array,
+        type: Array as PropType<Array<Issue>>,
         required: true,
     },
 });
