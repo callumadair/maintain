@@ -1,21 +1,37 @@
-<script setup>
+<script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
-import {useForm, usePage} from '@inertiajs/inertia-vue3';
+import {InertiaForm, useForm} from '@inertiajs/inertia-vue3';
+import {PropType} from "vue";
+import User = App.Models.User;
+import Item = App.Models.Item;
 
 const props = defineProps({
-    originator: Object,
-    item: Object,
+    originator: {
+        type: Object as PropType<User>,
+        required: true,
+    },
+    item: {
+        type: Object as PropType<Item>,
+        required: true,
+    },
 });
 
-const form = useForm({
-    issue_title: null,
-    issue_description: null,
-    issue_images: null,
-    item_id: usePage().props.value.item.id,
-    originator_id: usePage().props.value.originator.id,
+const form: InertiaForm<{
+    issue_title: string,
+    issue_description: string,
+    issue_images: File[],
+    item_id: number,
+    originator_id: number,
+    assignee_id: number,
+}> = useForm({
+    issue_title: '',
+    issue_description: '',
+    issue_images: [],
+    item_id: props.item.id,
+    originator_id: props.originator.id,
     //temporarily set the assignee id to the originator id value.
-    assignee_id: usePage().props.value.originator.id,
+    assignee_id: props.originator.id,
 })
 
 const submit = () => form.post(route('issues.store'));
