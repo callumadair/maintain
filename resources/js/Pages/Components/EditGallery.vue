@@ -2,7 +2,10 @@
 import RemoveMediaImage from 'iconoir/icons/remove-media-image.svg';
 
 const props = defineProps({
-    images: Object,
+    images: {
+        type: Array,
+        required: true,
+    },
 })
 
 const emit = defineEmits(['imagesChanged']);
