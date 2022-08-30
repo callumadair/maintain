@@ -1,15 +1,21 @@
-<script setup>
+<script setup lang="ts">
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import Gallery from '@/Pages/Components/Gallery.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
+import {PropType} from "vue";
+import Issue = App.Models.Issue;
 
 const props = defineProps({
-    issue: Object,
+    issue: {
+        type: Object as PropType<Issue>,
+        required: true,
+    },
 });
 
-const destroy = (id) => Inertia.delete(route('issues.destroy', id));
+
+const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
 </script>
 
 <template>
@@ -49,6 +55,5 @@ const destroy = (id) => Inertia.delete(route('issues.destroy', id));
                 </div>
             </div>
         </div>
-
     </AppLayout>
 </template>
