@@ -2,10 +2,12 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import ItemCard from '@/Pages/Items/Partials/ItemCard.vue';
+import {PropType} from "vue";
+import Item = App.Models.Item;
 
 const props = defineProps({
     items: {
-        type: Array,
+        type: Array as PropType<Array<Item>>,
         required: true,
     },
 });
