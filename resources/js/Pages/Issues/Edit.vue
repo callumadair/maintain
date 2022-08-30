@@ -1,22 +1,39 @@
-<script setup>
+<script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import EditGallery from '@/Pages/Components/EditGallery.vue';
-import {useForm, usePage} from '@inertiajs/inertia-vue3';
+import {InertiaForm, useForm, usePage} from '@inertiajs/inertia-vue3';
+import {PropType} from "vue";
+import User = App.Models.User;
+import Issue = App.Models.Issue;
 
 const props = defineProps({
-    originator: Object,
-    issue: Object,
+    originator: {
+        type: Object as PropType<User>,
+        required: true,
+    },
+    issue: {
+        type: Object as PropType<Issue>,
+        required: true,
+    },
 });
 
-const form = useForm({
-    issue_title: usePage().props.value.issue.title,
-    issue_description: usePage().props.value.issue.description,
-    issue_images: null,
-    item_id: usePage().props.value.issue.item_id,
-    originator_id: usePage().props.value.originator.id,
+const form: InertiaForm<{
+    issue_title: string,
+    issue_description: string | null,
+    issue_images: File[],
+    item_id: number,
+    originator_id: number,
+    assignee_id: number,
+    images_deleted: string | null,
+}> = useForm({
+    issue_title: props.issue.title,
+    issue_description: props.issue.description,
+    issue_images: [],
+    item_id: props.issue.item_id,
+    originator_id: props.originator.id,
     //temporarily set the assignee id to the originator id value.
-    assignee_id: usePage().props.value.originator.id,
+    assignee_id: props.originator.id,
     images_deleted: null,
 })
 
@@ -24,7 +41,7 @@ const submit = () => form.post(route('issues.update', usePage().props.value.issu
 
 const imagesChangedSet = new Set();
 
-const handleImagesChanged = (image_id) => {
+const handleImagesChanged = (image_id: number) => {
     if (imagesChangedSet.has(image_id)) {
         imagesChangedSet.delete(image_id);
     } else {
