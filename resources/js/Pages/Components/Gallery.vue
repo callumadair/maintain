@@ -1,6 +1,12 @@
-<script setup>
+<script setup lang="ts">
+import {PropType} from "vue";
+import Image = App.Models.Image;
+
 const props = defineProps({
-    images: Object,
+    images: {
+        type: Array as PropType<Array<Image>>,
+        required: true,
+    },
 });
 </script>
 
