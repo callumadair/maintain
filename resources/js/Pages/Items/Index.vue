@@ -1,10 +1,13 @@
-<script setup>
+<script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import ItemCard from '@/Pages/Items/Partials/ItemCard.vue';
 
 const props = defineProps({
-    items: Object,
+    items: {
+        type: Array,
+        required: true,
+    },
 });
 </script>
 
