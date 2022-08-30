@@ -1,15 +1,20 @@
-<script setup>
+<script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import Gallery from '@/Pages/Components/Gallery.vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
+import {PropType} from "vue";
+import Item = App.Models.Item;
 
 const props = defineProps({
-    item: Object,
+    item: {
+        type: Object as PropType<Item>,
+        required: true,
+    },
 });
 
-const destroy = (id) => Inertia.delete(route('items.destroy', id));
+const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
 </script>
 
 <template>
@@ -33,7 +38,7 @@ const destroy = (id) => Inertia.delete(route('items.destroy', id));
         <div class="py-6">
             <div class="flex justify-center">
                 <div class="flex bg-white shadow-xl rounded-lg overflow-hidden">
-                    <Link :href="route('items.edit', item.id)" :data="item">
+                    <Link :data="item" :href="route('items.edit', item.id)">
                         <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
                             Edit
                         </div>
