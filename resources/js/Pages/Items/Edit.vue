@@ -1,27 +1,42 @@
-<script setup>
+<script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import EditGallery from '@/Pages/Components/EditGallery.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 
-import {useForm, usePage} from '@inertiajs/inertia-vue3';
+import {InertiaForm, useForm, usePage} from '@inertiajs/inertia-vue3';
+import {PropType} from "vue";
+import User = App.Models.User;
+import Item = App.Models.Item;
 
 const props = defineProps({
-    user: Object,
-    item: Object,
+    user: {
+        type: Object as PropType<User>,
+        required: true,
+    },
+    item: {
+        type: Object as PropType<Item>,
+        required: true,
+    },
 });
 
-const form = useForm({
-    item_name: usePage().props.value.item.name,
-    item_description: usePage().props.value.item.description,
+const form: InertiaForm<{
+    item_name: string,
+    item_description: string | null,
+    item_images: File[] | null,
+    user_id: number,
+    images_deleted: string | null,
+}> = useForm({
+    item_name: props.item.name,
+    item_description: props.item.description,
     item_images: null,
-    user_id: usePage().props.value.user.id,
+    user_id: props.user.id,
     images_deleted: null,
 });
 const submit = () => form.post(route('items.update', usePage().props.value.item));
 
 const imagesChangedSet = new Set();
 
-const handleImagesChanged = (image_id) => {
+const handleImagesChanged = (image_id: number) => {
     if (imagesChangedSet.has(image_id)) {
         imagesChangedSet.delete(image_id);
     } else {
