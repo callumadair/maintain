@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import RemoveMediaImage from 'iconoir/icons/remove-media-image.svg';
+import {PropType} from "vue";
+import Image = App.Models.Image;
 
 const props = defineProps({
     images: {
-        type: Array,
+        type: Array as PropType<Array<Image>>,
         required: true,
     },
 })
