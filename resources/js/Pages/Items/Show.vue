@@ -45,10 +45,11 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
                     </label>
                     <div class="m-2 overflow-y-scroll max-h-24 scrollbar-thin scrollbar-thumb-slate-300">
                         <ul id="issues_list">
-                            <li v-for="issue in item.issues"
-                                class="p-2 hover:bg-gray-50 hover:text-indigo-400 rounded-lg">
+                            <li v-for="issue in item.issues">
                                 <Link :href="route('issues.show', issue.id)">
-                                    {{ issue.title }}
+                                    <div class="p-2 hover:bg-gray-50 hover:text-indigo-400 rounded-lg">
+                                        {{ issue.title }}
+                                    </div>
                                 </Link>
                             </li>
                         </ul>
