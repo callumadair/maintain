@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import Gallery from '@/Pages/Components/Gallery.vue';
@@ -34,6 +34,23 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
 
         <div v-if="issue.images.length > 0">
             <Gallery :images="issue.images"/>
+        </div>
+
+        <div class="pb-6 pt-8">
+            <div class="grid justify-center text-center">
+                <div class="grid p-2 bg-white shadow-xl rounded-lg overflow-hidden w-96">
+                    <label class="p-2"
+                           for="item_link">
+                        {{ issue.title }}'s item
+                    </label>
+                    <div class="border border-1 my-2 border-gray-300 rounded-lg"/>
+                    <Link id="item_link"
+                          :href="route('items.show', issue.item_id)"
+                          class="p-2 hover:text-indigo-400">
+                        {{ issue.item.name }}
+                    </Link>
+                </div>
+            </div>
         </div>
 
         <div class="py-6">
