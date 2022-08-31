@@ -59,23 +59,23 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
 
         <div class="py-6">
             <div class="flex justify-center">
-                <div class="flex bg-white shadow-xl rounded-lg overflow-hidden">
+                <div class="flex bg-white shadow-xl rounded-lg overflow-hidden justify-center">
                     <Link :data="item" :href="route('issues.create')">
                         <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
-                            Add a new issue.
+                            Add a new issue
                         </div>
                     </Link>
 
                     <Link :data="item" :href="route('items.edit', item.id)">
                         <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
-                            Edit
+                            Edit item
                         </div>
                     </Link>
 
                     <button type="button"
                             @click="destroy(item.id)">
                         <span class="p-4 hover:bg-gray-50 hover:text-indigo-400">
-                            Delete
+                            Delete item
                         </span>
                     </button>
                 </div>
