@@ -38,15 +38,15 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
 
         <div class="pb-6 pt-8">
             <div class="grid justify-center text-center">
-                <div class="grid p-2 bg-white shadow-xl rounded-lg overflow-hidden w-96">
+                <div class="grid bg-white shadow-xl rounded-lg overflow-hidden w-96">
                     <label class="p-2"
                            for="item_link">
-                        {{ issue.title }}'s item
+                        Item this problem refers to:
                     </label>
-                    <div class="border border-1 my-2 border-gray-300 rounded-lg"/>
+                    <div class="border border-1 border-gray-300 rounded-lg"/>
                     <Link id="item_link"
                           :href="route('items.show', issue.item_id)"
-                          class="p-2 hover:text-indigo-400">
+                          class="p-2 hover:text-indigo-400 hover:bg-gray-50 rounded-lg">
                         {{ issue.item.name }}
                     </Link>
                 </div>
