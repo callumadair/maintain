@@ -24,7 +24,6 @@ const greyOut = (image_id: number) => {
 </script>
 
 <template>
-    <div>
         <div
             class="mx-6 my-2 w-full flex flex-row flex-wrap justify-center items-center bg-white shadow-xl rounded-lg border-solid border-2 border-gray-200">
             <div v-for="image in images"
@@ -40,5 +39,4 @@ const greyOut = (image_id: number) => {
 
             </div>
         </div>
-    </div>
 </template>
