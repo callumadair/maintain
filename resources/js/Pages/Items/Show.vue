@@ -35,6 +35,28 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
             <Gallery :images="item.images"/>
         </div>
 
+        <div v-if="item.issues.length > 0"
+             class="py-2">
+            <div class="grid justify-center text-center ">
+                <div class="flex flex-col bg-white shadow-xl rounded-lg overflow-hidden w-96">
+                    <label class="m-2"
+                           for="issues_list">
+                        Issues associated with this item.
+                    </label>
+                    <div class="m-2 overflow-y-scroll max-h-24 scrollbar-thin scrollbar-thumb-slate-300">
+                        <ul id="issues_list">
+                            <li v-for="issue in item.issues"
+                                class="p-2 hover:bg-gray-50 hover:text-indigo-400 rounded-lg">
+                                <Link :href="route('issues.show', issue.id)">
+                                    {{ issue.title }}
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="py-6">
             <div class="flex justify-center">
                 <div class="flex bg-white shadow-xl rounded-lg overflow-hidden">
