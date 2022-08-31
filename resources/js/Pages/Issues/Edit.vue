@@ -61,28 +61,28 @@ const handleImagesChanged = (image_id: number) => {
 
         <ContentStyle>
             <template #content>
-                <form class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center"
+                <form class="grid grid-cols-1 space-y-6 p-3 m-3` justify-center"
                       @submit.prevent="submit">
-                    <div class="grid justify-center place-items-center space-x-2">
+                    <div class="grid justify-center space-y-2">
                         <label class="text-lg"
                                for="issue_title">
                             Title
                         </label>
                         <input id="issue_title"
                                v-model="form.issue_title"
-                               class="m-3 rounded-lg text-center border-transparent bg-gray-50"
+                               class="rounded-lg text-center border-transparent bg-gray-50"
                                type="text">
                     </div>
 
 
-                    <div class="grid justify-center place-items-center space-x-2">
+                    <div class="grid justify-center space-y-2">
                         <label class="text-lg"
                                for="issue_description">
                             Description
                         </label>
                         <textarea id="issue_description"
                                   v-model="form.issue_description"
-                                  class="resize-none m-3 rounded-lg text-center border-transparent w-72 h-36 bg-gray-50"/>
+                                  class="resize-none rounded-lg text-center border-transparent w-72 h-36 bg-gray-50"/>
                     </div>
 
                     <div v-if="issue.images.length > 0">
@@ -90,7 +90,7 @@ const handleImagesChanged = (image_id: number) => {
                                      @images-changed="handleImagesChanged"/>
                     </div>
 
-                    <div class="grid justify-center place-items-center space-x-2">
+                    <div class="grid justify-center space-y-2">
                         <label class="text-lg"
                                for="issue_images">
                             Images
@@ -104,7 +104,7 @@ const handleImagesChanged = (image_id: number) => {
                                @input="form.issue_images = $event.target.files">
                     </div>
 
-                    <div class="justify-center place-items-center space-x-2 hover:bg-white">
+                    <div class="justify-center space-y-2 hover:bg-white">
                         <button :disabled="form.processing"
                                 type="submit">
                             <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
