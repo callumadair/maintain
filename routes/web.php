@@ -66,6 +66,9 @@ Route::middleware([
             Route::get('/', 'index')
                 ->name('index');
 
+            Route::get('/item_select', 'item_select')
+                ->name('item_select');
+
             //Make the item parameter non-optional
             Route::get('/create/{item?}', 'create')
                 ->name('create');
@@ -86,8 +89,7 @@ Route::middleware([
                 ->name('destroy');
         });
 
-    Route::get('/issues/item_select', [IssueController::class, 'item_select'] )
-        ->name('issues.item_select');
+
 });
 
 
