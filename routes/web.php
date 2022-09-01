@@ -85,6 +85,9 @@ Route::middleware([
             Route::delete('/destroy/{issue}', 'destroy')
                 ->name('destroy');
         });
+
+    Route::get('/issues/item_select', [IssueController::class, 'item_select'] )
+        ->name('issues.item_select');
 });
 
 
