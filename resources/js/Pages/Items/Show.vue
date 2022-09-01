@@ -25,13 +25,15 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
             </h2>
         </template>
 
-        <ContentStyle v-if="item.description">
+        <ContentStyle v-if="item.description"
+                      id="item_description">
             <template #content>
                 {{ item.description }}
             </template>
         </ContentStyle>
 
-        <div v-if="item.images.length > 0">
+        <div v-if="item.images.length > 0"
+             id="images_gallery">
             <Gallery :images="item.images"/>
         </div>
 
@@ -46,7 +48,8 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
                     <div class="m-2 overflow-y-scroll max-h-24 scrollbar-thin scrollbar-thumb-slate-200">
                         <ul id="issues_list">
                             <li v-for="issue in item.issues">
-                                <Link :href="route('issues.show', issue.id)">
+                                <Link id="issue_show_link"
+                                      :href="route('issues.show', issue.id)">
                                     <div class="p-2 hover:bg-gray-50 hover:text-indigo-400 rounded-lg">
                                         {{ issue.title }}
                                     </div>
