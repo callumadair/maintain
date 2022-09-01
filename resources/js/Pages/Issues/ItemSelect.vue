@@ -3,6 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 
 import {PropType} from "vue";
+import ItemSelectionCard from "./Partials/ItemSelectionCard.vue";
 import Item = App.Models.Item;
 
 const props = defineProps({
@@ -25,7 +26,7 @@ const props = defineProps({
             <template #content>
                 <ul>
                     <li v-for="item in items">
-                        {{ item.name}}
+                        <ItemSelectionCard :item="item"/>
                     </li>
                 </ul>
             </template>
