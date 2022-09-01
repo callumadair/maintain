@@ -65,8 +65,7 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
             <div class="flex justify-center">
                 <div class="flex bg-white shadow-xl rounded-lg overflow-hidden justify-center">
                     <Link id="add_issue_link"
-                          :data="{ item: item }"
-                          :href="route('issues.create')">
+                          :href="route('issues.create', item.id)">
                         <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
                             Add a new issue
                         </div>
