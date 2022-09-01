@@ -43,7 +43,7 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
                            for="issues_list">
                         Issues associated with this item.
                     </label>
-                    <div class="m-2 overflow-y-scroll max-h-24 scrollbar-thin scrollbar-thumb-slate-300">
+                    <div class="m-2 overflow-y-scroll max-h-24 scrollbar-thin scrollbar-thumb-slate-200">
                         <ul id="issues_list">
                             <li v-for="issue in item.issues">
                                 <Link :href="route('issues.show', issue.id)">
@@ -61,19 +61,24 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
         <div class="py-6">
             <div class="flex justify-center">
                 <div class="flex bg-white shadow-xl rounded-lg overflow-hidden justify-center">
-                    <Link :data="item" :href="route('issues.create')">
+                    <Link id="add_issue_link"
+                          :data="{ item: item }"
+                          :href="route('issues.create')">
                         <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
                             Add a new issue
                         </div>
                     </Link>
 
-                    <Link :data="item" :href="route('items.edit', item.id)">
+                    <Link id="item_edit_link"
+                          :data="item"
+                          :href="route('items.edit', item.id)">
                         <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
                             Edit item
                         </div>
                     </Link>
 
-                    <button type="button"
+                    <button id="iten_delete_button"
+                            type="button"
                             @click="destroy(item.id)">
                         <span class="p-4 hover:bg-gray-50 hover:text-indigo-400">
                             Delete item
