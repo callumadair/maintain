@@ -38,51 +38,51 @@ Route::middleware([
     Route::redirect('/', '/dashboard');
 
     Route::controller(ItemController::class)
-        ->prefix('items')->group(function () {
+        ->name('items.')->prefix('items')->group(function () {
             Route::get('/', 'index')
-                ->name('items.index');
+                ->name('index');
 
             Route::get('/create', 'create')
-                ->name('items.create');
+                ->name('create');
 
             Route::post('/store', 'store')
-                ->name('items.store');
+                ->name('store');
 
             Route::get('/{item}', 'show')
-                ->name('items.show');
+                ->name('show');
 
             Route::get('/edit/{item}', 'edit')
-                ->name('items.edit');
+                ->name('edit');
 
             Route::post('/update/{item}', 'update')
-                ->name('items.update');
+                ->name('update');
 
             Route::delete('/destroy/{item}', 'destroy')
-                ->name('items.destroy');
+                ->name('destroy');
         });
 
     Route::controller(IssueController::class)
-        ->prefix('issues')->group(function () {
+        ->name('issues.')->prefix('issues')->group(function () {
             Route::get('/', 'index')
-                ->name('issues.index');
+                ->name('index');
 
             Route::get('/create/{item?}', 'create')
-                ->name('issues.create');
+                ->name('create');
 
             Route::post('/store', 'store')
-                ->name('issues.store');
+                ->name('store');
 
             Route::get('/{issue}', 'show')
-                ->name('issues.show');
+                ->name('show');
 
             Route::get('/edit/{issue}', 'edit')
-                ->name('issues.edit');
+                ->name('edit');
 
             Route::post('/update/{issue}', 'update')
-                ->name('issues.update');
+                ->name('update');
 
             Route::delete('/destroy/{issue}', 'destroy')
-                ->name('issues.destroy');
+                ->name('destroy');
         });
 });
 
