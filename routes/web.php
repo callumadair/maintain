@@ -69,13 +69,13 @@ Route::middleware([
             Route::get('/item_select', 'item_select')
                 ->name('item_select');
 
-            //Make the item parameter non-optional
-            Route::get('/create/{item?}', 'create')
-                ->name('create');
-
             Route::post('/store', 'store')
                 ->name('store');
 
+            //Make the item parameter non-optional
+            Route::get('/create/{item?}', 'create')
+                ->name('create');
+            
             Route::get('/{issue}', 'show')
                 ->name('show');
 
