@@ -64,7 +64,7 @@ Route::middleware([
         Route::get('/issues', 'index')
             ->name('issues.index');
 
-        Route::get('issues/create', 'create')
+        Route::get('issues/create/{item?}', 'create')
             ->name('issues.create');
 
         Route::post('issues/store', 'store')
