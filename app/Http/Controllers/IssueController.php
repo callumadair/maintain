@@ -41,6 +41,7 @@ class IssueController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param int $id
      * @return Response
      */
     public function create(int $id): Response
@@ -227,5 +228,25 @@ class IssueController extends Controller
         $issue->delete();
 
         return redirect()->route('issues.index')->with('status', 'Issue deleted!');
+    }
+
+
+    /**
+     * @return Response
+     */
+    public function item_select(): Response
+    {
+        return Inertia::render('Issues/ItemSelect', [
+            'items' => Item::all()->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'description' => $item->description,
+                    'user' => $item->user,
+                    'issues' => $item->issues,
+                    'images' => $item->images,
+                ];
+            }),
+        ]);
     }
 }
