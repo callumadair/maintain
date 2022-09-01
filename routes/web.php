@@ -66,6 +66,7 @@ Route::middleware([
             Route::get('/', 'index')
                 ->name('index');
 
+            //Make the item parameter non-optional
             Route::get('/create/{item?}', 'create')
                 ->name('create');
 
