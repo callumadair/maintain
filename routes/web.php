@@ -37,51 +37,53 @@ Route::middleware([
 
     Route::redirect('/', '/dashboard');
 
-    Route::controller(ItemController::class)->group(function () {
-        Route::get('/items', 'index')
-            ->name('items.index');
+    Route::controller(ItemController::class)
+        ->prefix('items')->group(function () {
+            Route::get('/', 'index')
+                ->name('items.index');
 
-        Route::get('items/create', 'create')
-            ->name('items.create');
+            Route::get('/create', 'create')
+                ->name('items.create');
 
-        Route::post('items/store', 'store')
-            ->name('items.store');
+            Route::post('/store', 'store')
+                ->name('items.store');
 
-        Route::get('/items/{item}', 'show')
-            ->name('items.show');
+            Route::get('/{item}', 'show')
+                ->name('items.show');
 
-        Route::get('items/edit/{item}', 'edit')
-            ->name('items.edit');
+            Route::get('/edit/{item}', 'edit')
+                ->name('items.edit');
 
-        Route::post('items/update/{item}', 'update')
-            ->name('items.update');
+            Route::post('/update/{item}', 'update')
+                ->name('items.update');
 
-        Route::delete('items/destroy/{item}', 'destroy')
-            ->name('items.destroy');
-    });
+            Route::delete('/destroy/{item}', 'destroy')
+                ->name('items.destroy');
+        });
 
-    Route::controller(IssueController::class)->group(function () {
-        Route::get('/issues', 'index')
-            ->name('issues.index');
+    Route::controller(IssueController::class)
+        ->prefix('issues')->group(function () {
+            Route::get('/', 'index')
+                ->name('issues.index');
 
-        Route::get('issues/create/{item?}', 'create')
-            ->name('issues.create');
+            Route::get('/create/{item?}', 'create')
+                ->name('issues.create');
 
-        Route::post('issues/store', 'store')
-            ->name('issues.store');
+            Route::post('/store', 'store')
+                ->name('issues.store');
 
-        Route::get('/issues/{issue}', 'show')
-            ->name('issues.show');
+            Route::get('/{issue}', 'show')
+                ->name('issues.show');
 
-        Route::get('issues/edit/{issue}', 'edit')
-            ->name('issues.edit');
+            Route::get('/edit/{issue}', 'edit')
+                ->name('issues.edit');
 
-        Route::post('issues/update/{issue}', 'update')
-            ->name('issues.update');
+            Route::post('/update/{issue}', 'update')
+                ->name('issues.update');
 
-        Route::delete('issues/destroy/{issue}', 'destroy')
-            ->name('issues.destroy');
-    });
+            Route::delete('/destroy/{issue}', 'destroy')
+                ->name('issues.destroy');
+        });
 });
 
 
