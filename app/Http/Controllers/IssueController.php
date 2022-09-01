@@ -43,11 +43,11 @@ class IssueController extends Controller
      *
      * @return Response
      */
-    public function create(): Response
+    public function create(int $id): Response
     {
         return Inertia::render('Issues/Create', [
             'originator' => Auth::user(),
-            'item' => Item::all()->random(),
+            'item' => Item::all()->find($id),
         ]);
     }
 
