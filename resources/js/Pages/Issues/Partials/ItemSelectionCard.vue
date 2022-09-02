@@ -14,7 +14,7 @@ const props = defineProps({
 <template>
     <Link :href="route('issues.create', item.id)">
         <div class="p-6 w-80 h-36 flex flex-row flex-nowrap place-items-center bg-white rounded-lg overflow-hidden
-        hover:text-indigo-400 hover:border-2 hover:border-indigo-300">
+        hover:text-indigo-400 hover:border-2 hover:border-indigo-300 text-lg">
             <div class="flex-1">
                 {{ item.name }}
             </div>
