@@ -45,8 +45,9 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
                            for="issues_list">
                         Issues associated with this item.
                     </label>
+                    <div class="border-b-2 border-gray-200 rounded-lg"/>
                     <div class="m-2 overflow-y-scroll max-h-24 scrollbar-thin scrollbar-thumb-slate-200">
-                        <div class="border-b-2 border-gray-200 rounded-lg"/>
+
                         <ul id="issues_list">
                             <li v-for="issue in item.issues">
                                 <Link id="issue_show_link"
