@@ -12,17 +12,16 @@ const props = defineProps({
 </script>
 
 <template>
-    <div>
-        <Link :data="issue"
-              :href="route('issues.show', issue.id)">
-            <div class="grid text-center place-items-center p-3 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
-                {{ issue.title }}
-                <div v-if="issue.images.length > 0"
-                     class="w-48 place-items-center">
-                    <img :src="issue.images[0]['image_path']"
-                         alt="First image linked to this issue, if it has any.">
-                </div>
+    <Link :data="issue"
+          :href="route('issues.show', issue.id)">
+        <div class="grid p-3 h-48 bg-white text-center place-items-center rounded-lg
+             hover:text-indigo-400 hover:border-2 hover:border-indigo-200">
+            {{ issue.title }}
+            <div v-if="issue.images.length > 0"
+                 class="w-48 place-items-center">
+                <img :src="issue.images[0]['image_path']"
+                     alt="First image linked to this issue, if it has any.">
             </div>
-        </Link>
-    </div>
+        </div>
+    </Link>
 </template>
