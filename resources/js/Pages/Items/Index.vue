@@ -24,11 +24,11 @@ const props = defineProps({
 
         <ContentStyle>
             <template #content>
-                <ul>
-                    <li v-for="item in items">
+                <div class="grid grid-cols-4 gap-4 overflow-hidden">
+                    <div v-for="item in items">
                         <ItemCard :item="item"/>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </template>
         </ContentStyle>
     </AppLayout>
