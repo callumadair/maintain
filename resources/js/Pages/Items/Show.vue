@@ -79,7 +79,7 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
                         </div>
                     </Link>
 
-                    <button id="iten_delete_button"
+                    <button id="item_delete_button"
                             type="button"
                             @click="destroy(item.id)">
                         <span class="p-4 hover:bg-gray-50 hover:text-indigo-400">
