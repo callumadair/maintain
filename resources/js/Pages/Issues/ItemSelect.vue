@@ -1,6 +1,5 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 
 import {PropType} from "vue";
 import ItemSelectionCard from "./Partials/ItemSelectionCard.vue";
@@ -22,14 +21,14 @@ const props = defineProps({
             </h2>
         </template>
 
-        <ContentStyle>
-            <template #content>
-                <ul>
-                    <li v-for="item in items">
-                        <ItemSelectionCard :item="item"/>
-                    </li>
-                </ul>
-            </template>
-        </ContentStyle>
+        <div class="grid justify-center">
+            <div class="py-6 grid grid-cols-3 gap-x-3 rounded-lg justify-center">
+                <div v-for="item in items"
+                     class="my-2 overflow-hidden">
+                    <ItemSelectionCard :item="item"/>
+                </div>
+            </div>
+        </div>
+
     </AppLayout>
 </template>
