@@ -13,14 +13,15 @@ const props = defineProps({
 
 <template>
     <Link :href="route('issues.create', item.id)">
-        <div class="flex flex-row flex-nowrap bg-white p-6 w-96 hover:bg-gray-50 rounded-lg overflow-hidden">
+        <div class="p-6 w-80 h-36 flex flex-row flex-nowrap place-items-center bg-white rounded-lg overflow-hidden
+        hover:text-indigo-400 hover:border-2 hover:border-indigo-300">
             <div class="flex-1">
                 {{ item.name }}
             </div>
             <img v-if="item.images.length > 0"
                  :src="item.images[0]['image_path']"
                  alt="First image linked to this item, if it has any."
-                 class="w-36 justify-self-end">
+                 class="h-3/4 justify-self-end">
         </div>
     </Link>
 </template>
