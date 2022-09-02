@@ -21,7 +21,7 @@ const props = defineProps({
             <img v-if="item.images.length > 0"
                  :src="item.images[0]['image_path']"
                  alt="First image linked to this item, if it has any."
-                 class="h-3/4 justify-self-end">
+                 class="h-3/4">
         </div>
     </Link>
 </template>
