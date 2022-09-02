@@ -14,7 +14,7 @@ const props = defineProps({
 <template>
     <Link :data="item"
           :href="route('items.show', item.id)">
-        <div class="grid h-48 p-3 text-center place-items-center rounded-lg bg-white
+        <div class="grid h-48 p-3 text-center place-items-center rounded-lg bg-white text-lg
             hover:text-indigo-400 hover:border-2 hover:border-indigo-200">
             {{ item.name }}
             <div v-if="item.images.length > 0"
