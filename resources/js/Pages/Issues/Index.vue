@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import IssueCard from '@/Pages/Issues/Partials/IssueCard.vue';
 import {PropType} from "vue";
 import Issue = App.Models.Issue;
@@ -21,14 +20,16 @@ const props = defineProps({
             </h2>
         </template>
 
-        <ContentStyle>
-            <template #content>
-                <div class="grid grid-cols-4 gap-4 overflow-hidden">
-                    <div v-for="issue in issues">
-                        <IssueCard :issue="issue"/>
+        <div class="py-6">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="p-2 overflow-hidden">
+                    <div class="grid grid-cols-4 gap-4 overflow-hidden">
+                        <div v-for="issue in issues">
+                            <IssueCard :issue="issue"/>
+                        </div>
                     </div>
                 </div>
-            </template>
-        </ContentStyle>
+            </div>
+        </div>
     </AppLayout>
 </template>
