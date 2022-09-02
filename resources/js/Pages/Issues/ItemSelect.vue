@@ -22,7 +22,7 @@ const props = defineProps({
         </template>
 
         <div class="grid justify-center">
-            <div class="py-6 grid grid-cols-3 gap-x-3 rounded-lg justify-center">
+            <div class="py-6 grid grid-cols-3 gap-x-4 gap-y-2 rounded-lg justify-center">
                 <div v-for="item in items"
                      class="my-2 overflow-hidden">
                     <ItemSelectionCard :item="item"/>
