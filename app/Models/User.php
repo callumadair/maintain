@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -65,8 +64,13 @@ class User extends Authenticatable
         return $this->hasMany(Item::class);
     }
 
-    public function issues(): HasMany
+    public function originated(): HasMany
     {
-        return $this->hasMany(Issue::class);
+        return $this->hasMany(Issue::class, 'originator_id');
+    }
+
+    public function assigned(): HasMany
+    {
+        return $this->hasMany(Issue::class, 'assignee_id');
     }
 }
