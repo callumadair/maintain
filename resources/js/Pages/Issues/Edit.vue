@@ -64,7 +64,7 @@ const handleImagesChanged = (image_id: number) => {
                 <form class="grid grid-cols-1 space-y-6 p-3 m-3` justify-center place-items-center"
                       @submit.prevent="submit">
 
-                    <div class="grid justify-center space-y-2 place-items-center">
+                    <div class="grid space-y-2 justify-center place-items-center">
                         <label class="text-lg"
                                for="issue_title">
                             Title
@@ -76,7 +76,7 @@ const handleImagesChanged = (image_id: number) => {
                     </div>
 
 
-                    <div class="grid justify-center space-y-2 place-items-center">
+                    <div class="grid space-y-2 justify-center place-items-center">
                         <label class="text-lg"
                                for="issue_description">
                             Description
@@ -96,7 +96,7 @@ const handleImagesChanged = (image_id: number) => {
                                      @images-changed="handleImagesChanged"/>
                     </div>
 
-                    <div class="grid justify-center space-y-2 place-items-center">
+                    <div class="grid space-y-2 justify-center place-items-center">
                         <label class="text-lg"
                                for="issue_images">
                             Images
@@ -110,7 +110,7 @@ const handleImagesChanged = (image_id: number) => {
                                @input="form.issue_images = $event.target.files">
                     </div>
 
-                    <div class="justify-center space-y-2 hover:bg-white">
+                    <div class="space-y-2 justify-center hover:bg-white">
                         <button :disabled="form.processing"
                                 type="submit">
                             <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
