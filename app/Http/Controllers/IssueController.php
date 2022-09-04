@@ -177,6 +177,8 @@ class IssueController extends Controller
                 'name' => $originator->name,
                 'profile_photo_path' => $originator->profile_photo_path,
                 'is_admin' => $originator->is_admin,
+                'created_at' => $originator->created_at,
+                'updated_at' => $originator->updated_at,
             ],
             'users' => User::all()->map(function ($user) {
                 return [
@@ -184,6 +186,8 @@ class IssueController extends Controller
                     'name' => $user->name,
                     'profile_photo_path' => $user->profile_photo_path,
                     'is_admin' => $user->is_admin,
+                    'created_at' => $user->created_at,
+                    'updated_at' => $user->updated_at,
                 ];
             }),
         ]);
