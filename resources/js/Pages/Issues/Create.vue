@@ -85,6 +85,13 @@ const submit = () => form.post(route('issues.store'));
                                @input="form.issue_images = $event.target.files">
                     </div>
 
+                    <div class="grid justify-center space-y-3 place-items-center">
+                        <label class="text-lg"
+                               for="user_select">
+                            Select a user to assign this issue to
+                        </label>
+                    </div>
+
                     <div class="py-6">
                         <button :disabled="form.processing"
                                 type="submit">
