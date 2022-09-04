@@ -96,7 +96,7 @@ const submit = () => form.post(route('issues.store'));
                         </label>
                     </div>
 
-                    <div class="py-6">
+                    <div class="py-6 border-2 border-gray-300 rounded-lg">
                         <button :disabled="form.processing"
                                 type="submit">
                             <span class="m-2 p-4 space-x-2 hover:bg-gray-50 hover:text-indigo-400 rounded-lg">
