@@ -31,7 +31,8 @@ const greyOut = (image_id: number) => {
                 <button type="button"
                         @click="greyOut(image.id);
                         $emit('imagesChanged', image.id)">
-                    <img :src="RemoveMediaImage" alt="Delete square.">
+                    <img :src="RemoveMediaImage"
+                         alt="Delete square.">
                 </button>
                 <img :id="'image' + image.id"
                      :src="image['image_path']"
