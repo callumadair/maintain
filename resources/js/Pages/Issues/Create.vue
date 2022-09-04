@@ -92,7 +92,7 @@ const submit = () => form.post(route('issues.store'));
                     <div class="grid justify-center space-y-3 place-items-center">
                         <label class="text-lg"
                                for="user_select">
-                            Select a user to assign this issue to
+                            Select a user to assign this issue to:
                         </label>
                     </div>
 
