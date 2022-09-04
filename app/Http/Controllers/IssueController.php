@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\Issue;
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -154,6 +155,8 @@ class IssueController extends Controller
     public function edit(int $id): Response
     {
         $issue = Issue::all()->find($id);
+        $originator = Auth::user();
+
         return Inertia::render('Issues/Edit', [
             'issue' => [
                 'id' => $issue->id,
@@ -169,7 +172,20 @@ class IssueController extends Controller
                 'assignee' => $issue->assignee,
                 'images' => $issue->images,
             ],
-            'originator' => Auth::user(),
+            'originator' => [
+                'id' => $originator->id,
+                'name' => $originator->name,
+                'profile_photo_path' => $originator->profile_photo_path,
+                'is_admin' => $originator->is_admin,
+            ],
+            'users' => User::all()->map(function ($user) {
+                return [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'profile_photo_path' => $user->profile_photo_path,
+                    'is_admin' => $user->is_admin,
+                ];
+            }),
         ]);
     }
 
