@@ -61,9 +61,10 @@ const handleImagesChanged = (image_id: number) => {
 
         <ContentStyle>
             <template #content>
-                <form class="grid grid-cols-1 space-y-6 p-3 m-3` justify-center"
+                <form class="grid grid-cols-1 space-y-6 p-3 m-3` justify-center place-items-center"
                       @submit.prevent="submit">
-                    <div class="grid justify-center space-y-2">
+
+                    <div class="grid justify-center space-y-2 place-items-center">
                         <label class="text-lg"
                                for="issue_title">
                             Title
@@ -75,7 +76,7 @@ const handleImagesChanged = (image_id: number) => {
                     </div>
 
 
-                    <div class="grid justify-center space-y-2">
+                    <div class="grid justify-center space-y-2 place-items-center">
                         <label class="text-lg"
                                for="issue_description">
                             Description
@@ -90,7 +91,7 @@ const handleImagesChanged = (image_id: number) => {
                                      @images-changed="handleImagesChanged"/>
                     </div>
 
-                    <div class="grid justify-center space-y-2">
+                    <div class="grid justify-center space-y-2 place-items-center">
                         <label class="text-lg"
                                for="issue_images">
                             Images
