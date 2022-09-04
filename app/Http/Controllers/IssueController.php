@@ -111,6 +111,7 @@ class IssueController extends Controller
     {
         $issue = Issue::all()->find($id);
         $issue_item = Item::all()->find($issue->item_id);
+
         return Inertia::render('Issues/Show', [
             'issue' => [
                 'id' => $issue->id,
