@@ -82,8 +82,13 @@ const handleImagesChanged = (image_id: number) => {
                                   scrollbar-thin scrollbar-thumb-slate-200"/>
                     </div>
 
-                    <div v-if="item.images.length > 0">
-                        <EditGallery :images="item.images"
+                    <div v-if="item.images.length > 0"
+                         class="grid space-y-3 justify-center place-items-center text-lg">
+                        <label for="edit_gallery">
+                            Remove Images
+                        </label>
+                        <EditGallery id="edit_gallery"
+                                     :images="item.images"
                                      @images-changed="handleImagesChanged"/>
                     </div>
 
