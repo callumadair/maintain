@@ -18,21 +18,33 @@ class Issue extends Model
 {
     use HasFactory;
 
+    /**
+     * @return BelongsTo
+     */
     public function item(): BelongsTo
     {
         return $this->belongsTo(Item::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function originator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'originator_id');
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function assignee(): BelongsTo
     {
         return $this->belongsTo(User::class, 'assignee_id');
     }
 
+    /**
+     * @return HasMany
+     */
     public function images(): HasMany
     {
         return $this->hasMany(Image::class);
