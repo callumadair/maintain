@@ -48,7 +48,7 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
                     <div class="border border-1 border-gray-300 rounded-lg"/>
                     <Link id="item_link"
                           :href="route('items.show', issue.item_id)"
-                          class="p-2 hover:text-indigo-400 hover:bg-gray-50 rounded-lg">
+                          class="p-2">
                         <ItemCard :item="issue.item"/>
                     </Link>
                 </div>
