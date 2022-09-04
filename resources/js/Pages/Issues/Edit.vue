@@ -86,8 +86,13 @@ const handleImagesChanged = (image_id: number) => {
                                   class="resize-none rounded-lg text-center border-transparent w-72 h-36 bg-gray-50"/>
                     </div>
 
-                    <div v-if="issue.images.length > 0">
-                        <EditGallery :images="issue.images"
+                    <div v-if="issue.images.length > 0"
+                         class="grid space-y-2 justify-center place-items-center text-lg">
+                        <label for="edit_gallery">
+                            Remove Images
+                        </label>
+                        <EditGallery id="edit_gallery"
+                                     :images="issue.images"
                                      @images-changed="handleImagesChanged"/>
                     </div>
 
