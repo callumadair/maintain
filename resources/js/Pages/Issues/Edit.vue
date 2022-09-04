@@ -110,7 +110,7 @@ const handleImagesChanged = (image_id: number) => {
                                @input="form.issue_images = $event.target.files">
                     </div>
 
-                    <div class="space-y-3 justify-center hover:bg-white">
+                    <div class="py-6 space-y-3 justify-center hover:bg-white">
                         <button :disabled="form.processing"
                                 type="submit">
                             <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
