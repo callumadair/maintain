@@ -122,6 +122,10 @@ class IssueController extends Controller
                 'title' => $issue->title,
                 'description' => $issue->description,
                 'item_id' => $issue->item_id,
+                'originator_id' => $issue->originator_id,
+                'assignee_id' => $issue->originator_id,
+                'created_at' => $issue->created_at,
+                'updated_at' => $issue->updated_at,
                 'item' => [
                     'id' => $issue_item->id,
                     'name' => $issue_item->name,
@@ -133,8 +137,7 @@ class IssueController extends Controller
                     'issues' => $issue_item->issues,
                     'images' => $issue_item->images,
                 ],
-                'originator_id' => $issue->originator_id,
-                'assignee_id' => $issue->assignee_id,
+                'users' => $issue->users,
                 'images' => $issue->images,
             ],
         ]);
