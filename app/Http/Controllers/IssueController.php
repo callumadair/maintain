@@ -55,6 +55,16 @@ class IssueController extends Controller
         return Inertia::render('Issues/Create', [
             'originator' => Auth::user(),
             'item' => Item::all()->find($id),
+            'users' => User::all()->map(function ($user) {
+                return [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'profile_photo_path' => $user->profile_photo_path,
+                    'is_admin' => $user->is_admin,
+                    'created_at' => $user->created_at,
+                    'updated_at' => $user->updated_at,
+                ];
+            }),
         ]);
     }
 
