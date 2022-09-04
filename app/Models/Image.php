@@ -17,16 +17,25 @@ class Image extends Model
 {
     use HasFactory;
 
+    /**
+     * @return BelongsTo
+     */
     public function item(): BelongsTo
     {
         return $this->belongsTo(Item::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function issue(): BelongsTo
     {
         return $this->belongsTo(Issue::class);
     }
 
+    /**
+     * @return void
+     */
     protected static function booted()
     {
         parent::booted();
