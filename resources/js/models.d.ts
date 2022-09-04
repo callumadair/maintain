@@ -15,9 +15,9 @@ declare namespace App.Models {
         created_at: string | null;
         updated_at: string | null;
         item?: App.Models.Item | null;
-        users?: Array<App.Models.User> | null;
+        originator?: App.Models.User | null;
+        assignee?: App.Models.User | null;
         images?: Array<App.Models.Image> | null;
-        users_count?: number | null;
         images_count?: number | null;
     }
 
@@ -37,9 +37,11 @@ declare namespace App.Models {
         created_at: string | null;
         updated_at: string | null;
         items?: Array<App.Models.Item> | null;
-        issues?: Array<App.Models.Issue> | null;
+        originated?: Array<App.Models.Issue> | null;
+        assigned?: Array<App.Models.Issue> | null;
         items_count?: number | null;
-        issues_count?: number | null;
+        originated_count?: number | null;
+        assigned_count?: number | null;
         readonly profile_photo_url?: any;
     }
 
