@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
+import UserCard from "@/Pages/Users/Partials/UserCard.vue";
+
 import {InertiaForm, useForm} from '@inertiajs/inertia-vue3';
 import {PropType} from "vue";
 import User = App.Models.User;
@@ -94,6 +96,12 @@ const submit = () => form.post(route('issues.store'));
                                for="user_select">
                             Select a user to assign this issue to:
                         </label>
+
+                        <div id="user_select">
+                            <div v-for="user in users">
+                                <UserCard :user="user"/>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="py-6">
