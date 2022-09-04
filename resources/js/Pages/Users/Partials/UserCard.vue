@@ -13,8 +13,7 @@ const greyOut = (user_id: number) => {
     let user_element = document.getElementById("user" + user_id) as HTMLDivElement;
     user_element.classList.toggle("bg-gray-50");
     user_element.classList.toggle("text-indigo-400");
-}
-
+};
 </script>
 
 <template>
