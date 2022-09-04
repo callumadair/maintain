@@ -110,13 +110,24 @@ class IssueController extends Controller
     public function show(int $id): Response
     {
         $issue = Issue::all()->find($id);
+        $issue_item = Item::all()->find($issue->item_id);
         return Inertia::render('Issues/Show', [
             'issue' => [
                 'id' => $issue->id,
                 'title' => $issue->title,
                 'description' => $issue->description,
                 'item_id' => $issue->item_id,
-                'item' => $issue->item,
+                'item' => [
+                    'id' => $issue_item->id,
+                    'name' => $issue_item->name,
+                    'description' => $issue_item->description,
+                    'user_id' => $issue_item->user_id,
+                    'created_at' => $issue_item->created_at,
+                    'updated_at' => $issue_item->updated_at,
+                    'user' => $issue_item->user,
+                    'issues' => $issue_item->issues,
+                    'images' => $issue_item->images,
+                ],
                 'originator_id' => $issue->originator_id,
                 'assignee_id' => $issue->assignee_id,
                 'images' => $issue->images,
