@@ -38,7 +38,11 @@ const form: InertiaForm<{
     originator_id: props.originator.id,
     //temporarily set the assignee id to the originator id value.
     assignee_id: props.originator.id,
-})
+});
+
+const handleUserSelected = () => {
+
+};
 
 const submit = () => form.post(route('issues.store'));
 </script>
@@ -99,7 +103,8 @@ const submit = () => form.post(route('issues.store'));
 
                         <div id="user_select">
                             <div v-for="user in users">
-                                <UserCard :user="user"/>
+                                <UserCard :user="user"
+                                @user-selected="handleUserSelected"/>
                             </div>
                         </div>
                     </div>
