@@ -17,16 +17,25 @@ class Item extends Model
 {
     use HasFactory;
 
+    /**
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return HasMany
+     */
     public function issues(): HasMany
     {
         return $this->hasMany(Issue::class);
     }
 
+    /**
+     * @return HasMany
+     */
     public function images(): HasMany
     {
         return $this->hasMany(Image::class);
