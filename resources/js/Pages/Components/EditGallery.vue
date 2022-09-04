@@ -36,7 +36,6 @@ const greyOut = (image_id: number) => {
                 <img :id="'image' + image.id"
                      :src="image['image_path']"
                      alt="An image of an item"/>
-
             </div>
         </div>
 </template>
