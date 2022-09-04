@@ -15,6 +15,10 @@ const props = defineProps({
         type: Object as PropType<Item>,
         required: true,
     },
+    users: {
+        type: Array as PropType<Array<User>>,
+        required: true
+    },
 });
 
 const form: InertiaForm<{
