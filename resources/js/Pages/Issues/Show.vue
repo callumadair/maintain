@@ -2,6 +2,8 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import Gallery from '@/Pages/Components/Gallery.vue';
+import ItemCard from '@/Pages/Items/Partials/ItemCard.vue';
+
 import {Link} from '@inertiajs/inertia-vue3';
 import {Inertia} from "@inertiajs/inertia";
 import {PropType} from "vue";
@@ -47,7 +49,7 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
                     <Link id="item_link"
                           :href="route('items.show', issue.item_id)"
                           class="p-2 hover:text-indigo-400 hover:bg-gray-50 rounded-lg">
-                        {{ issue.item.name }}
+                        <ItemCard :item="issue.item"/>
                     </Link>
                 </div>
             </div>
