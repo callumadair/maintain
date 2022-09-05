@@ -10,12 +10,16 @@ import User = App.Models.User;
 import Issue = App.Models.Issue;
 
 const props = defineProps({
+    issue: {
+        type: Object as PropType<Issue>,
+        required: true,
+    },
     originator: {
         type: Object as PropType<User>,
         required: true,
     },
-    issue: {
-        type: Object as PropType<Issue>,
+    assignee: {
+        type: Object as PropType<User>,
         required: true,
     },
     users: {
