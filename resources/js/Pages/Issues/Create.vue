@@ -101,12 +101,10 @@ const submit = () => form.post(route('issues.store'));
                             Select a user to assign this issue to:
                         </label>
 
-                        <div id="user_select">
-                            <UserCard v-for="user in users"
-                                      :id="'user' + user.id"
-                                      :user="user"
-                                      @user-selected="handleUserSelected"/>
-                        </div>
+                        <UserCard v-for="user in users"
+                                  :id="'user' + user.id"
+                                  :user="user"
+                                  @user-selected="handleUserSelected"/>
                     </div>
 
                     <div class="py-6">
