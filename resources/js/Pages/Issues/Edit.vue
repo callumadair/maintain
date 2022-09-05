@@ -42,8 +42,7 @@ const form: InertiaForm<{
     issue_images: [],
     item_id: props.issue.item_id,
     originator_id: props.originator.id,
-    //temporarily set the assignee id to the originator id value.
-    assignee_id: props.originator.id,
+    assignee_id: props.assignee.id,
     images_deleted: null,
 })
 
