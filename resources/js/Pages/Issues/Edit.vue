@@ -2,6 +2,8 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import EditGallery from '@/Pages/Components/EditGallery.vue';
+import UserCard from '@/Pages/Users/Partials/UserCard.vue';
+
 import {InertiaForm, useForm, usePage} from '@inertiajs/inertia-vue3';
 import {PropType} from "vue";
 import User = App.Models.User;
@@ -108,6 +110,15 @@ const handleImagesChanged = (image_id: number) => {
                                name="image"
                                type="file"
                                @input="form.issue_images = $event.target.files">
+                    </div>
+
+                    <div id="users_list"
+                         class="max-h-48 w-[30rem] overflow-y-scroll
+                                    scrollbar-thin scrollbar-thumb-gray-200">
+                        <UserCard v-for="user in users"
+                                  :id="'user' + user.id"
+                                  :user="user"
+                                  @user-selected="handleUserSelected"/>
                     </div>
 
                     <div class="py-6">
