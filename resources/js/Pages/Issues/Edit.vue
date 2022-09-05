@@ -59,6 +59,21 @@ const handleImagesChanged = (image_id: number) => {
     }
     form.images_deleted = JSON.stringify(Array.from(imagesChangedSet));
 };
+
+const handleUserSelected = (userID: number) => {
+    let userElements = (document.getElementById("users_list") as HTMLDivElement).children;
+
+    for (let i = 0; i < userElements.length; i++) {
+        let userElement = userElements[i];
+        userElement.classList.remove("bg-gray-50");
+        userElement.classList.remove("text-indigo-400");
+    }
+
+    form.assignee_id = userID;
+    let selectedElement = document.getElementById("user" + userID) as HTMLElement;
+    selectedElement.classList.toggle("bg-gray-50");
+    selectedElement.classList.toggle("text-indigo-400");
+};
 </script>
 
 <template>
