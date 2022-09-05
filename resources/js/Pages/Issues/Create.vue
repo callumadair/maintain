@@ -40,8 +40,18 @@ const form: InertiaForm<{
     assignee_id: props.originator.id,
 });
 
-const handleUserSelected = () => {
+const handleUserSelected = (user_id: number) => {
+    let userElements = (document.getElementById("users_list") as HTMLDivElement).children;
 
+    for (let i = 0; i < userElements.length; i++) {
+        let userElement = userElements[i];
+        userElement.classList.remove("bg-gray-50");
+        userElement.classList.remove("text-indigo-400");
+    }
+
+    let selectedElement = document.getElementById("user" + user_id) as HTMLElement;
+    selectedElement.classList.toggle("bg-gray-50");
+    selectedElement.classList.toggle("text-indigo-400");
 };
 
 const submit = () => form.post(route('issues.store'));
@@ -101,10 +111,12 @@ const submit = () => form.post(route('issues.store'));
                             Select a user to assign this issue to:
                         </label>
 
-                        <UserCard v-for="user in users"
-                                  :id="'user' + user.id"
-                                  :user="user"
-                                  @user-selected="handleUserSelected"/>
+                        <div id="users_list">
+                            <UserCard v-for="user in users"
+                                      :id="'user' + user.id"
+                                      :user="user"
+                                      @user-selected="handleUserSelected"/>
+                        </div>
                     </div>
 
                     <div class="py-6">
