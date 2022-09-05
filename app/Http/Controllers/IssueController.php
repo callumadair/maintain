@@ -166,6 +166,7 @@ class IssueController extends Controller
     {
         $issue = Issue::all()->find($id);
         $originator = Auth::user();
+        $assignee = User::query()->find($issue->assignee_id);
 
         return Inertia::render('Issues/Edit', [
             'issue' => [
@@ -174,7 +175,7 @@ class IssueController extends Controller
                 'description' => $issue->description,
                 'item_id' => $issue->item_id,
                 'originator_id' => $issue->originator_id,
-                'assignee_id' => $issue->originator_id,
+                'assignee_id' => $issue->assignee_id,
                 'created_at' => $issue->created_at,
                 'updated_at' => $issue->updated_at,
                 'item' => $issue->item,
@@ -189,6 +190,14 @@ class IssueController extends Controller
                 'is_admin' => $originator->is_admin,
                 'created_at' => $originator->created_at,
                 'updated_at' => $originator->updated_at,
+            ],
+            'assignee' => [
+                'id' => $assignee->id,
+                'name' => $assignee->name,
+                'profile_photo_path' => $assignee->profile_photo_path,
+                'is_admin' => $assignee->is_admin,
+                'created_at' => $assignee->created_at,
+                'updated_at' => $assignee->updated_at,
             ],
             'users' => User::all()->map(function ($user) {
                 return [
