@@ -62,7 +62,7 @@ const handleImagesChanged = (image_id: number) => {
                     <div class="grid justify-center place-items-center space-y-3">
                         <label class="text-lg"
                                for="item_name">
-                            Name
+                            Edit the name
                         </label>
                         <input id="item_name"
                                v-model="form.item_name"
@@ -74,7 +74,7 @@ const handleImagesChanged = (image_id: number) => {
                     <div class="grid justify-center place-items-center space-y-3">
                         <label class="text-lg"
                                for="item_description">
-                            Description
+                            Edit the description
                         </label>
                         <textarea id="item_description"
                                   v-model="form.item_description"
