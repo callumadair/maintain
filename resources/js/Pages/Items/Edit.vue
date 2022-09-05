@@ -50,7 +50,7 @@ const handleImagesChanged = (image_id: number) => {
     <AppLayout title="Edit this item">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Edit this item
+                Item Editing
             </h2>
         </template>
 
