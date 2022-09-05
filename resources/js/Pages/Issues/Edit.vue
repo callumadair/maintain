@@ -79,7 +79,7 @@ const submit = () => form.post(route('issues.update', usePage().props.value.issu
     <AppLayout title="Edit this issue">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Edit this issue
+                Issue Editing
             </h2>
         </template>
 
