@@ -120,13 +120,20 @@ const handleImagesChanged = (image_id: number) => {
                                @input="form.issue_images = $event.target.files">
                     </div>
 
-                    <div id="users_list"
-                         class="max-h-48 w-[30rem] overflow-y-scroll
+                    <div class="grid justify-center space-y-3 place-items-center">
+                        <label class="text-lg"
+                               for="user_select">
+                            Select a user to assign this issue to:
+                        </label>
+
+                        <div id="users_list"
+                             class="max-h-48 w-[30rem] overflow-y-scroll
                                     scrollbar-thin scrollbar-thumb-gray-200">
-                        <UserCard v-for="user in users"
-                                  :id="'user' + user.id"
-                                  :user="user"
-                                  @user-selected="handleUserSelected"/>
+                            <UserCard v-for="user in users"
+                                      :id="'user' + user.id"
+                                      :user="user"
+                                      @user-selected="handleUserSelected"/>
+                        </div>
                     </div>
 
                     <div class="py-6">
