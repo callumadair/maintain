@@ -135,7 +135,7 @@ class IssueController extends Controller
                 'description' => $issue->description,
                 'item_id' => $issue->item_id,
                 'originator_id' => $issue->originator_id,
-                'assignee_id' => $issue->originator_id,
+                'assignee_id' => $issue->assignee_id,
                 'created_at' => $issue->created_at,
                 'updated_at' => $issue->updated_at,
                 'item' => [
