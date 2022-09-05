@@ -137,7 +137,7 @@ const submit = () => form.post(route('issues.update', usePage().props.value.issu
                     <div class="grid justify-center space-y-3 place-items-center">
                         <label class="text-lg"
                                for="user_select">
-                            Select a user to assign this issue to:
+                            Select a user to change the assignee of this issue to:
                         </label>
 
                         <div id="users_list"
