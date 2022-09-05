@@ -25,7 +25,7 @@ const props = defineProps({
     users: {
         type: Array as PropType<Array<User>>,
         required: true,
-    }
+    },
 });
 
 const form: InertiaForm<{
@@ -46,8 +46,6 @@ const form: InertiaForm<{
     assignee_id: props.originator.id,
     images_deleted: null,
 })
-
-const submit = () => form.post(route('issues.update', usePage().props.value.issue));
 
 const imagesChangedSet = new Set();
 
@@ -74,6 +72,8 @@ const handleUserSelected = (userID: number) => {
     selectedElement.classList.toggle("bg-gray-50");
     selectedElement.classList.toggle("text-indigo-400");
 };
+
+const submit = () => form.post(route('issues.update', usePage().props.value.issue));
 </script>
 
 <template>
