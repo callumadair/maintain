@@ -102,10 +102,10 @@ const submit = () => form.post(route('issues.store'));
                         </label>
 
                         <div id="user_select">
-                            <div v-for="user in users">
-                                <UserCard :user="user"
-                                @user-selected="handleUserSelected"/>
-                            </div>
+                            <UserCard v-for="user in users"
+                                      :id="'user' + user.id"
+                                      :user="user"
+                                      @user-selected="handleUserSelected"/>
                         </div>
                     </div>
 
