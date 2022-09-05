@@ -112,7 +112,9 @@ const submit = () => form.post(route('issues.store'));
                             Select a user to assign this issue to:
                         </label>
 
-                        <div id="users_list">
+                        <div id="users_list"
+                             class="max-h-48 w-[30rem] overflow-y-scroll
+                                    scrollbar scrollbar-thumb-indigo-100">
                             <UserCard v-for="user in users"
                                       :id="'user' + user.id"
                                       :user="user"
