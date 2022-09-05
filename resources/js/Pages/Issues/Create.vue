@@ -40,7 +40,7 @@ const form: InertiaForm<{
     assignee_id: props.originator.id,
 });
 
-const handleUserSelected = (user_id: number) => {
+const handleUserSelected = (userID: number) => {
     let userElements = (document.getElementById("users_list") as HTMLDivElement).children;
 
     for (let i = 0; i < userElements.length; i++) {
@@ -49,7 +49,8 @@ const handleUserSelected = (user_id: number) => {
         userElement.classList.remove("text-indigo-400");
     }
 
-    let selectedElement = document.getElementById("user" + user_id) as HTMLElement;
+    form.assignee_id = userID;
+    let selectedElement = document.getElementById("user" + userID) as HTMLElement;
     selectedElement.classList.toggle("bg-gray-50");
     selectedElement.classList.toggle("text-indigo-400");
 };
