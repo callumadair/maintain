@@ -68,8 +68,8 @@ const handleUserSelected = (userID: number) => {
 
     form.assignee_id = userID;
     let selectedElement = document.getElementById("user" + userID) as HTMLElement;
-    selectedElement.classList.toggle("bg-gray-50");
-    selectedElement.classList.toggle("text-indigo-400");
+    selectedElement.classList.add("bg-gray-50");
+    selectedElement.classList.add("text-indigo-400");
 };
 
 const submit = () => form.post(route('issues.update', usePage().props.value.issue));
