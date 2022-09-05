@@ -123,7 +123,7 @@ const submit = () => form.post(route('issues.update', usePage().props.value.issu
                     <div class="grid space-y-3 justify-center place-items-center">
                         <label class="text-lg"
                                for="issue_images">
-                            Images
+                            Add Images
                         </label>
                         <input id="issue_images"
                                accept="image/png, image/jpeg, image/jpg"
