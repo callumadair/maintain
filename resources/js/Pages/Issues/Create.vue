@@ -114,7 +114,7 @@ const submit = () => form.post(route('issues.store'));
 
                         <div id="users_list"
                              class="max-h-48 w-[30rem] overflow-y-scroll
-                                    scrollbar scrollbar-thumb-indigo-100">
+                                    scrollbar-thin scrollbar-thumb-gray-200">
                             <UserCard v-for="user in users"
                                       :id="'user' + user.id"
                                       :user="user"
