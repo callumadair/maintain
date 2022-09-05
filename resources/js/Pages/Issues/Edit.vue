@@ -91,7 +91,7 @@ const submit = () => form.post(route('issues.update', usePage().props.value.issu
                     <div class="grid space-y-3 justify-center place-items-center">
                         <label class="text-lg"
                                for="issue_title">
-                            Title
+                            Edit the issue title
                         </label>
                         <input id="issue_title"
                                v-model="form.issue_title"
@@ -103,7 +103,7 @@ const submit = () => form.post(route('issues.update', usePage().props.value.issu
                     <div class="grid space-y-3 justify-center place-items-center">
                         <label class="text-lg"
                                for="issue_description">
-                            Description
+                            Edit the issue description
                         </label>
                         <textarea id="issue_description"
                                   v-model="form.issue_description"
