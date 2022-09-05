@@ -29,15 +29,14 @@ const form: InertiaForm<{
     issue_images: File[] | null,
     item_id: number,
     originator_id: number,
-    assignee_id: number,
+    assignee_id: number | null,
 }> = useForm({
     issue_title: null,
     issue_description: null,
     issue_images: null,
     item_id: props.item.id,
     originator_id: props.originator.id,
-    //temporarily set the assignee id to the originator id value.
-    assignee_id: props.originator.id,
+    assignee_id: null,
 });
 
 const handleUserSelected = (userID: number) => {
