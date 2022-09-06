@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import IssueCard from '@/Pages/Issues/Partials/IssueCard.vue';
+
 import {PropType} from "vue";
 import Issue = App.Models.Issue;
 
