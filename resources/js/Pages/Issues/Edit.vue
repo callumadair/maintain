@@ -147,7 +147,7 @@ const submit = () => form.post(route('issues.update', props.issue));
 
                         <div id="users_list"
                              class="max-h-48 w-[30rem] overflow-y-scroll
-                                    scrollbar-thin scrollbar-thumb-gray-200">
+                                    scrollbar-thin scrollbar-thumb-slate-200">
                             <UserCard v-for="user in users"
                                       :id="'user' + user.id"
                                       :user="user"
