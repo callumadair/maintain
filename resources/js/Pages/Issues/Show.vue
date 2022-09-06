@@ -30,6 +30,15 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
 
         <ContentStyle>
             <template #content>
+
+                <div id="associated_users"
+                     class="flex justify-center">
+                    <div>
+                        {{ issue.originator.name }}
+                        {{ issue.assignee.name }}
+                    </div>
+                </div>
+
                 <div v-if="issue.description"
                      id="issue_description"
                      class="p-2 text-center">
