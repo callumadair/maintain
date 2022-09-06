@@ -92,6 +92,8 @@ const submit = () => form.post(route('issues.update', props.issue));
                         </div>
                     </div>
 
+                    <div class="border-[1px] border-gray-200 rounded-lg w-full"/>
+
                     <div class="grid space-y-3 justify-center place-items-center">
                         <label class="text-lg"
                                for="issue_title">
