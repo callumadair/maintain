@@ -87,8 +87,6 @@ Route::middleware([
             Route::delete('/destroy/{issue}', 'destroy')
                 ->name('destroy');
         });
-
-
 });
 
 
