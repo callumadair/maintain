@@ -43,6 +43,8 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
                     </div>
                 </div>
 
+                <div class="border-[1px] border-gray-200 rounded-lg"/>
+
                 <div v-if="issue.description"
                      id="issue_description"
                      class="p-2 text-center">
