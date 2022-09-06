@@ -104,7 +104,8 @@ const submit = () => form.post(route('issues.update', props.issue));
                         </label>
                         <textarea id="issue_description"
                                   v-model="form.issue_description"
-                                  class="resize-none rounded-lg text-center border-transparent w-72 h-36 bg-gray-50"/>
+                                  class="w-72 h-36 resize-none rounded-lg text-center border-transparent  bg-gray-50
+                                        scrollbar-thin scrollbar-thumb-slate-200"/>
                     </div>
 
                     <div v-if="issue.images.length > 0"
