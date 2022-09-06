@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ItemSelectionCard from "./Partials/ItemSelectionCard.vue";
 
 import {PropType} from "vue";
-import ItemSelectionCard from "./Partials/ItemSelectionCard.vue";
 import Item = App.Models.Item;
 
 const props = defineProps({
