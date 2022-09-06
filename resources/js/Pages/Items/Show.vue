@@ -46,7 +46,7 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
 
                 <div v-if="item.issues.length > 0"
                      class="grid justify-center text-center">
-                    <div class="p-4 w-96 flex flex-col bg-white rounded-lg overflow-hidden border-2">
+                    <div class="p-4 w-96 flex flex-col rounded-lg overflow-hidden border-2">
                         <label class="m-2"
                                for="issues_list">
                             Issues associated with this item.
@@ -73,7 +73,7 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
                      class="border-[1px] border-gray-200 rounded-lg"/>
 
                 <div class="pb-4 flex justify-center">
-                    <div class="flex justify-center bg-white rounded-lg overflow-hidden border-2">
+                    <div class="flex justify-center rounded-lg overflow-hidden border-2">
                         <Link id="add_issue_link"
                               :href="route('issues.create', item.id)">
                             <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
