@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import RemoveMediaImage from 'iconoir/icons/remove-media-image.svg';
+
 import {PropType} from "vue";
 import Image = App.Models.Image;
 
