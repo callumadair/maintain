@@ -1,7 +1,4 @@
 <script setup>
-import {ref} from 'vue';
-import {Inertia} from '@inertiajs/inertia';
-import {Head, Link} from '@inertiajs/inertia-vue3';
 import JetApplicationMark from '@/Jetstream/ApplicationMark.vue';
 import JetBanner from '@/Jetstream/Banner.vue';
 import JetDropdown from '@/Jetstream/Dropdown.vue';
@@ -13,6 +10,10 @@ import NavbarDropdown from '@/Layouts/Partials/NavbarDropdown.vue';
 import HomeAlt from 'iconoir/icons/home-alt.svg';
 import BoxIso from 'iconoir/icons/box-iso.svg';
 import Book from 'iconoir/icons/book.svg';
+
+import {ref} from 'vue';
+import {Inertia} from '@inertiajs/inertia';
+import {Head, Link} from '@inertiajs/inertia-vue3';
 
 defineProps({
     title: String,
