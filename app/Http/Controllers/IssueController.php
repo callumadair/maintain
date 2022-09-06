@@ -165,7 +165,7 @@ class IssueController extends Controller
     public function edit(int $id): Response
     {
         $issue = Issue::all()->find($id);
-        $originator = Auth::user();
+        $originator = User::query()->find($issue->originator_id);
         $assignee = User::query()->find($issue->assignee_id);
 
         return Inertia::render('Issues/Edit', [
@@ -179,25 +179,23 @@ class IssueController extends Controller
                 'created_at' => $issue->created_at,
                 'updated_at' => $issue->updated_at,
                 'item' => $issue->item,
-                'originator' => $issue->originator,
-                'assignee' => $issue->assignee,
+                'originator' => [
+                    'id' => $originator->id,
+                    'name' => $originator->name,
+                    'profile_photo_path' => $originator->profile_photo_path,
+                    'is_admin' => $originator->is_admin,
+                    'created_at' => $originator->created_at,
+                    'updated_at' => $originator->updated_at,
+                ],
+                'assignee' => [
+                    'id' => $assignee->id,
+                    'name' => $assignee->name,
+                    'profile_photo_path' => $assignee->profile_photo_path,
+                    'is_admin' => $assignee->is_admin,
+                    'created_at' => $assignee->created_at,
+                    'updated_at' => $assignee->updated_at,
+                ],
                 'images' => $issue->images,
-            ],
-            'originator' => [
-                'id' => $originator->id,
-                'name' => $originator->name,
-                'profile_photo_path' => $originator->profile_photo_path,
-                'is_admin' => $originator->is_admin,
-                'created_at' => $originator->created_at,
-                'updated_at' => $originator->updated_at,
-            ],
-            'assignee' => [
-                'id' => $assignee->id,
-                'name' => $assignee->name,
-                'profile_photo_path' => $assignee->profile_photo_path,
-                'is_admin' => $assignee->is_admin,
-                'created_at' => $assignee->created_at,
-                'updated_at' => $assignee->updated_at,
             ],
             'users' => User::all()->map(function ($user) {
                 return [
