@@ -1,7 +1,6 @@
 <script setup>
 import {onMounted, onUnmounted, ref} from 'vue';
 
-
 let open = ref(false);
 
 const closeOnEscape = (e) => {
