@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
+
 import {InertiaForm, useForm} from '@inertiajs/inertia-vue3';
 import {PropType} from "vue";
 import User = App.Models.User;
