@@ -80,6 +80,11 @@ const submit = () => form.post(route('issues.update', props.issue));
                 <form class="grid grid-cols-1 space-y-6 p-3 m-3` justify-center place-items-center"
                       @submit.prevent="submit">
 
+                    <div id="associated_users">
+                        {{ issue.originator.name }}
+                        {{ issue.assignee.name }}
+                    </div>
+
                     <div class="grid space-y-3 justify-center place-items-center">
                         <label class="text-lg"
                                for="issue_title">
