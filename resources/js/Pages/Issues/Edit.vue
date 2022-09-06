@@ -4,7 +4,7 @@ import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import EditGallery from '@/Pages/Components/EditGallery.vue';
 import UserCard from '@/Pages/Users/Partials/UserCard.vue';
 
-import {InertiaForm, useForm, usePage} from '@inertiajs/inertia-vue3';
+import {InertiaForm, useForm} from '@inertiajs/inertia-vue3';
 import {PropType} from "vue";
 import User = App.Models.User;
 import Issue = App.Models.Issue;
@@ -12,14 +12,6 @@ import Issue = App.Models.Issue;
 const props = defineProps({
     issue: {
         type: Object as PropType<Issue>,
-        required: true,
-    },
-    originator: {
-        type: Object as PropType<User>,
-        required: true,
-    },
-    assignee: {
-        type: Object as PropType<User>,
         required: true,
     },
     users: {
@@ -41,8 +33,8 @@ const form: InertiaForm<{
     issue_description: props.issue.description,
     issue_images: [],
     item_id: props.issue.item_id,
-    originator_id: props.originator.id,
-    assignee_id: props.assignee.id,
+    originator_id: props.issue.originator_id,
+    assignee_id: props.issue.assignee_id,
     images_deleted: null,
 })
 
@@ -72,7 +64,7 @@ const handleUserSelected = (userID: number) => {
     selectedElement.classList.add("text-indigo-400");
 };
 
-const submit = () => form.post(route('issues.update', usePage().props.value.issue));
+const submit = () => form.post(route('issues.update', props.issue));
 </script>
 
 <template>
