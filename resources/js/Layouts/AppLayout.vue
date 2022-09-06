@@ -15,7 +15,7 @@ import {ref} from 'vue';
 import {Inertia} from '@inertiajs/inertia';
 import {Head, Link} from '@inertiajs/inertia-vue3';
 
-defineProps({
+const props = defineProps({
     title: String,
 });
 
