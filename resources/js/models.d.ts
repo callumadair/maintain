@@ -5,6 +5,15 @@
  */
 
 declare namespace App.Models {
+    export interface Membership {
+        id: number;
+        team_id: number;
+        user_id: number;
+        role: string | null;
+        created_at: string | null;
+        updated_at: string | null;
+    }
+
     export interface Issue {
         id: number;
         title: string;
@@ -19,6 +28,20 @@ declare namespace App.Models {
         assignee?: App.Models.User | null;
         images?: Array<App.Models.Image> | null;
         images_count?: number | null;
+    }
+
+    export interface Team {
+        id: number;
+        user_id: number;
+        name: string;
+        personal_team: boolean;
+        created_at: string | null;
+        updated_at: string | null;
+        owner?: App.Models.User | null;
+        users?: Array<App.Models.User> | null;
+        team_invitations?: Array<App.Models.TeamInvitation> | null;
+        users_count?: number | null;
+        team_invitations_count?: number | null;
     }
 
     export interface User {
@@ -69,6 +92,16 @@ declare namespace App.Models {
         updated_at: string | null;
         item?: App.Models.Item | null;
         issue?: App.Models.Issue | null;
+    }
+
+    export interface TeamInvitation {
+        id: number;
+        team_id: number;
+        email: string;
+        role: string | null;
+        created_at: string | null;
+        updated_at: string | null;
+        team?: App.Models.Team | null;
     }
 
 }
