@@ -12,7 +12,7 @@ class TeamSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         Team::factory()->count(3)->create();
     }
