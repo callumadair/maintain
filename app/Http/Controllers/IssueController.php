@@ -59,6 +59,7 @@ class IssueController extends Controller
                 return [
                     'id' => $user->id,
                     'name' => $user->name,
+                    'current_team_id' => $user->current_team_id,
                     'profile_photo_path' => $user->profile_photo_path,
                     'is_admin' => $user->is_admin,
                     'created_at' => $user->created_at,
