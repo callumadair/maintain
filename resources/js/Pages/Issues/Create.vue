@@ -98,7 +98,8 @@ const submit = () => form.post(route('issues.store'));
                         </label>
                         <input id="issue_images"
                                accept="image/png, image/jpeg, image/jpg"
-                               class="file:rounded-lg file:p-2 file:bg-white file:border-transparent hover:file:text-indigo-400 hover:file:bg-gray-50 m-3 p-2 border-solid border-2 rounded-lg border-gray-300"
+                               class="m-3 p-2 rounded-lg border-2 border-gray-300 border-solid file:rounded-lg file:p-4 file:m-1 file:bg-white file:border-transparent
+                                        hover:file:text-indigo-400 hover:file:bg-gray-50 hover:file:cursor-pointer"
                                multiple
                                name="image"
                                type="file"
