@@ -47,7 +47,7 @@ class ItemController extends Controller
     public function create(): Response
     {
         return Inertia::render('Items/Create', [
-            'user' => Auth::user(),
+            'auth_user' => Auth::user(),
         ]);
     }
 
