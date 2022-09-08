@@ -77,11 +77,12 @@ const submit = () => form.post(route('items.store'));
                         />
                     </div>
 
+                    <div class="border-[1px] w-full border-gray-200 rounded-lg"/>
 
                     <div class="py-6">
                         <button :disabled="form.processing"
                                 type="submit">
-                        <span class="m-2 p-4 space-x-2 hover:bg-gray-50 hover:text-indigo-400 rounded-lg">
+                        <span class="m-2 p-4 rounded-lg bg-green-600 text-white hover:bg-green-400 ">
                             Create Item
                         </span>
                         </button>
