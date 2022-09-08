@@ -7,7 +7,7 @@ import {PropType} from "vue";
 import User = App.Models.User;
 
 const props = defineProps({
-    user: {
+    auth_user: {
         type: Object as PropType<User>,
         required: true,
     },
@@ -22,7 +22,7 @@ const form: InertiaForm<{
     item_name: null,
     item_description: null,
     item_images: null,
-    user_id: props.user.id,
+    user_id: props.auth_user.id,
 })
 
 const submit = () => form.post(route('items.store'));
