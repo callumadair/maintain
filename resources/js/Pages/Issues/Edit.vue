@@ -157,10 +157,12 @@ const submit = () => form.post(route('issues.update', props.issue));
                         </div>
                     </div>
 
+                    <div class="border-[1px] w-full border-gray-200 rounded-lg"/>
+
                     <div class="py-6">
                         <button :disabled="form.processing"
                                 type="submit">
-                            <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
+                            <span class="p-4 rounded-lg bg-blue-600 text-white hover:bg-blue-400">
                                 Update Issue
                             </span>
                         </button>
