@@ -108,7 +108,7 @@ const handleImagesChanged = (image_id: number) => {
                         <button id="update_button"
                                 :disabled="form.processing"
                                 type="submit">
-                            <span class="p-4 rounded-lg hover:bg-gray-50 hover:text-indigo-400">
+                            <span class="p-4 rounded-lg bg-blue-600 text-white hover:bg-blue-400">
                                 Update Item
                             </span>
                         </button>
