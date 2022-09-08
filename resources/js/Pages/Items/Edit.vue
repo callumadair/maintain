@@ -93,7 +93,8 @@ const handleImagesChanged = (image_id: number) => {
                         </label>
                         <input id="item_images"
                                accept="image/png, image/jpeg, image/jpg"
-                               class="file:rounded-lg file:p-2 file:bg-white file:border-transparent hover:file:text-indigo-400 hover:file:bg-gray-50 p-2 border-solid border-2 rounded-lg border-gray-300"
+                               class="m-3 p-2 rounded-lg border-2 border-gray-300 border-solid file:rounded-lg file:p-4 file:m-1 file:bg-white file:border-transparent
+                                        hover:file:text-indigo-400 hover:file:bg-gray-50 hover:file:cursor-pointer"
                                multiple
                                type="file"
                                @input="form.item_images = $event.target.files">
