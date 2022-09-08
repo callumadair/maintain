@@ -99,6 +99,8 @@ const handleImagesChanged = (image_id: number) => {
                                @input="form.item_images = $event.target.files">
                     </div>
 
+                    <div class="border-[1px] w-full border-gray-200 rounded-lg"/>
+
                     <div class="py-2">
                         <button id="update_button"
                                 :disabled="form.processing"
