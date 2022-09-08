@@ -51,7 +51,7 @@ const handleImagesChanged = (image_id: number) => {
 
         <ContentStyle>
             <template #content>
-                <form class="grid grid-cols-1 space-y-6 p-3 m-3 place-items-center"
+                <form class="grid grid-cols-1 space-y-12 p-3 m-3 place-items-center"
                       @submit.prevent="submit">
 
                     <div class="grid justify-center place-items-center space-y-3">
@@ -73,7 +73,7 @@ const handleImagesChanged = (image_id: number) => {
                         </label>
                         <textarea id="item_description"
                                   v-model="form.item_description"
-                                  class="resize-none rounded-lg text-center border-transparent w-72 h-36 bg-gray-50
+                                  class="w-96 h-48 resize-none rounded-lg text-center border-transparent bg-gray-50
                                   scrollbar-thin scrollbar-thumb-slate-200"/>
                     </div>
 
