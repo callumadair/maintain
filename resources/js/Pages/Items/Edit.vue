@@ -5,14 +5,9 @@ import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 
 import {InertiaForm, useForm, usePage} from '@inertiajs/inertia-vue3';
 import {PropType} from "vue";
-import User = App.Models.User;
 import Item = App.Models.Item;
 
 const props = defineProps({
-    user: {
-        type: Object as PropType<User>,
-        required: true,
-    },
     item: {
         type: Object as PropType<Item>,
         required: true,
@@ -29,7 +24,7 @@ const form: InertiaForm<{
     item_name: props.item.name,
     item_description: props.item.description,
     item_images: null,
-    user_id: props.user.id,
+    user_id: props.item.user_id,
     images_deleted: null,
 });
 const submit = () => form.post(route('items.update', usePage().props.value.item));
