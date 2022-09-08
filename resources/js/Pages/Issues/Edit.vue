@@ -77,7 +77,7 @@ const submit = () => form.post(route('issues.update', props.issue));
 
         <ContentStyle>
             <template #content>
-                <form class="grid grid-cols-1 space-y-6 p-3 m-3` justify-center place-items-center"
+                <form class="grid grid-cols-1 space-y-12 p-3 m-3 justify-center place-items-center"
                       @submit.prevent="submit">
 
                     <div id="associated_users"
@@ -113,7 +113,7 @@ const submit = () => form.post(route('issues.update', props.issue));
                         </label>
                         <textarea id="issue_description"
                                   v-model="form.issue_description"
-                                  class="w-72 h-36 resize-none rounded-lg text-center border-transparent bg-gray-50
+                                  class="w-96 h-48 resize-none rounded-lg text-center border-transparent bg-gray-50
                                         scrollbar-thin scrollbar-thumb-slate-200"/>
                     </div>
 
