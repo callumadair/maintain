@@ -121,6 +121,8 @@ const submit = () => form.post(route('issues.store'));
                         </div>
                     </div>
 
+                    <div class="border-[1px] w-full border-gray-200 rounded-lg"/>
+
                     <div class="py-6">
                         <button :disabled="form.processing"
                                 type="submit">
