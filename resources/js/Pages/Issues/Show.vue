@@ -79,11 +79,11 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
                 <div class="border-[1px] border-gray-200 rounded-lg"/>
 
                 <div class="pb-4 flex justify-center">
-                    <div class="flex rounded-lg overflow-hidden border-2">
+                    <div class="flex overflow-hidden space-x-4">
                         <Link id="issue_edit_link"
                               :data="issue"
                               :href="route('issues.edit', issue.id)">
-                            <div class="p-4 hover:bg-gray-50 hover:text-indigo-400">
+                            <div class="p-4 rounded-lg bg-blue-600 text-white hover:bg-blue-400">
                                 Edit
                             </div>
                         </Link>
@@ -91,7 +91,7 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
                         <button id="issue_delete_button"
                                 type="button"
                                 @click="destroy(issue.id)">
-                            <span class="p-4 hover:bg-gray-50 hover:text-indigo-400">
+                            <span class="p-4 rounded-lg bg-red-600 text-white hover:bg-red-400">
                                 Delete
                             </span>
                         </button>
