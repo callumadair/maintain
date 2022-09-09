@@ -51,7 +51,8 @@ const handleImagesChanged = (image_id: number) => {
 
         <ContentStyle>
             <template #content>
-                <form class="grid grid-cols-1 space-y-12 p-3 m-3 place-items-center"
+                <form id="item_edit_form"
+                      class="grid grid-cols-1 space-y-12 p-3 m-3 place-items-center"
                       @submit.prevent="submit">
 
                     <div class="grid justify-center place-items-center space-y-3">
