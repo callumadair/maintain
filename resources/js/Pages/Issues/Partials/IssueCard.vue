@@ -12,11 +12,12 @@ const props = defineProps({
 </script>
 
 <template>
-    <Link :data="issue"
+    <Link :id="'issue_' + issue.id + '_card'"
+          :data="issue"
           :href="route('issues.show', issue.id)">
         <div class="grid p-3 h-48 bg-white text-center place-items-center rounded-lg text-lg
              hover:text-indigo-400 hover:border-2 hover:border-indigo-200">
-            <p>
+            <p :id="'issue_' + issue.id + '_title'">
                 {{ issue.title }}
             </p>
             <div v-if="issue.images.length > 0"
