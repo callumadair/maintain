@@ -20,7 +20,7 @@ const greyOut = (image_id: number) => {
 </script>
 
 <template>
-    <div id="images_gallery"
+    <div id="images_edit_gallery"
          class="mx-6 my-2 flex flex-row flex-wrap justify-center items-center bg-white rounded-lg
                 border-solid border-2 border-gray-200">
         <div v-for="image in images"
