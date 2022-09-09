@@ -99,7 +99,5 @@ const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
                 </div>
             </template>
         </ContentStyle>
-
-
     </AppLayout>
 </template>
