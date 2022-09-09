@@ -69,7 +69,8 @@ const submit = () => form.post(route('issues.store'));
 
         <ContentStyle>
             <template #content>
-                <form class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center"
+                <form id="issue_create_form"
+                      class="grid grid-cols-1 space-x-2 space-y-6 p-3 m-3 place-items-center"
                       @submit.prevent="submit">
                     <div class="grid justify-center place-items-center space-x-2">
                         <label class="text-lg"
