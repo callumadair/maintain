@@ -34,16 +34,10 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
                     {{ item.description }}
                 </div>
 
-                <div v-if="item.description"
-                     class="border-[1px] border-gray-200 rounded-lg"/>
-
                 <div v-if="item.images.length > 0"
                      id="images_gallery">
                     <Gallery :images="item.images"/>
                 </div>
-
-                <div v-if="item.images.length > 0"
-                     class="border-[1px] border-gray-200 rounded-lg"/>
 
                 <div v-if="item.issues.length > 0"
                      class="grid justify-center text-center">
