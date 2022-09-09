@@ -4,7 +4,7 @@ import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import UserCard from "@/Pages/Users/Partials/UserCard.vue";
 
 import {InertiaForm, useForm} from '@inertiajs/inertia-vue3';
-import {PropType} from "vue";
+import {defineEmits, PropType} from "vue";
 import User = App.Models.User;
 import Item = App.Models.Item;
 
@@ -38,6 +38,8 @@ const form: InertiaForm<{
     originator_id: props.originator.id,
     assignee_id: null,
 });
+
+const emit = defineEmits(['userSelected']);
 
 const handleUserSelected = (userID: number) => {
     let userElements = (document.getElementById("users_list") as HTMLDivElement).children;
