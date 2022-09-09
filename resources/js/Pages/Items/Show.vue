@@ -67,6 +67,16 @@ const destroy = (id: number) => Inertia.delete(route('items.destroy', id));
                 <div v-if="item.issues.length > 0"
                      class="border-[1px] border-gray-200 rounded-lg"/>
 
+                <div id="associated_users"
+                     class="flex justify-center text-center">
+                    <div class="space-y-3">
+                        <p class="text-xl">Created by</p>
+                        <p>{{ item.user.name }}</p>
+                    </div>
+                </div>
+
+                <div class="border-[1px] border-gray-200 rounded-lg"/>
+
                 <div class="pb-4 flex justify-center">
                     <div class="flex justify-center overflow-hidden space-x-4">
                         <Link id="add_issue_link"
