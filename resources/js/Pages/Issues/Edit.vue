@@ -77,7 +77,8 @@ const submit = () => form.post(route('issues.update', props.issue));
 
         <ContentStyle>
             <template #content>
-                <form class="grid grid-cols-1 space-y-12 p-3 m-3 justify-center place-items-center"
+                <form id="issue_edit_form"
+                      class="grid grid-cols-1 space-y-12 p-3 m-3 justify-center place-items-center"
                       @submit.prevent="submit">
 
                     <div id="associated_users"
