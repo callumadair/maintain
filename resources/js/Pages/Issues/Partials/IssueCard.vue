@@ -16,7 +16,9 @@ const props = defineProps({
           :href="route('issues.show', issue.id)">
         <div class="grid p-3 h-48 bg-white text-center place-items-center rounded-lg text-lg
              hover:text-indigo-400 hover:border-2 hover:border-indigo-200">
-            {{ issue.title }}
+            <p>
+                {{ issue.title }}
+            </p>
             <div v-if="issue.images.length > 0"
                  class="w-48 place-items-center">
                 <img :src="issue.images[0]['image_path']"
