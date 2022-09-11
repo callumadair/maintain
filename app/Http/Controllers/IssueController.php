@@ -309,6 +309,7 @@ class IssueController extends Controller
                     'id' => $item->id,
                     'name' => $item->name,
                     'description' => $item->description,
+                    'status' => $item->status,
                     'user_id' => $item->user_id,
                     'created_at' => $item->created_at,
                     'updated_at' => $item->updated_at,
