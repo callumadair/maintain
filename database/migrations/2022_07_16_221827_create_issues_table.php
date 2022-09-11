@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
+            $table->string('status');
 
             $table->foreignId('item_id');
             $table->foreign('item_id')->references('id')
