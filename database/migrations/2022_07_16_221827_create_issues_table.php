@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->enum('status', ['Assigned', 'In-progress', 'Actioned', 'Resolved'])->default('Assigned');
+            $table->enum('status', ['Assigned', 'In-Progress', 'Actioned', 'Resolved'])->default('Assigned');
 
             $table->foreignId('item_id');
             $table->foreign('item_id')->references('id')
