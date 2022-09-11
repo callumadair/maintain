@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->enum('status', ['functional', 'disabled'])->default('functional');
+            $table->enum('status', ['Functional', 'Disabled'])->default('Functional');
 
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')
