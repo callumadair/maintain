@@ -57,7 +57,7 @@ const logout = () => Inertia.post(route('logout'));
                                             :href="route('dashboard')">
                                     <img :src="HomeAlt"
                                          alt="An icon of a home"/>
-                                    &nbsp Dashboard
+                                    &nbsp; Dashboard
                                 </JetNavLink>
                             </div>
 
@@ -74,7 +74,7 @@ const logout = () => Inertia.post(route('logout'));
                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
                                                 type="button">
                                                 <img :src="BoxIso"
-                                                     alt="Inventory"/> &nbsp Inventory
+                                                     alt="Inventory"/> &nbsp; Inventory
                                             </div>
                                         </template>
 
@@ -100,7 +100,7 @@ const logout = () => Inertia.post(route('logout'));
                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
                                                 type="button">
                                                 <img :src="Book"
-                                                     alt="An icon of a book."/> &nbsp Issue Log
+                                                     alt="An icon of a book."/> &nbsp; Issue Log
                                             </div>
                                         </template>
 
