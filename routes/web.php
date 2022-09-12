@@ -38,7 +38,7 @@ Route::middleware([
     Route::controller(ItemController::class)
         ->name('items.')->prefix('items')->group(function () {
 
-            Route::prefix('index.')->group(function () {
+            Route::name('index.')->group(function () {
                 Route::get('/', 'index')
                     ->name('all');
 
