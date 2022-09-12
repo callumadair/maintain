@@ -3,6 +3,8 @@ import JetNavLink from '@/Jetstream/NavLink.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ItemCard from '@/Pages/Items/Partials/ItemCard.vue';
 
+import BoxIso from 'iconoir/icons/box-iso.svg';
+
 import {PropType} from "vue";
 import Item = App.Models.Item;
 
@@ -21,7 +23,9 @@ const props = defineProps({
                 Inventory
             </h2>
 
-            <nav class="mx-10 mt-4 py-2 flex flex-row space-x-6 justify-center bg-white">
+            <nav class="mt-4 ml-2 py-2 flex flex-row space-x-6  bg-white">
+                <img :src="BoxIso"
+                     alt="Inventory icon"/>
                 <JetNavLink :active="route().current('items.index')"
                             :href="route('items.index')"
                             class="text-base">
