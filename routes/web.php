@@ -39,7 +39,7 @@ Route::middleware([
         ->name('items.')->prefix('items')->group(function () {
 
             Route::name('index.')->group(function () {
-                Route::get('/{status?}', 'index')
+                Route::get('/', 'index')
                     ->name('all');
 
                 Route::get('/functional', 'index_functional')
