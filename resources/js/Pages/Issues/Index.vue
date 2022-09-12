@@ -28,38 +28,32 @@ const props = defineProps({
                     <img :src="Book"
                          alt="Issue log icon"/>
 
-                    <JetNavLink :active="route().current('issues.index.all')"
-                                :href="route('issues.index.all')"
+                    <JetNavLink :active="route().current('issues.index', 'all')"
+                                :href="route('issues.index', 'all')"
                                 class="text-base">
                         <h3 class="mb-2">All Issues</h3>
                     </JetNavLink>
 
-                    <JetNavLink :active="route().current('issues.index.assigned')"
-                                :href="route('issues.index.assigned')"
+                    <JetNavLink :active="route().current('issues.index', 'assigned')"
+                                :href="route('issues.index', 'assigned')"
                                 class="text-base">
                         <h3 class="mb-2">Assigned</h3>
                     </JetNavLink>
 
-                    <JetNavLink :active="route().current('issues.index.in-progress')"
-                                :href="route('issues.index.in-progress')"
+                    <JetNavLink :active="route().current('issues.index', 'in-progress')"
+                                :href="route('issues.index', 'in-progress')"
                                 class="text-base">
                         <h3 class="mb-2">In-Progress</h3>
                     </JetNavLink>
 
-                    <JetNavLink :active="route().current('issues.index.in-progress')"
-                                :href="route('issues.index.in-progress')"
-                                class="text-base">
-                        <h3 class="mb-2">In-Progress</h3>
-                    </JetNavLink>
-
-                    <JetNavLink :active="route().current('issues.index.actioned')"
-                                :href="route('issues.index.actioned')"
+                    <JetNavLink :active="route().current('issues.index', 'actioned')"
+                                :href="route('issues.index', 'actioned')"
                                 class="text-base">
                         <h3 class="mb-2">Actioned</h3>
                     </JetNavLink>
 
-                    <JetNavLink :active="route().current('issues.index.resolved')"
-                                :href="route('issues.index.resolved')"
+                    <JetNavLink :active="route().current('issues.index', 'resolved')"
+                                :href="route('issues.index', 'resolved')"
                                 class="text-base">
                         <h3 class="mb-2">Resolved</h3>
                     </JetNavLink>
