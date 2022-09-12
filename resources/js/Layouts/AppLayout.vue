@@ -62,13 +62,13 @@ const logout = () => Inertia.post(route('logout'));
                             </div>
 
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <JetNavLink :active="route().current('items.index', 'items.index.functional')
+                                <JetNavLink :active="route().current('items.index.all')
                                             || route().current('items.index.functional')
                                             || route().current('items.index.disabled')
                                             || route().current('items.create')
                                             || route().current('items.edit')
                                             || route().current('items.show')"
-                                            :href="route('items.index')"
+                                            :href="route('items.index.all')"
                                             class="grid whitespace-nowrap justify-center">
                                     <NavbarDropdown>
                                         <template #trigger>
