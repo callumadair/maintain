@@ -81,7 +81,6 @@ const logout = () => Inertia.post(route('logout'));
                                             </JetDropdownLink>
                                         </template>
                                     </NavbarDropdown>
-
                                 </JetNavLink>
                             </div>
 
