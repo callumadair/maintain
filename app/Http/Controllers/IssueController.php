@@ -22,7 +22,7 @@ class IssueController extends Controller
      *
      * @return Response
      */
-    public function index(): Response
+    public function index($status = 'all'): Response
     {
         return Inertia::render('Issues/Index', [
             'issues' => Issue::all()->map(function ($issue) {
