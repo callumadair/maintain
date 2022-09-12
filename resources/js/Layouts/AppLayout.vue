@@ -62,12 +62,7 @@ const logout = () => Inertia.post(route('logout'));
                             </div>
 
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <JetNavLink :active="route().current('items.index.all')
-                                            || route().current('items.index.functional')
-                                            || route().current('items.index.disabled')
-                                            || route().current('items.create')
-                                            || route().current('items.edit')
-                                            || route().current('items.show')"
+                                <JetNavLink :active="route().current('items.*')"
                                             :href="route('items.index.all')"
                                             class="grid whitespace-nowrap justify-center">
                                     <NavbarDropdown>
@@ -91,10 +86,7 @@ const logout = () => Inertia.post(route('logout'));
                             </div>
 
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <JetNavLink :active="route().current('issues.index.all')
-                                            || route().current('issues.create')
-                                            || route().current('issues.show')
-                                            || route().current('issues.edit')"
+                                <JetNavLink :active="route().current('issues/*')"
                                             :href="route('issues.index.all')">
                                     <NavbarDropdown>
                                         <template #trigger>
