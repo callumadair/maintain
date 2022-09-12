@@ -70,8 +70,23 @@ Route::middleware([
 
     Route::controller(IssueController::class)
         ->name('issues.')->prefix('issues')->group(function () {
-            Route::get('/', 'index')
-                ->name('index');
+
+            Route::name('index.')->group(function () {
+                Route::get('/', 'index')
+                    ->name('all');
+
+                Route::get('/assigned', 'index_assigned')
+                    ->name('assigned');
+
+                Route::get('/in-progress', 'index_in-progress')
+                    ->name('in-progress');
+
+                Route::get('/actioned', 'index_actioned')
+                    ->name('actioned');
+
+                Route::get('/resolved', 'index_resolved')
+                    ->name('resolved');
+            });
 
             Route::get('/item_select', 'item_select')
                 ->name('item_select');
