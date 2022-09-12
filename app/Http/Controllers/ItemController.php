@@ -20,7 +20,7 @@ class ItemController extends Controller
      *
      * @return Response
      */
-    public function index(): Response
+    public function index($status = 'all'): Response
     {
         return Inertia::render('Items/Index', [
             'items' => Item::all()->map(function ($item) {
