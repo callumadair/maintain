@@ -39,7 +39,7 @@ Route::middleware([
         ->name('items.')->prefix('items')->group(function () {
 
             Route::name('index.')->group(function () {
-                Route::get('/', 'index')
+                Route::get('/{status?}', 'index')
                     ->name('all');
 
                 Route::get('/functional', 'index_functional')
@@ -72,13 +72,13 @@ Route::middleware([
         ->name('issues.')->prefix('issues')->group(function () {
 
             Route::name('index.')->group(function () {
-                Route::get('/', 'index')
+                Route::get('/{status?}', 'index')
                     ->name('all');
 
                 Route::get('/assigned', 'index_assigned')
                     ->name('assigned');
 
-                Route::get('/in-progress', 'index_in-progress')
+                Route::get('/in-progress', 'index_in_progress')
                     ->name('in-progress');
 
                 Route::get('/actioned', 'index_actioned')
