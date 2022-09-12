@@ -27,8 +27,8 @@ const props = defineProps({
                 <nav class="mt-4 py-2 flex flex-row space-x-6  bg-white">
                     <img :src="Book"
                          alt="Issue log icon"/>
-                    <JetNavLink :active="route().current('issues.index')"
-                                :href="route('issues.index')"
+                    <JetNavLink :active="route().current('issues.index.all')"
+                                :href="route('issues.index.all')"
                                 class="text-base">
                         <h3 class="mb-2">All Issues</h3>
                     </JetNavLink>
