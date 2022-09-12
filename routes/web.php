@@ -38,16 +38,8 @@ Route::middleware([
     Route::controller(ItemController::class)
         ->name('items.')->prefix('items')->group(function () {
 
-            Route::name('index.')->group(function () {
-                Route::get('/', 'index')
-                    ->name('all');
-
-                Route::get('/functional', 'index_functional')
-                    ->name('functional');
-
-                Route::get('/disabled', 'index_disabled')
-                    ->name('disabled');
-            });
+            Route::get('/index/{status?}', 'index')
+                ->name('index');
 
             Route::get('/create', 'create')
                 ->name('create');
@@ -55,7 +47,7 @@ Route::middleware([
             Route::post('/store', 'store')
                 ->name('store');
 
-            Route::get('/{item}', 'show')
+            Route::get('/show/{item}', 'show')
                 ->name('show');
 
             Route::get('/edit/{item}', 'edit')
