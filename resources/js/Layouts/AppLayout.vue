@@ -34,7 +34,11 @@ const logout = () => Inertia.post(route('logout'));
 
 <template>
     <div>
-        <Head :title="title"/>
+        <Head :title="title">
+            <title>
+                {{props.title}}
+            </title>
+        </Head>
 
         <JetBanner/>
 
@@ -111,7 +115,6 @@ const logout = () => Inertia.post(route('logout'));
                             <div class="ml-3 relative">
                                 <!-- Teams Dropdown -->
                                 <JetDropdown v-if="$page.props.jetstream.hasTeamFeatures"
-                                             align="right"
                                              width="60">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
@@ -166,7 +169,7 @@ const logout = () => Inertia.post(route('logout'));
                                                         <JetDropdownLink as="button">
                                                             <div class="flex items-center">
                                                                 <svg
-                                                                    v-if="team.id == $page.props.user.current_team_id"
+                                                                    v-if="team.id === $page.props.user.current_team_id"
                                                                     class="mr-2 h-5 w-5 text-green-400"
                                                                     fill="none"
                                                                     stroke="currentColor"
@@ -191,8 +194,7 @@ const logout = () => Inertia.post(route('logout'));
 
                             <!-- Settings Dropdown -->
                             <div class="ml-3 relative">
-                                <JetDropdown align="right"
-                                             width="48">
+                                <JetDropdown width="48">
                                     <template #trigger>
                                         <button v-if="$page.props.jetstream.managesProfilePhotos"
                                                 class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
@@ -361,7 +363,7 @@ const logout = () => Inertia.post(route('logout'));
                                         <JetResponsiveNavLink as="button">
                                             <div class="flex items-center">
                                                 <svg
-                                                    v-if="team.id == $page.props.user.current_team_id"
+                                                    v-if="team.id === $page.props.user.current_team_id"
                                                     class="mr-2 h-5 w-5 text-green-400"
                                                     fill="none"
                                                     stroke="currentColor"
