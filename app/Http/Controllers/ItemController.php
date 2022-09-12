@@ -41,6 +41,54 @@ class ItemController extends Controller
     }
 
     /**
+     * @return Response
+     */
+    public function index_functional(): Response
+    {
+        $functional_items = Item::query()->where('status', '=', 'Functional')->get();
+        return Inertia::render('Items/Index', [
+            'items' => $functional_items->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'description' => $item->description,
+                    'status' => $item->status,
+                    'user_id' => $item->user_id,
+                    'created_at' => $item->created_at,
+                    'updated_at' => $item->updated_at,
+                    'user' => $item->user,
+                    'issues' => $item->issues,
+                    'images' => $item->images,
+                ];
+            }),
+        ]);
+    }
+
+    /**
+     * @return Response
+     */
+    public function index_disabled(): Response
+    {
+        $disabled_items = Item::query()->where('status', '=', 'Disabled')->get();
+        return Inertia::render('Items/Index', [
+            'items' => $disabled_items->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'description' => $item->description,
+                    'status' => $item->status,
+                    'user_id' => $item->user_id,
+                    'created_at' => $item->created_at,
+                    'updated_at' => $item->updated_at,
+                    'user' => $item->user,
+                    'issues' => $item->issues,
+                    'images' => $item->images,
+                ];
+            }),
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return Response
@@ -230,53 +278,5 @@ class ItemController extends Controller
         $item->delete();
 
         return redirect()->route('items.index')->with('status', 'Item deleted!');
-    }
-
-    /**
-     * @return Response
-     */
-    public function index_functional(): Response
-    {
-        $functional_items = Item::query()->where('status', '=', 'Functional')->get();
-        return Inertia::render('Items/Index', [
-            'items' => $functional_items->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'name' => $item->name,
-                    'description' => $item->description,
-                    'status' => $item->status,
-                    'user_id' => $item->user_id,
-                    'created_at' => $item->created_at,
-                    'updated_at' => $item->updated_at,
-                    'user' => $item->user,
-                    'issues' => $item->issues,
-                    'images' => $item->images,
-                ];
-            }),
-        ]);
-    }
-
-    /**
-     * @return Response
-     */
-    public function index_disabled(): Response
-    {
-        $disabled_items = Item::query()->where('status', '=', 'Disabled')->get();
-        return Inertia::render('Items/Index', [
-            'items' => $disabled_items->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'name' => $item->name,
-                    'description' => $item->description,
-                    'status' => $item->status,
-                    'user_id' => $item->user_id,
-                    'created_at' => $item->created_at,
-                    'updated_at' => $item->updated_at,
-                    'user' => $item->user,
-                    'issues' => $item->issues,
-                    'images' => $item->images,
-                ];
-            }),
-        ]);
     }
 }
