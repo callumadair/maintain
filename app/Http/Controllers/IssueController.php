@@ -22,10 +22,30 @@ class IssueController extends Controller
      *
      * @return Response
      */
-    public function index($status = 'all'): Response
+    public function index($status): Response
     {
+        $issues = Issue::all();
+
+        switch ($status) {
+            case 'all':
+                $issues = Issue::all();
+                break;
+            case 'assigned':
+                $issues = Issue::query()->where('status', '=', 'Assigned')->get();
+                break;
+            case 'in-progress':
+                $issues = Issue::query()->where('status', '=', 'In-Progress')->get();
+                break;
+            case 'actioned':
+                $issues = Issue::query()->where('status', '=', 'Actioned')->get();
+                break;
+            case 'resolved':
+                $issues = Issue::query()->where('status', '=', 'Resolved')->get();
+                break;
+        }
+
         return Inertia::render('Issues/Index', [
-            'issues' => Issue::all()->map(function ($issue) {
+            'issues' => $issues->map(function ($issue) {
                 return [
                     'id' => $issue->id,
                     'title' => $issue->title,
