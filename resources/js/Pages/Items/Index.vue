@@ -19,29 +19,31 @@ const props = defineProps({
 <template>
     <AppLayout title="Inventory">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight ml-2">
-                Inventory
-            </h2>
+            <div class="ml-2">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    Inventory
+                </h2>
 
-            <nav class="mt-4 ml-2 py-2 flex flex-row space-x-6  bg-white">
-                <img :src="BoxIso"
-                     alt="Inventory icon"/>
-                <JetNavLink :active="route().current('items.index')"
-                            :href="route('items.index')"
-                            class="text-base">
-                    <h3 class="mb-2">All Items</h3>
-                </JetNavLink>
-                <JetNavLink :active="route().current('items.index.functional')"
-                            :href="route('items.index.functional')"
-                            class="text-base">
-                    <h3 class="mb-2">Functional</h3>
-                </JetNavLink>
-                <JetNavLink :active="route().current('items.index.disabled')"
-                            :href="route('items.index.disabled')"
-                            class="text-base">
-                    <h3 class="mb-2">Disabled</h3>
-                </JetNavLink>
-            </nav>
+                <nav class="mt-4 py-2 flex flex-row space-x-6  bg-white">
+                    <img :src="BoxIso"
+                         alt="Inventory icon"/>
+                    <JetNavLink :active="route().current('items.index')"
+                                :href="route('items.index')"
+                                class="text-base">
+                        <h3 class="mb-2">All Items</h3>
+                    </JetNavLink>
+                    <JetNavLink :active="route().current('items.index.functional')"
+                                :href="route('items.index.functional')"
+                                class="text-base">
+                        <h3 class="mb-2">Functional</h3>
+                    </JetNavLink>
+                    <JetNavLink :active="route().current('items.index.disabled')"
+                                :href="route('items.index.disabled')"
+                                class="text-base">
+                        <h3 class="mb-2">Disabled</h3>
+                    </JetNavLink>
+                </nav>
+            </div>
         </template>
 
         <div class="py-6">
