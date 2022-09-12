@@ -20,27 +20,27 @@ const props = defineProps({
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Inventory
             </h2>
-        </template>
 
-        <div class="py-6">
-            <nav class="mx-10 mb-4 py-4 flex flex-row space-x-6 justify-center bg-white border-b border-gray-100">
+            <nav class="mx-10 mt-4 py-2 flex flex-row space-x-6 justify-center bg-white">
                 <JetNavLink :active="route().current('items.index')"
                             :href="route('items.index')"
-                            class="text-lg">
-                    All Items
+                            class="text-base">
+                    <h3 class="mb-2">All Items</h3>
                 </JetNavLink>
                 <JetNavLink :active="route().current('items.index.functional')"
                             :href="route('items.index.functional')"
-                            class="text-lg">
-                    Functional
+                            class="text-base">
+                    <h3 class="mb-2">Functional</h3>
                 </JetNavLink>
                 <JetNavLink :active="route().current('items.index.disabled')"
                             :href="route('items.index.disabled')"
-                            class="text-lg">
-                    Disabled
+                            class="text-base">
+                    <h3 class="mb-2">Disabled</h3>
                 </JetNavLink>
             </nav>
+        </template>
 
+        <div class="py-6">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="p-2 overflow-hidden">
                     <div class="grid grid-cols-4 gap-4 overflow-hidden">
