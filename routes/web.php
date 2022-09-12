@@ -40,6 +40,12 @@ Route::middleware([
             Route::get('/', 'index')
                 ->name('index');
 
+            Route::get('/functional', 'index_functional')
+                ->name('index.functional');
+
+            Route::get('/disabled', 'index_disabled')
+                ->name('index.disabled');
+
             Route::get('/create', 'create')
                 ->name('create');
 
