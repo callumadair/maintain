@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import JetNavLink from '@/Jetstream/NavLink.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ItemCard from '@/Pages/Items/Partials/ItemCard.vue';
 
@@ -22,6 +23,22 @@ const props = defineProps({
         </template>
 
         <div class="py-6">
+            <nav class="mx-10 mb-4 py-4 flex flex-row space-x-6 justify-center bg-white border-b border-gray-100">
+                <JetNavLink class="text-lg"
+                            href="route('items.index')"
+                            :active="route('items.index')">
+                    All Items
+                </JetNavLink>
+                <JetNavLink class="text-lg"
+                            :href="route('items.functional')">
+                    Functional
+                </JetNavLink>
+                <JetNavLink class="text-lg"
+                            :href="route('items.disabled')">
+                    Disabled
+                </JetNavLink>
+            </nav>
+
             <div class="max-w-7xl mx-auto px-6">
                 <div class="p-2 overflow-hidden">
                     <div class="grid grid-cols-4 gap-4 overflow-hidden">
