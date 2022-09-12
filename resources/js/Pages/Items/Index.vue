@@ -19,7 +19,7 @@ const props = defineProps({
 <template>
     <AppLayout title="Inventory">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight ml-2">
                 Inventory
             </h2>
 
