@@ -18,60 +18,27 @@ class ItemController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param $status
      * @return Response
      */
-    public function index($status = 'all'): Response
+    public function index($status): Response
     {
-        return Inertia::render('Items/Index', [
-            'items' => Item::all()->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'name' => $item->name,
-                    'description' => $item->description,
-                    'status' => $item->status,
-                    'user_id' => $item->user_id,
-                    'created_at' => $item->created_at,
-                    'updated_at' => $item->updated_at,
-                    'user' => $item->user,
-                    'issues' => $item->issues,
-                    'images' => $item->images,
-                ];
-            }),
-        ]);
-    }
+        $items = null;
 
-    /**
-     * @return Response
-     */
-    public function index_functional(): Response
-    {
-        $functional_items = Item::query()->where('status', '=', 'Functional')->get();
-        return Inertia::render('Items/Index', [
-            'items' => $functional_items->map(function ($item) {
-                return [
-                    'id' => $item->id,
-                    'name' => $item->name,
-                    'description' => $item->description,
-                    'status' => $item->status,
-                    'user_id' => $item->user_id,
-                    'created_at' => $item->created_at,
-                    'updated_at' => $item->updated_at,
-                    'user' => $item->user,
-                    'issues' => $item->issues,
-                    'images' => $item->images,
-                ];
-            }),
-        ]);
-    }
+        switch ($status) {
+            case 'all':
+                $items = Item::all();
+                break;
+            case 'functional':
+                $items = Item::query()->where('status', '=', 'Functional')->get();
+                break;
+            case 'disabled':
+                $items = Item::query()->where('status', '=', 'Disabled')->get();
+                break;
+        }
 
-    /**
-     * @return Response
-     */
-    public function index_disabled(): Response
-    {
-        $disabled_items = Item::query()->where('status', '=', 'Disabled')->get();
         return Inertia::render('Items/Index', [
-            'items' => $disabled_items->map(function ($item) {
+            'items' => $items->map(function ($item) {
                 return [
                     'id' => $item->id,
                     'name' => $item->name,
