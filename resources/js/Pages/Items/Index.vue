@@ -24,17 +24,19 @@ const props = defineProps({
 
         <div class="py-6">
             <nav class="mx-10 mb-4 py-4 flex flex-row space-x-6 justify-center bg-white border-b border-gray-100">
-                <JetNavLink class="text-lg"
-                            href="route('items.index')"
-                            :active="route('items.index')">
+                <JetNavLink :active="route().current('items.index')"
+                            :href="route('items.index')"
+                            class="text-lg">
                     All Items
                 </JetNavLink>
-                <JetNavLink class="text-lg"
-                            :href="route('items.functional')">
+                <JetNavLink :active="route().current('items.index.functional')"
+                            :href="route('items.index.functional')"
+                            class="text-lg">
                     Functional
                 </JetNavLink>
-                <JetNavLink class="text-lg"
-                            :href="route('items.disabled')">
+                <JetNavLink :active="route().current('items.index.disabled')"
+                            :href="route('items.index.disabled')"
+                            class="text-lg">
                     Disabled
                 </JetNavLink>
             </nav>
