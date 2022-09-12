@@ -77,13 +77,13 @@ Route::middleware([
             Route::post('/store', 'store')
                 ->name('store');
 
-            Route::get('/{status}', 'index')
+            Route::get('/index/{status}', 'index')
                 ->name('index');
 
             Route::get('/create/{item}', 'create')
                 ->name('create');
 
-            Route::get('/{issue}', 'show')
+            Route::get('/show/{issue}', 'show')
                 ->name('show');
 
             Route::get('/edit/{issue}', 'edit')
