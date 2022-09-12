@@ -77,7 +77,7 @@ Route::middleware([
             Route::post('/store', 'store')
                 ->name('store');
 
-            Route::get('/{status?}', 'index')
+            Route::get('/{status}', 'index')
                 ->name('index');
 
             Route::get('/create/{item}', 'create')
