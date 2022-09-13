@@ -58,7 +58,8 @@ const logout = () => Inertia.post(route('logout'));
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :active="route().current('dashboard')"
-                                            :href="route('dashboard')">
+                                            :href="route('dashboard')"
+                                            class="text-base">
                                     <img :src="HomeAlt"
                                          alt="An icon of a home"/>
                                     &nbsp; Dashboard
@@ -68,14 +69,15 @@ const logout = () => Inertia.post(route('logout'));
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :active="route().current('items.*')"
                                             :href="route('items.index', 'all')"
-                                            class="grid whitespace-nowrap justify-center">
+                                            class="grid whitespace-nowrap justify-center text-base">
                                     <NavbarDropdown>
                                         <template #trigger>
                                             <div
-                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
                                                 type="button">
                                                 <img :src="BoxIso"
-                                                     alt="Inventory"/> &nbsp; Inventory
+                                                     alt="Inventory"/> &nbsp;
+                                                Inventory
                                             </div>
                                         </template>
 
@@ -94,7 +96,7 @@ const logout = () => Inertia.post(route('logout'));
                                     <NavbarDropdown>
                                         <template #trigger>
                                             <div
-                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-base leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
                                                 type="button">
                                                 <img :src="Book"
                                                      alt="An icon of a book."/> &nbsp; Issue Log
