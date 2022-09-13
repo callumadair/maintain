@@ -20,9 +20,10 @@ class IssueController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param string $status
      * @return Response
      */
-    public function index($status): Response
+    public function index(string $status = 'all'): Response
     {
         $issues = Issue::all();
 
