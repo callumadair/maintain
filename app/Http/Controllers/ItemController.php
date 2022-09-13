@@ -237,13 +237,15 @@ class ItemController extends Controller
     {
         $item = Item::all()->find($id);
 
-        foreach ($item->images as $image) {
-            //remove 'storage' from the image path to make it relative to the public folder
-            $relative_path = substr($image->image_path, 8);
-            Storage::disk('public')->delete($relative_path);
+        if ($item->images != null) {
+            foreach ($item->images as $image) {
+                //remove 'storage' from the image path to make it relative to the public folder
+                $relative_path = substr($image->image_path, 8);
+                Storage::disk('public')->delete($relative_path);
+            }
         }
         $item->delete();
 
-        return redirect()->route('items.index')->with('status', 'Item deleted!');
+        return redirect()->route('items.index', 'all')->with('status', 'Item deleted!');
     }
 }
