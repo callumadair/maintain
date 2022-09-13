@@ -116,6 +116,18 @@ class IssueController extends Controller
         $issue->assignee_id = $validated_data['assignee_id'];
         $issue->save();
 
+        $this->store_images($request, $issue);
+
+        return redirect()->route('issues.show', ['issue' => $issue]);
+    }
+
+    /**
+     * @param Request $request
+     * @param Issue $issue
+     * @return void
+     */
+    private function store_images(Request $request, Issue $issue): void
+    {
         if ($request->hasFile('issue_images')) {
             $issue_images = $request->file('issue_images');
             $image_path_prefix = self::IMAGES_ROOT
@@ -137,7 +149,6 @@ class IssueController extends Controller
                     . '-' . $new_image->name);
             }
         }
-        return redirect()->route('issues.show', ['issue' => $issue]);
     }
 
     /**
@@ -272,27 +283,7 @@ class IssueController extends Controller
             }
         }
 
-        if ($request->hasFile('issue_images')) {
-            $issue_images = $request->file('issue_images');
-            $image_path_prefix = self::IMAGES_ROOT
-                . $issue->id . '-'
-                . $issue->title . '-';
-
-            foreach ($issue_images as $issue_image) {
-                $new_image = new Image;
-                $new_image->name = $issue_image->getClientOriginalName();
-                $new_image->issue_id = $issue->id;
-                $new_image->image_path = $image_path_prefix
-                    . $issue_image->getClientOriginalName();
-                $new_image->save();
-
-                Storage::disk('public')->putFileAs('/images/issues/',
-                    $issue_image
-                    , $issue->id
-                    . '-' . $issue->title
-                    . '-' . $new_image->name);
-            }
-        }
+        $this->store_images($request, $issue);
 
         return redirect()->route('issues.show', ['issue' => $issue]);
     }
@@ -319,7 +310,6 @@ class IssueController extends Controller
 
         return redirect()->route('issues.index', 'all')->with('status', 'Issue deleted!');
     }
-
 
     /**
      * @return Response
