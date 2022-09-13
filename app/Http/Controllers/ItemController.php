@@ -18,10 +18,10 @@ class ItemController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param $status
+     * @param string $status
      * @return Response
      */
-    public function index($status): Response
+    public function index(string $status = 'all'): Response
     {
         $items = null;
 
