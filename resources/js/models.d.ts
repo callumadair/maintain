@@ -18,6 +18,7 @@ declare namespace App.Models {
         id: number;
         title: string;
         description: string | null;
+        status: string;
         item_id: number;
         originator_id: number;
         assignee_id: number;
@@ -72,6 +73,7 @@ declare namespace App.Models {
         id: number;
         name: string;
         description: string | null;
+        status: string;
         user_id: number;
         created_at: string | null;
         updated_at: string | null;
