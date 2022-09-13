@@ -316,7 +316,7 @@ class IssueController extends Controller
 
         $issue->delete();
 
-        return redirect()->route('issues.index')->with('status', 'Issue deleted!');
+        return redirect()->route('issues.index', 'all')->with('status', 'Issue deleted!');
     }
 
 
