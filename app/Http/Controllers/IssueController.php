@@ -306,10 +306,12 @@ class IssueController extends Controller
     {
         $issue = Issue::all()->find($id);
 
-        foreach ($issue->images as $image) {
-            //remove 'storage' from the image path to make it relative to the public folder
-            $relative_path = substr($image->image_path, 8);
-            Storage::disk('public')->delete($relative_path);
+        if ($issue->images != null) {
+            foreach ($issue->images as $image) {
+                //remove 'storage' from the image path to make it relative to the public folder
+                $relative_path = substr($image->image_path, 8);
+                Storage::disk('public')->delete($relative_path);
+            }
         }
 
         $issue->delete();
