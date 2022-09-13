@@ -91,6 +91,18 @@ class ItemController extends Controller
         $item->user_id = $validated_data['user_id'];
         $item->save();
 
+        $this->store_images($request, $item);
+
+        return redirect()->route('items.show', ['item' => $item]);
+    }
+
+    /**
+     * @param Request $request
+     * @param Item $item
+     * @return void
+     */
+    private function store_images(Request $request, Item $item): void
+    {
         if ($request->hasFile('item_images')) {
             $item_images = $request->file('item_images');
             $image_path_prefix = self::IMAGES_ROOT
@@ -112,9 +124,6 @@ class ItemController extends Controller
                     . '-' . $new_image->name);
             }
         }
-
-
-        return redirect()->route('items.show', ['item' => $item]);
     }
 
     /**
@@ -201,28 +210,7 @@ class ItemController extends Controller
             }
         }
 
-        if ($request->hasFile('item_images')) {
-            $item_images = $request->file('item_images');
-            $image_path_prefix = self::IMAGES_ROOT
-                . $item->id . '-'
-                . $item->name . '-';
-
-            foreach ($item_images as $item_image) {
-                $new_image = new Image;
-                $new_image->name = $item_image->getClientOriginalName();
-                $new_image->item_id = $item->id;
-                $new_image->image_path = $image_path_prefix
-                    . $item_image->getClientOriginalName();
-                $new_image->save();
-
-                Storage::disk('public')->putFileAs('/images/items/',
-                    $item_image
-                    , $item->id
-                    . '-' . $item->name
-                    . '-' . $new_image->name);
-            }
-        }
-
+        $this->store_images($request, $item);
 
         return redirect()->route('items.show', ['item' => $item]);
     }
@@ -248,4 +236,6 @@ class ItemController extends Controller
 
         return redirect()->route('items.index', 'all')->with('status', 'Item deleted!');
     }
+
+
 }
