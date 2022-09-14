@@ -76,11 +76,11 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                                     @click="toggleStatus">
                                 <span v-if="form.item_status === 'Disabled'"
                                       class="p-4 w-64 inline-block rounded-lg bg-green-600 text-white border-2 border-green-600">
-                                    Mark as Functional
+                                    Functional
                                 </span>
                                 <span v-if="form.item_status === 'Functional'"
                                       class="p-4 w-64 inline-block rounded-lg bg-red-600 text-white border-2 border-red-600">
-                                    Mark as Disabled
+                                    Disabled
                                 </span>
                             </button>
 
