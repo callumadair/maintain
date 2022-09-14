@@ -17,7 +17,7 @@ const props = defineProps({
 });
 
 
-const destroy = (id: number) => Inertia.delete(route('issues.destroy', id));
+const destroy = (issueID: number) => Inertia.delete(route('issues.destroy', issueID));
 </script>
 
 <template>
