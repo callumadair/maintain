@@ -3,7 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import EditGallery from '@/Pages/Components/EditGallery.vue';
 import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 
-import {InertiaForm, useForm, usePage} from '@inertiajs/inertia-vue3';
+import {InertiaForm, useForm} from '@inertiajs/inertia-vue3';
 import {PropType} from "vue";
 import Item = App.Models.Item;
 
@@ -43,7 +43,7 @@ const handleImagesChanged = (imageID: number) => {
     form.images_deleted = JSON.stringify(Array.from(imagesChangedSet));
 };
 
-const submit = () => form.post(route('items.update', usePage().props.value.item));
+const submit = () => form.post(route('items.update', props.item));
 </script>
 
 <template>
