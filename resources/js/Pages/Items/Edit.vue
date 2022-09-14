@@ -30,6 +30,8 @@ const form: InertiaForm<{
     images_deleted: null,
 });
 
+const toggleStatus = () => form.item_status = form.item_status === 'Functional' ? 'Disabled' : 'Functional';
+
 const imagesChangedSet = new Set();
 
 const handleImagesChanged = (image_id: number) => {
@@ -65,7 +67,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                         </label>
                         <button id="status_button"
                                 type="button"
-                        @click="toggleStatus">
+                                @click="toggleStatus">
                                 <span v-if="form.item_status === 'Disabled'"
                                       class="p-4 rounded-lg bg-green-600 text-white">
                                     Mark as Functional
