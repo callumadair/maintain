@@ -188,6 +188,7 @@ class ItemController extends Controller
         $validated_data = $request->validate([
             'item_name' => 'required',
             'item_description' => 'nullable',
+            'item_status' => 'required',
             'item_images.*' => 'nullable|image|mimes:jpeg,png,jpg',
             'user_id' => 'required|numeric',
             'images_deleted' => 'nullable',
@@ -199,6 +200,7 @@ class ItemController extends Controller
         if ($request->has('item_description')) {
             $item->description = $validated_data['item_description'];
         }
+        $item->status = $validated_data['item_status'];
         $item->save();
 
         if ($request->has('images_deleted')
