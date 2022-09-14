@@ -66,7 +66,11 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                             Change Item Status
                         </label>
 
-                        <div class="flex items-center space-x-8">
+                        <div class="flex items-center justify-center space-x-8">
+                            <p class="p-4 border-gray-300 border-2 rounded-lg">
+                                Current status: {{ item.status }}
+                            </p>
+
                             <button id="status_button"
                                     type="button"
                                     @click="toggleStatus">
@@ -81,7 +85,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                             </button>
 
                             <p class="p-4 border-gray-300 border-2 rounded-lg">
-                                Current status: {{ item.status }}
+                                Status on update: {{ form.item_status }}
                             </p>
                         </div>
                     </div>
