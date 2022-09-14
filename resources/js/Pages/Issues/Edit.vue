@@ -40,11 +40,11 @@ const form: InertiaForm<{
 
 const imagesChangedSet = new Set();
 
-const handleImagesChanged = (image_id: number) => {
-    if (imagesChangedSet.has(image_id)) {
-        imagesChangedSet.delete(image_id);
+const handleImagesChanged = (imageID: number) => {
+    if (imagesChangedSet.has(imageID)) {
+        imagesChangedSet.delete(imageID);
     } else {
-        imagesChangedSet.add(image_id);
+        imagesChangedSet.add(imageID);
     }
     form.images_deleted = JSON.stringify(Array.from(imagesChangedSet));
 };
