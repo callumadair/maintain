@@ -17,12 +17,14 @@ const props = defineProps({
 const form: InertiaForm<{
     item_name: string,
     item_description: string | null,
+    item_status: string,
     item_images: File[] | null,
     user_id: number,
     images_deleted: string | null,
 }> = useForm({
     item_name: props.item.name,
     item_description: props.item.description,
+    item_status: props.item.status,
     item_images: null,
     user_id: props.item.user_id,
     images_deleted: null,
@@ -54,6 +56,25 @@ const handleImagesChanged = (image_id: number) => {
                 <form id="item_edit_form"
                       class="grid grid-cols-1 space-y-12 p-3 m-3 place-items-center"
                       @submit.prevent="submit">
+
+                    <div class="grid space-y-6 text-center">
+                        <label class="text-lg"
+                               for="status_buttons">
+                            Change Item Status
+                        </label>
+                        <button id="status_button"
+                                type="button"
+                        @click="toggleStatus">
+                                <span v-if="form.item_status === 'Disabled'"
+                                      class="p-4 rounded-lg bg-green-600 text-white">
+                                    Mark as Functional
+                                </span>
+                            <span v-if="form.item_status === 'Functional'"
+                                  class="p-4 rounded-lg bg-red-600 text-white">
+                                    Mark as Disabled
+                                </span>
+                        </button>
+                    </div>
 
                     <div class="grid justify-center place-items-center space-y-3">
                         <label class="text-lg"
