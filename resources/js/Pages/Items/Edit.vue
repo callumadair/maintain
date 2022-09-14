@@ -50,7 +50,7 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
     <AppLayout title="Edit this item">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Item Editing
+                Item Editing - {{ item.name }}
             </h2>
         </template>
 
