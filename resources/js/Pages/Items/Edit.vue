@@ -29,7 +29,6 @@ const form: InertiaForm<{
     user_id: props.item.user_id,
     images_deleted: null,
 });
-const submit = () => form.post(route('items.update', usePage().props.value.item));
 
 const imagesChangedSet = new Set();
 
@@ -41,6 +40,8 @@ const handleImagesChanged = (image_id: number) => {
     }
     form.images_deleted = JSON.stringify(Array.from(imagesChangedSet));
 };
+
+const submit = () => form.post(route('items.update', usePage().props.value.item));
 </script>
 
 <template>
