@@ -60,23 +60,30 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                       class="grid grid-cols-1 space-y-12 p-3 m-3 place-items-center"
                       @submit.prevent="submit">
 
-                    <div class="grid space-y-6 text-center">
+                    <div class="grid space-y-8  justify-items-center">
                         <label class="text-lg"
                                for="status_buttons">
                             Change Item Status
                         </label>
-                        <button id="status_button"
-                                type="button"
-                                @click="toggleStatus">
+
+                        <div class="flex items-center space-x-8">
+                            <button id="status_button"
+                                    type="button"
+                                    @click="toggleStatus">
                                 <span v-if="form.item_status === 'Disabled'"
-                                      class="p-4 rounded-lg bg-green-600 text-white">
+                                      class="p-4 rounded-lg bg-green-600 text-white border-2 border-green-600">
                                     Mark as Functional
                                 </span>
-                            <span v-if="form.item_status === 'Functional'"
-                                  class="p-4 rounded-lg bg-red-600 text-white">
+                                <span v-if="form.item_status === 'Functional'"
+                                      class="p-4 rounded-lg bg-red-600 text-white border-2 border-red-600">
                                     Mark as Disabled
                                 </span>
-                        </button>
+                            </button>
+
+                            <p class="p-4 border-gray-300 border-2 rounded-lg">
+                                Current status: {{ item.status }}
+                            </p>
+                        </div>
                     </div>
 
                     <div class="grid justify-center place-items-center space-y-3">
