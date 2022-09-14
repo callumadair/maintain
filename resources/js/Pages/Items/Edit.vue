@@ -67,25 +67,24 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                         </label>
 
                         <div class="flex items-center justify-center space-x-8 w-full">
-                            <p class="p-4 border-gray-300 border-2 rounded-lg">
+                            <p class="p-4 w-64 text-center border-gray-300 border-2 rounded-lg">
                                 Current status: {{ item.status }}
                             </p>
 
                             <button id="status_button"
                                     type="button"
-                                    @click="toggleStatus"
-                            class="self-center">
+                                    @click="toggleStatus">
                                 <span v-if="form.item_status === 'Disabled'"
-                                      class="p-4 rounded-lg bg-green-600 text-white border-2 border-green-600">
+                                      class="p-4 w-64 inline-block rounded-lg bg-green-600 text-white border-2 border-green-600">
                                     Mark as Functional
                                 </span>
                                 <span v-if="form.item_status === 'Functional'"
-                                      class="p-4 rounded-lg bg-red-600 text-white border-2 border-red-600">
+                                      class="p-4 w-64 inline-block rounded-lg bg-red-600 text-white border-2 border-red-600">
                                     Mark as Disabled
                                 </span>
                             </button>
 
-                            <p class="p-4 border-gray-300 border-2 rounded-lg">
+                            <p class="p-4 w-64 text-center border-gray-300 border-2 rounded-lg">
                                 Status on update: {{ form.item_status }}
                             </p>
                         </div>
