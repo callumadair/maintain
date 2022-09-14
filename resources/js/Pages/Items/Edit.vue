@@ -60,20 +60,21 @@ const submit = () => form.post(route('items.update', usePage().props.value.item)
                       class="grid grid-cols-1 space-y-12 p-3 m-3 place-items-center"
                       @submit.prevent="submit">
 
-                    <div class="grid space-y-8  justify-items-center">
+                    <div class="grid space-y-8 justify-items-center w-full">
                         <label class="text-lg"
                                for="status_buttons">
                             Change Item Status
                         </label>
 
-                        <div class="flex items-center justify-center space-x-8">
+                        <div class="flex items-center justify-center space-x-8 w-full">
                             <p class="p-4 border-gray-300 border-2 rounded-lg">
                                 Current status: {{ item.status }}
                             </p>
 
                             <button id="status_button"
                                     type="button"
-                                    @click="toggleStatus">
+                                    @click="toggleStatus"
+                            class="self-center">
                                 <span v-if="form.item_status === 'Disabled'"
                                       class="p-4 rounded-lg bg-green-600 text-white border-2 border-green-600">
                                     Mark as Functional
