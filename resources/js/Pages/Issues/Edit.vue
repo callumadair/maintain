@@ -71,7 +71,7 @@ const submit = () => form.post(route('issues.update', props.issue));
     <AppLayout title="Edit this issue">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Issue Editing
+                Issue Editing - {{ issue.title }}
             </h2>
         </template>
 
