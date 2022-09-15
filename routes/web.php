@@ -92,6 +92,11 @@ Route::middleware([
     Route::controller(WorkOrdersController::class)
         ->name('work_orders.')->prefix('work_orders/')->group(function () {
 
+            Route::get('index', 'index')
+                ->name('index');
+
+            Route::get('create/{issue}', 'create')
+                ->name('create');
         });
 });
 
