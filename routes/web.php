@@ -62,30 +62,30 @@ Route::middleware([
         });
 
     Route::controller(IssueController::class)
-        ->name('issues.')->prefix('issues')->group(function () {
+        ->name('issues.')->prefix('issues/')->group(function () {
 
-            Route::get('/item_select', 'item_select')
+            Route::get('item_select', 'item_select')
                 ->name('item_select');
 
-            Route::post('/store', 'store')
+            Route::post('store', 'store')
                 ->name('store');
 
-            Route::get('/index/{status}', 'index')
+            Route::get('index/{status}', 'index')
                 ->name('index');
 
-            Route::get('/create/{item}', 'create')
+            Route::get('create/{item}', 'create')
                 ->name('create');
 
-            Route::get('/show/{issue}', 'show')
+            Route::get('show/{issue}', 'show')
                 ->name('show');
 
-            Route::get('/edit/{issue}', 'edit')
+            Route::get('edit/{issue}', 'edit')
                 ->name('edit');
 
-            Route::post('/update/{issue}', 'update')
+            Route::post('update/{issue}', 'update')
                 ->name('update');
 
-            Route::delete('/destroy/{issue}', 'destroy')
+            Route::delete('destroy/{issue}', 'destroy')
                 ->name('destroy');
         });
 
