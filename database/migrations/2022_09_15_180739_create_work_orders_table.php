@@ -10,8 +10,16 @@ return new class extends Migration {
         Schema::create('work_orders', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('requestee_id');
+            $table->foreign('requestee_id')->references('id')
+                ->on('users')->cascadeOnDelete()->cascadeOnUpdate();
 
+            $table->foreignId('approvee_id');
+            $table->foreign('aprovee_id')->references('id')
+                ->on('users')->cascadeOnDelete()->cascadeOnUpdate();
 
+            $table->text('description')->nullable();
+            $table->date('date_wanted')->nullable();
             $table->timestamps();
         });
     }
