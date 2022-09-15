@@ -4,7 +4,7 @@ import ContentStyle from '@/Pages/Components/ContentStyle.vue';
 import EditGallery from '@/Pages/Components/EditGallery.vue';
 import UserCard from '@/Pages/Users/Partials/UserCard.vue';
 
-import {InertiaForm, useForm} from '@inertiajs/inertia-vue3';
+import {InertiaForm, Link, useForm} from '@inertiajs/inertia-vue3';
 import {PropType} from "vue";
 import User = App.Models.User;
 import Issue = App.Models.Issue;
@@ -86,10 +86,11 @@ const submit = () => form.post(route('issues.update', props.issue));
 
                     <div class="border-[1px] border-gray-100 rounded-lg"/>
 
-                    <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
-                            type="button">
+                    <Link :href="route('work_orders.create', issue)"
+                          class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
+                          type="button">
                         Action work on issue
-                    </button>
+                    </Link>
 
                     <div class="border-[1px] border-gray-100 rounded-lg"/>
 
