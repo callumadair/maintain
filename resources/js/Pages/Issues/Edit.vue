@@ -79,21 +79,21 @@ const submit = () => form.post(route('issues.update', props.issue));
             <div class="flex flex-row place-self-center self-center max-w-7xl">
                 <aside class="flex flex-col mt-6 ml-4 p-2 space-y-2 w-96 h-fit rounded-md shadow-md
                            bg-white text-left ">
-                    <button class="p-4 rounded-lg text-left hover:bg-gray-50 hover:text-indigo-400"
+                    <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
                             type="button">
                         Acknowledge assignment
                     </button>
 
                     <div class="border-[1px] border-gray-100 rounded-lg"/>
 
-                    <button class="p-4 rounded-lg text-left hover:bg-gray-50 hover:text-indigo-400"
+                    <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
                             type="button">
                         Action work on issue
                     </button>
 
                     <div class="border-[1px] border-gray-100 rounded-lg"/>
 
-                    <button class="p-4 rounded-lg text-left hover:bg-gray-50 hover:text-indigo-400"
+                    <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
                             type="button">
                         Mark as resolved
                     </button>
