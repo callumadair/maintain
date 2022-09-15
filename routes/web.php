@@ -37,27 +37,27 @@ Route::middleware([
     })->name('dashboard');
 
     Route::controller(ItemController::class)
-        ->name('items.')->prefix('items')->group(function () {
+        ->name('items.')->prefix('items/')->group(function () {
 
-            Route::get('/index/{status?}', 'index')
+            Route::get('index/{status?}', 'index')
                 ->name('index');
 
-            Route::get('/create', 'create')
+            Route::get('create', 'create')
                 ->name('create');
 
-            Route::post('/store', 'store')
+            Route::post('store', 'store')
                 ->name('store');
 
-            Route::get('/show/{item}', 'show')
+            Route::get('show/{item}', 'show')
                 ->name('show');
 
-            Route::get('/edit/{item}', 'edit')
+            Route::get('edit/{item}', 'edit')
                 ->name('edit');
 
-            Route::post('/update/{item}', 'update')
+            Route::post('update/{item}', 'update')
                 ->name('update');
 
-            Route::delete('/destroy/{item}', 'destroy')
+            Route::delete('destroy/{item}', 'destroy')
                 ->name('destroy');
         });
 
