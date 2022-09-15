@@ -20,15 +20,15 @@ return new class extends Migration {
 
             $table->foreignId('item_id');
             $table->foreign('item_id')->references('id')
-                ->on('items')->onDelete('cascade')->onUpdate('cascade');
+                ->on('items')->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->foreignId('originator_id');
             $table->foreign('originator_id')->references('id')
-                ->on('users')->onDelete('cascade')->onUpdate('cascade');
+                ->on('users')->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->foreignId('assignee_id');
             $table->foreign('assignee_id')->references('id')
-                ->on('users')->onDelete('cascade')->onUpdate('cascade');
+                ->on('users')->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->timestamps();
         });
