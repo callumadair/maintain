@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\WorkOrdersController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -86,6 +87,11 @@ Route::middleware([
 
             Route::delete('/destroy/{issue}', 'destroy')
                 ->name('destroy');
+        });
+
+    Route::controller(WorkOrdersController::class)
+        ->name('work_orders.')->prefix('work_orders/')->group(function () {
+
         });
 });
 
