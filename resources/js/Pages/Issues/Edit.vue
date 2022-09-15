@@ -75,102 +75,128 @@ const submit = () => form.post(route('issues.update', props.issue));
             </h2>
         </template>
 
-        <ContentStyle>
-            <template #content>
-                <form id="issue_edit_form"
-                      class="grid grid-cols-1 space-y-12 p-3 m-3 justify-center place-items-center"
-                      @submit.prevent="submit">
+        <div class="flex w-full justify-center">
+            <div class="flex flex-row place-self-center self-center max-w-7xl">
+                <aside class="flex flex-col mt-6 ml-4 p-2 space-y-2 w-96 h-fit rounded-md shadow-md
+                           bg-white text-left ">
+                    <button class="p-4 rounded-lg text-left hover:bg-gray-50 hover:text-indigo-400"
+                            type="button">
+                        Acknowledge assignment
+                    </button>
 
-                    <div id="associated_users"
-                         class="flex space-x-24 justify-center text-center">
-                        <div class="space-y-3">
-                            <p class="text-xl">Originator</p>
-                            <p>{{ issue.originator.name }}</p>
-                        </div>
-                        <div class="space-y-3">
-                            <p class="text-xl">Assignee</p>
-                            <p>{{ issue.assignee.name }}</p>
-                        </div>
-                    </div>
+                    <div class="border-[1px] border-gray-100 rounded-lg"/>
 
-                    <div class="w-full border-[1px] border-gray-200 rounded-lg"/>
+                    <button class="p-4 rounded-lg text-left hover:bg-gray-50 hover:text-indigo-400"
+                            type="button">
+                        Action work on issue
+                    </button>
 
-                    <div class="grid space-y-3 justify-center place-items-center">
-                        <label class="text-lg"
-                               for="issue_title">
-                            Edit the issue title
-                        </label>
-                        <input id="issue_title"
-                               v-model="form.issue_title"
-                               class="rounded-lg text-center border-transparent bg-gray-50"
-                               type="text">
-                    </div>
+                    <div class="border-[1px] border-gray-100 rounded-lg"/>
+
+                    <button class="p-4 rounded-lg text-left hover:bg-gray-50 hover:text-indigo-400"
+                            type="button">
+                        Mark as resolved
+                    </button>
+                </aside>
+
+                <ContentStyle>
+                    <template #content>
+                        <form id="issue_edit_form"
+                              class="grid grid-cols-1 space-y-12 p-3 m-3 justify-center place-items-center"
+                              @submit.prevent="submit">
+
+                            <div id="associated_users"
+                                 class="flex space-x-24 justify-center text-center">
+                                <div class="space-y-3">
+                                    <p class="text-xl">Originator</p>
+                                    <p>{{ issue.originator.name }}</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <p class="text-xl">Assignee</p>
+                                    <p>{{ issue.assignee.name }}</p>
+                                </div>
+                            </div>
+
+                            <div class="w-full border-[1px] border-gray-200 rounded-lg"/>
+
+                            <div class="grid space-y-3 justify-center place-items-center">
+                                <label class="text-lg"
+                                       for="issue_title">
+                                    Edit the issue title
+                                </label>
+                                <input id="issue_title"
+                                       v-model="form.issue_title"
+                                       class="rounded-lg text-center border-transparent bg-gray-50"
+                                       type="text">
+                            </div>
 
 
-                    <div class="grid space-y-3 justify-center place-items-center">
-                        <label class="text-lg"
-                               for="issue_description">
-                            Edit the issue description
-                        </label>
-                        <textarea id="issue_description"
-                                  v-model="form.issue_description"
-                                  class="w-96 h-48 resize-none rounded-lg text-center border-transparent bg-gray-50
+                            <div class="grid space-y-3 justify-center place-items-center">
+                                <label class="text-lg"
+                                       for="issue_description">
+                                    Edit the issue description
+                                </label>
+                                <textarea id="issue_description"
+                                          v-model="form.issue_description"
+                                          class="w-96 h-48 resize-none rounded-lg text-center border-transparent bg-gray-50
                                         scrollbar-thin scrollbar-thumb-slate-200"/>
-                    </div>
+                            </div>
 
-                    <div v-if="issue.images.length > 0"
-                         class="grid space-y-3 justify-center place-items-center text-lg">
-                        <label for="edit_gallery">
-                            Remove Images
-                        </label>
-                        <EditGallery id="edit_gallery"
-                                     :images="issue.images"
-                                     @images-changed="handleImagesChanged"/>
-                    </div>
+                            <div v-if="issue.images.length > 0"
+                                 class="grid space-y-3 justify-center place-items-center text-lg">
+                                <label for="edit_gallery">
+                                    Remove Images
+                                </label>
+                                <EditGallery id="edit_gallery"
+                                             :images="issue.images"
+                                             @images-changed="handleImagesChanged"/>
+                            </div>
 
-                    <div class="grid space-y-3 justify-center place-items-center">
-                        <label class="text-lg"
-                               for="issue_images">
-                            Add Images
-                        </label>
-                        <input id="issue_images"
-                               accept="image/png, image/jpeg, image/jpg"
-                               class="m-3 p-2 rounded-lg border-2 border-gray-300 border-solid file:rounded-lg file:p-4 file:mr-4 file:bg-white file:border-transparent
+                            <div class="grid space-y-3 justify-center place-items-center">
+                                <label class="text-lg"
+                                       for="issue_images">
+                                    Add Images
+                                </label>
+                                <input id="issue_images"
+                                       accept="image/png, image/jpeg, image/jpg"
+                                       class="m-3 p-2 rounded-lg border-2 border-gray-300 border-solid file:rounded-lg file:p-4 file:mr-4 file:bg-white file:border-transparent
                                         hover:file:text-indigo-400 hover:file:bg-gray-50 hover:file:cursor-pointer"
-                               multiple
-                               name="image"
-                               type="file"
-                               @input="form.issue_images = $event.target.files">
-                    </div>
+                                       multiple
+                                       name="image"
+                                       type="file"
+                                       @input="form.issue_images = $event.target.files">
+                            </div>
 
-                    <div class="grid justify-center space-y-3 place-items-center">
-                        <label class="text-lg"
-                               for="user_select">
-                            Select a user to change the assignee of this issue to:
-                        </label>
+                            <div class="grid justify-center space-y-3 place-items-center">
+                                <label class="text-lg"
+                                       for="user_select">
+                                    Select a user to change the assignee of this issue to:
+                                </label>
 
-                        <div id="users_list"
-                             class="max-h-48 w-[30rem] overflow-y-scroll
+                                <div id="users_list"
+                                     class="max-h-48 w-[30rem] overflow-y-scroll
                                     scrollbar-thin scrollbar-thumb-slate-200">
-                            <UserCard v-for="user in users"
-                                      :id="'user' + user.id"
-                                      :user="user"
-                                      @user-selected="handleUserSelected"/>
-                        </div>
-                    </div>
+                                    <UserCard v-for="user in users"
+                                              :id="'user' + user.id"
+                                              :user="user"
+                                              @user-selected="handleUserSelected"/>
+                                </div>
+                            </div>
 
-                    <div class="border-[1px] w-full border-gray-200 rounded-lg"/>
+                            <div class="border-[1px] w-full border-gray-200 rounded-lg"/>
 
-                    <div class="py-6">
-                        <button :disabled="form.processing"
-                                type="submit">
+                            <div class="py-6">
+                                <button :disabled="form.processing"
+                                        type="submit">
                             <span class="p-4 rounded-lg bg-blue-600 text-white hover:bg-blue-400">
                                 Update Issue
                             </span>
-                        </button>
-                    </div>
-                </form>
-            </template>
-        </ContentStyle>
+                                </button>
+                            </div>
+                        </form>
+                    </template>
+                </ContentStyle>
+            </div>
+        </div>
     </AppLayout>
 </template>
