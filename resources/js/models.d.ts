@@ -28,7 +28,12 @@ declare namespace App.Models {
         originator?: App.Models.User | null;
         assignee?: App.Models.User | null;
         images?: Array<App.Models.Image> | null;
+        work_order?: App.Models.WorkOrder | null;
         images_count?: number | null;
+    }
+
+    export interface WorkOrder {
+        issue?: App.Models.Issue | null;
     }
 
     export interface Team {
