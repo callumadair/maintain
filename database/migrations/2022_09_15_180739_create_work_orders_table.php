@@ -20,6 +20,10 @@ return new class extends Migration {
 
             $table->text('description')->nullable();
             $table->date('date_wanted')->nullable();
+
+            $table->decimal('total_materials', 10)->nullable();
+            $table->decimal('total_labour', 10)->nullable();
+            $table->decimal('total_cost', 10)->nullable();
             $table->timestamps();
         });
     }
