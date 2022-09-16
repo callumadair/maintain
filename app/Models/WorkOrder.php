@@ -10,6 +10,9 @@ class WorkOrder extends Model
 {
     use HasFactory;
 
+    /**
+     * @return BelongsTo
+     */
     public function issue(): BelongsTo
     {
         return $this->belongsTo(Issue::class);
