@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {defineProps, PropType} from "vue";
+import {PropType} from "vue";
 import WorkOrder = App.Models.WorkOrder;
 
 const props = defineProps({
