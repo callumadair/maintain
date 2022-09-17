@@ -77,11 +77,11 @@ const submit = () => form.put(route('issues.update', props.issue));
 
         <div class="flex w-full justify-center">
             <div class="flex flex-row place-self-center self-center max-w-7xl">
-                <aside class="flex flex-col mt-6 ml-4 p-2 space-y-2 w-96 h-fit rounded-md shadow-md
-                           bg-white text-left ">
+                <aside class="flex flex-col mt-6 ml-4 p-2 space-y-2 w-64 h-fit rounded-md shadow-md
+                           bg-white text-left text-sm">
                     <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
                             type="button">
-                        Acknowledge assignment
+                        Acknowledge
                     </button>
 
                     <div class="border-[1px] border-gray-100 rounded-lg"/>
@@ -89,14 +89,14 @@ const submit = () => form.put(route('issues.update', props.issue));
                     <Link :href="route('work_orders.create', issue)"
                           class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
                           type="button">
-                        Action work on issue
+                        Action work
                     </Link>
 
                     <div class="border-[1px] border-gray-100 rounded-lg"/>
 
                     <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
                             type="button">
-                        Mark as resolved
+                        Resolve
                     </button>
                 </aside>
 
