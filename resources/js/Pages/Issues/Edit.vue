@@ -23,6 +23,7 @@ const props = defineProps({
 const form: InertiaForm<{
     issue_title: string,
     issue_description: string | null,
+    issue_status: string,
     issue_images: File[],
     item_id: number,
     originator_id: number,
@@ -31,12 +32,15 @@ const form: InertiaForm<{
 }> = useForm({
     issue_title: props.issue.title,
     issue_description: props.issue.description,
+    issue_status: props.issue.status,
     issue_images: [],
     item_id: props.issue.item_id,
     originator_id: props.issue.originator_id,
     assignee_id: props.issue.assignee_id,
     images_deleted: null,
-})
+});
+
+const acknowledgeAssignment = () => form.issue_status = "In-Progress";
 
 const imagesChangedSet = new Set();
 
@@ -80,7 +84,8 @@ const submit = () => form.put(route('issues.update', props.issue));
                 <aside class="flex flex-col mt-6 ml-4 p-2 space-y-2 w-64 h-fit rounded-md shadow-md
                            bg-white text-left text-sm">
                     <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
-                            type="button">
+                            type="button"
+                            @click="acknowledgeAssignment()">
                         Acknowledge
                     </button>
 
