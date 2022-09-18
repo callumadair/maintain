@@ -54,7 +54,7 @@ Route::middleware([
             Route::get('edit/{item}', 'edit')
                 ->name('edit');
 
-            Route::put('update/{item}', 'update')
+            Route::post('update/{item}', 'update')
                 ->name('update');
 
             Route::delete('destroy/{item}', 'destroy')
@@ -82,7 +82,7 @@ Route::middleware([
             Route::get('edit/{issue}', 'edit')
                 ->name('edit');
 
-            Route::put('update/{issue}', 'update')
+            Route::post('update/{issue}', 'update')
                 ->name('update');
 
             Route::delete('destroy/{issue}', 'destroy')
