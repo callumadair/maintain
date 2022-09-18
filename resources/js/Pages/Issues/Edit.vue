@@ -95,7 +95,7 @@ const handleUserSelected = (userID: number) => {
     selectedElement.classList.add("text-indigo-400");
 };
 
-const submit = () => form.put(route('issues.update', props.issue));
+const submit = () => form.post(route('issues.update', props.issue));
 </script>
 
 <template>
