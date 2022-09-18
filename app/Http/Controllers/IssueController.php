@@ -259,6 +259,7 @@ class IssueController extends Controller
         $validated_data = $request->validate([
             'issue_title' => 'required',
             'issue_description' => 'nullable',
+            'issue_status' => 'required',
             'issue_images.*' => 'nullable|image|mimes:jpeg,png,jpg',
             'item_id' => 'required',
             'originator_id' => 'required|numeric',
@@ -268,7 +269,12 @@ class IssueController extends Controller
 
         $issue = Issue::all()->find($id);
         $issue->title = $validated_data['issue_title'];
-        $issue->description = $validated_data['issue_description'];
+
+        if ($request->has('issue_description')) {
+            $issue->description = $validated_data['issue_description'];
+        }
+        
+        $issue->status = $validated_data['issue_status'];
         $issue->item_id = $validated_data['item_id'];
         $issue->originator_id = $validated_data['originator_id'];
         $issue->assignee_id = $validated_data['assignee_id'];
