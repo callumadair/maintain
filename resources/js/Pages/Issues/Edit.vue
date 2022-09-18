@@ -55,6 +55,20 @@ const acknowledgeAssignment = () => {
     }
 };
 
+const resolveIssue = () => {
+    if (props.issue.status !== "Resolved") {
+        let resolveButton: HTMLButtonElement =
+            document.getElementById("resolve_button") as HTMLButtonElement;
+        resolveButton.classList.toggle("bg-gray-50");
+        resolveButton.classList.toggle("text-indigo-400");
+        if (form.issue_status !== "Resolved") {
+            form.issue_status = "Resolved";
+        } else {
+            form.issue_status = props.issue.status;
+        }
+    }
+};
+
 const imagesChangedSet = new Set();
 
 const handleImagesChanged = (imageID: number) => {
@@ -113,8 +127,10 @@ const submit = () => form.put(route('issues.update', props.issue));
 
                     <div class="border-[1px] border-gray-100 rounded-lg"/>
 
-                    <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
-                            type="button">
+                    <button id="resolve_button"
+                            class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
+                            type="button"
+                            @click="resolveIssue()">
                         Resolve
                     </button>
                 </aside>
