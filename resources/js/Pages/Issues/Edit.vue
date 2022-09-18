@@ -40,7 +40,20 @@ const form: InertiaForm<{
     images_deleted: null,
 });
 
-const acknowledgeAssignment = () => form.issue_status = "In-Progress";
+const acknowledgeAssignment = () => {
+    if (props.issue.status === "Assigned") {
+        let acknowledgeButton: HTMLButtonElement =
+            document.getElementById("acknowledge_button") as HTMLButtonElement;
+        acknowledgeButton.classList.toggle("bg-gray-50");
+        acknowledgeButton.classList.toggle("text-indigo-400");
+
+        if (form.issue_status === "Assigned") {
+            form.issue_status = "In-Progress";
+        } else if (form.issue_status === "In-Progress") {
+            form.issue_status = "Assigned";
+        }
+    }
+};
 
 const imagesChangedSet = new Set();
 
@@ -83,7 +96,8 @@ const submit = () => form.put(route('issues.update', props.issue));
             <div class="flex flex-row place-self-center self-center max-w-7xl">
                 <aside class="flex flex-col mt-6 ml-4 p-2 space-y-2 w-64 h-fit rounded-md shadow-md
                            bg-white text-left text-sm">
-                    <button class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
+                    <button id="acknowledge_button"
+                            class="p-4 rounded text-left hover:bg-gray-50 hover:text-indigo-400"
                             type="button"
                             @click="acknowledgeAssignment()">
                         Acknowledge
