@@ -43,7 +43,7 @@ const handleImagesChanged = (imageID: number) => {
     form.images_deleted = JSON.stringify(Array.from(imagesChangedSet));
 };
 
-const submit = () => form.put(route('items.update', props.item));
+const submit = () => form.post(route('items.update', props.item));
 </script>
 
 <template>
