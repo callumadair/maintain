@@ -60,7 +60,7 @@ const logout = () => Inertia.post(route('logout'));
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :active="route().current('dashboard')"
                                             :href="route('dashboard')"
-                                            class="text-base">
+                                            class="text-base whitespace-nowrap">
                                     <img :src="HomeAlt"
                                          alt="An icon of a home"/>
                                     &nbsp; Dashboard
@@ -74,7 +74,7 @@ const logout = () => Inertia.post(route('logout'));
                                     <NavbarDropdown>
                                         <template #trigger>
                                             <div
-                                                class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
+                                                class="whitespace-nowrap inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
                                                 type="button">
                                                 <img :src="BoxIso"
                                                      alt="Inventory"/> &nbsp;
@@ -97,7 +97,7 @@ const logout = () => Inertia.post(route('logout'));
                                     <NavbarDropdown>
                                         <template #trigger>
                                             <div
-                                                class="inline-flex items-center px-3 py-2 border border-transparent text-base leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
+                                                class="whitespace-nowrap inline-flex items-center px-3 py-2 border border-transparent text-base leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition m-2"
                                                 type="button">
                                                 <img :src="Book"
                                                      alt="An icon of a book."/> &nbsp; Issue Log
