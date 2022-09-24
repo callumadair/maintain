@@ -10,6 +10,7 @@ import NavbarDropdown from '@/Layouts/Partials/NavbarDropdown.vue';
 import HomeAlt from 'iconoir/icons/home-alt.svg';
 import BoxIso from 'iconoir/icons/box-iso.svg';
 import Book from 'iconoir/icons/book.svg';
+import Page from 'iconoir/icons/page.svg';
 
 import {ref} from 'vue';
 import {Inertia} from '@inertiajs/inertia';
@@ -109,6 +110,16 @@ const logout = () => Inertia.post(route('logout'));
                                             </JetDropdownLink>
                                         </template>
                                     </NavbarDropdown>
+                                </JetNavLink>
+                            </div>
+
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <JetNavLink :active="route().current('dashboard')"
+                                            :href="route('dashboard')"
+                                            class="text-base whitespace-nowrap">
+                                    <img :src="Page"
+                                         alt="An icon of a page"/>
+                                    &nbsp; Work Orders
                                 </JetNavLink>
                             </div>
                         </div>
