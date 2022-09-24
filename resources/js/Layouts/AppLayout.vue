@@ -115,7 +115,7 @@ const logout = () => Inertia.post(route('logout'));
 
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :active="route().current('dashboard')"
-                                            :href="route('dashboard')"
+                                            :href="route('work_orders.index')"
                                             class="text-base whitespace-nowrap">
                                     <img :src="Page"
                                          alt="An icon of a page"/>
