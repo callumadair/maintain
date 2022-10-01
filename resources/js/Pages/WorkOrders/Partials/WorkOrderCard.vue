@@ -11,6 +11,6 @@ const props = defineProps({
 </script>
 
 <template>
-
+    {{ workOrder.description}}
 </template>
 
