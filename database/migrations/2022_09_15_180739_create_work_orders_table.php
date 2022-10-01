@@ -9,6 +9,7 @@ return new class extends Migration {
     {
         Schema::create('work_orders', function (Blueprint $table) {
             $table->id();
+            $table->enum('status', ['Requested', 'Approved', 'Completed'])->default('Requested');
 
             $table->foreignId('requestee_id');
             $table->foreign('requestee_id')->references('id')
