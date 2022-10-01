@@ -34,6 +34,7 @@ declare namespace App.Models {
 
     export interface WorkOrder {
         id: number;
+        status: string;
         requestee_id: number;
         approvee_id: number;
         description: string | null;
