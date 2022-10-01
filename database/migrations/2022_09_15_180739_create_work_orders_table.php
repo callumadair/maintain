@@ -16,7 +16,7 @@ return new class extends Migration {
                 ->on('users')->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->foreignId('approvee_id');
-            $table->foreign('aprovee_id')->references('id')
+            $table->foreign('approvee_id')->references('id')
                 ->on('users')->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->text('description')->nullable();
