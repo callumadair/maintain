@@ -31,19 +31,25 @@ const props = defineProps({
                     <JetNavLink :active="route().current('items.index', 'all')"
                                 :href="route('items.index', 'all')"
                                 class="text-base">
-                        <h3 class="mb-2">All Items</h3>
+                        <h3 class="mb-2">
+                            All Items
+                        </h3>
                     </JetNavLink>
 
                     <JetNavLink :active="route().current('items.index', 'functional')"
                                 :href="route('items.index', 'functional')"
                                 class="text-base">
-                        <h3 class="mb-2">Functional</h3>
+                        <h3 class="mb-2">
+                            Functional
+                        </h3>
                     </JetNavLink>
 
                     <JetNavLink :active="route().current('items.index', 'disabled')"
                                 :href="route('items.index', 'disabled')"
                                 class="text-base">
-                        <h3 class="mb-2">Disabled</h3>
+                        <h3 class="mb-2">
+                            Disabled
+                        </h3>
                     </JetNavLink>
                 </nav>
             </div>
