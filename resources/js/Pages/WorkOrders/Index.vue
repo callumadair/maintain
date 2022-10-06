@@ -28,25 +28,33 @@ const props = defineProps({
                     <img :src="Page"
                          alt="Page icon"/>
 
-                    <JetNavLink class="text-base">
+                    <JetNavLink :active="route().current('work_orders.index', 'all')"
+                                :href="route('work_orders.index', 'all')"
+                                class="text-base">
                         <h3 class="mb-2">
                             All Work Orders
                         </h3>
                     </JetNavLink>
 
-                    <JetNavLink class="text-base">
+                    <JetNavLink :active="route().current('work_orders.index', 'requested')"
+                                :href="route('work_orders.index', 'requested')"
+                                class="text-base">
                         <h3 class="mb-2">
                             Requested
                         </h3>
                     </JetNavLink>
 
-                    <JetNavLink class="text-base">
+                    <JetNavLink :active="route().current('work_orders.index', 'approved')"
+                                :href="route('work_orders.index', 'approved')"
+                                class="text-base">
                         <h3 class="mb-2">
                             Approved
                         </h3>
                     </JetNavLink>
 
-                    <JetNavLink class="text-base">
+                    <JetNavLink :active="route().current('work_orders.index', 'completed')"
+                                :href="route('work_orders.index', 'completed')"
+                                class="text-base">
                         <h3 class="mb-2">
                             Completed
                         </h3>
