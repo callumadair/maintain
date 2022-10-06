@@ -24,7 +24,7 @@ const props = defineProps({
                     Inventory
                 </h2>
 
-                <nav class="mt-4 py-2 flex flex-row space-x-6  bg-white">
+                <nav class="mt-4 py-2 flex flex-row space-x-6">
                     <img :src="BoxIso"
                          alt="Inventory icon"/>
 
