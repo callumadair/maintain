@@ -92,7 +92,7 @@ Route::middleware([
     Route::controller(WorkOrdersController::class)
         ->name('work_orders.')->prefix('work_orders/')->group(function () {
 
-            Route::get('index', 'index')
+            Route::get('index/{status}', 'index')
                 ->name('index');
 
             Route::get('create/{issue}', 'create')
