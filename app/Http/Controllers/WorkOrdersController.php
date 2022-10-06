@@ -5,12 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\WorkOrder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class WorkOrdersController extends Controller
 {
-    public function index()
+    /**
+     * @param string $status
+     * @return Response
+     */
+    public function index(string $status = 'all')
     {
-        $work_orders = WorkOrder::all();
+        $work_orders = null;
+
+        switch ($status) {
+            case 'all':
+                $work_orders = WorkOrder::all();
+                break;
+            case 'requested':
+                $work_orders = WorkOrder::query()->where('status', '=', 'Requested')->get();
+                break;
+            case 'approved':
+                $work_orders = WorkOrder::query()->where('status', '=', 'Approved')->get();
+                break;
+            case 'completed':
+                $work_orders = WorkOrder::query()->where('status', '=', 'Completed')->get();
+                break;
+        }
 
         return Inertia::render('WorkOrders/Index', [
             'work_orders' => $work_orders->map(function ($work_order) {
