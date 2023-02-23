@@ -21,9 +21,10 @@ const props = defineProps({
                 {{ issue.title }}
             </p>
             <div v-if="issue.images.length > 0"
-                 class="w-48 place-items-center">
+                 class="flex w-36 justify-center">
                 <img :src="issue.images[0]['image_path']"
-                     alt="First image linked to this issue, if it has any.">
+                     alt="First image linked to this issue, if it has any."
+                     class="object-scale-down max-h-24">
             </div>
         </div>
     </Link>

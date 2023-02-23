@@ -18,9 +18,10 @@ const props = defineProps({
             hover:text-indigo-400 hover:border-2 hover:border-indigo-200">
             {{ item.name }}
             <div v-if="item.images.length > 0"
-                 class="w-48 place-items-center">
+                 class="flex w-36 justify-center">
                 <img :src="item.images[0]['image_path']"
-                     alt="First image linked to this item, if it has any.">
+                     alt="First image linked to this item, if it has any."
+                     class="object-scale-down max-h-24">
             </div>
         </div>
     </Link>
